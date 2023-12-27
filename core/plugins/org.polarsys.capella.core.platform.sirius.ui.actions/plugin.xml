@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <!--
-  Copyright (c) 2006, 2020 THALES GLOBAL SERVICES.
+  Copyright (c) 2006, 2023 THALES GLOBAL SERVICES.
   
   This program and the accompanying materials are made available under the
   terms of the Eclipse Public License 2.0 which is available at
@@ -173,13 +173,19 @@
       <reference
             referenceName="ownedTraces">
       </reference>
+      <reference
+            referenceName="ownedComponentExchangeAllocations">
+      </reference>
+      <reference
+            referenceName="ownedComponentExchangeFunctionalExchangeAllocations">
+      </reference>
    </extension>
    
    
     <extension point="org.eclipse.ui.menus">
     
        <menuContribution
-                locationURI="popup:org.polarsys.capella.core.copyAs?after=group.copyAs">
+                locationURI="popup:org.polarsys.capella.core.copyAs?after=org.polarsys.capella.core.sirius.ui.copyAsText">
            <command
                  commandId="org.polarsys.capella.core.platform.sirius.ui.actions.CopyPath">
                  <visibleWhen
@@ -188,9 +194,20 @@
                                  definitionId="org.polarsys.capella.core.platform.sirius.ui.actions.CopyPath.expression">
                            </reference>
                  </visibleWhen>
+           </command>          
+       </menuContribution>
+       <menuContribution
+      	 locationURI="popup:org.polarsys.capella.core.copyAs?after=org.polarsys.capella.core.ui.properties.richtext.copyAsHyperlinkForDescription">
+        <command
+                 commandId="org.polarsys.capella.core.platform.sirius.ui.actions.CopyUniqueIdentifier">
+              <visibleWhen
+                    checkEnabled="false">
+                 <reference
+                       definitionId="org.polarsys.capella.core.platform.sirius.ui.actions.CopyUniqueIdentifier.expression">
+                 </reference>
+              </visibleWhen>
            </command>
        </menuContribution>
-       
        <menuContribution
                 locationURI="popup:org.eclipse.ui.popup.any?after=group.delete">
            <command
@@ -206,23 +223,8 @@
        
    </extension>
    
-      <extension
+   <extension
          point="org.eclipse.core.expressions.definitions">
-      <definition
-            id="org.polarsys.capella.core.platform.sirius.ui.actions.RequirementManagerWizard.expression">
-            <with
-                  variable="selection">
-                  <iterate
-                        ifEmpty="false">
-                    <test
-		                  forcePluginActivation="true"
-		                  property="org.polarsys.capella.core.platform.sirius.ui.actionMode"
-		                  value="requirementManagerWizard">
-		            </test>
-                  </iterate>
-            </with>
-      </definition>
-      
       <definition
             id="org.polarsys.capella.core.platform.sirius.ui.actions.TraceManager.expression">
             <with
@@ -264,6 +266,21 @@
 		                  property="org.polarsys.capella.core.platform.sirius.ui.actionMode"
 		                  value="copyPath">
 		            </test>
+                  </iterate>
+            </with>
+      </definition>
+      
+      <definition
+            id="org.polarsys.capella.core.platform.sirius.ui.actions.CopyUniqueIdentifier.expression">
+            <with
+                  variable="selection">
+                  <iterate
+                        ifEmpty="false">
+                    <or>
+                           <adapt
+                               type="org.eclipse.emf.ecore.EObject">
+                           </adapt>
+                    </or>
                   </iterate>
             </with>
       </definition>
@@ -408,10 +425,7 @@
                 </and>
                 </iterate>
       </definition>
-      
-   </extension>
-   
-   
+    </extension>
     <extension point="org.eclipse.ui.menus">
     
       <menuContribution
@@ -482,22 +496,7 @@
       
       
       <!-- Allocation Management -->
-      <!-- Requirement Manager -->
       <!-- Trace Manager -->
-      <menuContribution
-            locationURI="popup:org.polarsys.capella.core.wizards?after=additions">
-         <command commandId="org.polarsys.capella.core.platform.sirius.ui.actions.wizard.RequirementManagerWizardAction" >  
-         <visibleWhen
-                       checkEnabled="false">
-                       <reference
-                                 definitionId="org.polarsys.capella.core.platform.sirius.ui.actions.RequirementManagerWizard.expression">
-                           </reference>
-                 </visibleWhen>
-        </command> 
-        
-        
-      </menuContribution>
-      
        <menuContribution
             locationURI="popup:org.eclipse.ui.popup.any?after=group.allocation">
          <command
@@ -515,28 +514,136 @@
          <menuContribution
                locationURI="popup:org.eclipse.ui.popup.any?after=group.categories">
             <menu
-                  id="org.polarsys.capella.core.sirius.diagram.editor.categories"
-                  label="%CategoryMenu">
+                  id="org.polarsys.capella.core.sirius.diagram.editor.categories.ce"
+                  label="%CategoryMenu" icon="platform:/plugin/org.polarsys.capella.core.data.res.edit/icons/full/obj16/ComponentExchangeCategory.gif">
                <command
                   commandId="org.polarsys.capella.core.platform.sirius.ui.actions.CreateCategoriesWizardAction"
-                  style="push">
+                  style="push"
+                  icon="platform:/plugin/org.polarsys.capella.core.data.res.edit/icons/full/obj16/ComponentExchangeCategory.gif">
                   <visibleWhen
                      checkEnabled="false">
                      <reference
-                        definitionId="org.polarsys.capella.core.platform.sirius.ui.menu.categories.visibilityInDiagramExpr">
+                        definitionId="org.polarsys.capella.core.sirius.ui.menu.categories.isValidCECategoryMenu">
                      </reference>
                   </visibleWhen>
                </command>
                <command
                   commandId="org.polarsys.capella.core.platform.sirius.ui.actions.UpdateCategoriesWizardAction"
-                  style="push">
+                  style="push"
+                  icon="platform:/plugin/org.polarsys.capella.core.data.res.edit/icons/full/obj16/ComponentExchangeCategory.gif">
                <visibleWhen
                      checkEnabled="false">
                   <reference
-                        definitionId="org.polarsys.capella.core.platform.sirius.ui.menu.categories.visibilityInDiagramExpr">
+                        definitionId="org.polarsys.capella.core.sirius.ui.menu.categories.isValidCECategoryMenu">
                   </reference>
                </visibleWhen>
             </command>
+            </menu>
+            
+             <menu
+                  id="org.polarsys.capella.core.sirius.diagram.editor.categories.fe"
+                  label="%CategoryMenu" icon="platform:/plugin/org.polarsys.capella.core.data.res.edit/icons/full/obj16/ExchangeCategory.gif">
+               <command
+                  commandId="org.polarsys.capella.core.platform.sirius.ui.actions.CreateCategoriesWizardAction"
+                  style="push"
+                  icon="platform:/plugin/org.polarsys.capella.core.data.res.edit/icons/full/obj16/ExchangeCategory.gif">
+                  <visibleWhen
+                     checkEnabled="false">
+                     <reference
+                        definitionId="org.polarsys.capella.core.sirius.ui.menu.categories.isValidFECategoryMenu">
+                     </reference>
+                  </visibleWhen>
+               </command>
+               <command
+                  commandId="org.polarsys.capella.core.platform.sirius.ui.actions.UpdateCategoriesWizardAction"
+                  style="push"
+                  icon="platform:/plugin/org.polarsys.capella.core.data.res.edit/icons/full/obj16/ExchangeCategory.gif">
+               <visibleWhen
+                     checkEnabled="false">
+                  <reference
+                        definitionId="org.polarsys.capella.core.sirius.ui.menu.categories.isValidFECategoryMenu">
+                  </reference>
+               </visibleWhen>
+            </command>
+            </menu>
+            
+            <menu
+                  id="org.polarsys.capella.core.sirius.diagram.editor.categories.pl"
+                  label="%CategoryMenu" icon="platform:/plugin/org.polarsys.capella.core.data.res.edit/icons/full/obj16/PhysicalLinkCategory.gif">
+               <command
+                  commandId="org.polarsys.capella.core.platform.sirius.ui.actions.CreateCategoriesWizardAction"
+                  style="push"
+                  icon="platform:/plugin/org.polarsys.capella.core.data.res.edit/icons/full/obj16/PhysicalLinkCategory.gif">
+                  <visibleWhen
+                     checkEnabled="false">
+                     <reference
+                        definitionId="org.polarsys.capella.core.sirius.ui.menu.categories.isValidPLCategoryMenu">
+                     </reference>
+                  </visibleWhen>
+               </command>
+               <command
+                  commandId="org.polarsys.capella.core.platform.sirius.ui.actions.UpdateCategoriesWizardAction"
+                  style="push"
+                  icon="platform:/plugin/org.polarsys.capella.core.data.res.edit/icons/full/obj16/PhysicalLinkCategory.gif">
+               <visibleWhen
+                     checkEnabled="false">
+                  <reference
+                        definitionId="org.polarsys.capella.core.sirius.ui.menu.categories.isValidPLCategoryMenu">
+                  </reference>
+               </visibleWhen>
+            </command>
+            </menu>
+            
+            
+            
+            
+            
+            
+            
+            <menu
+                  id="org.polarsys.capella.core.sirius.diagram.editor.functionalchains"
+                  label="%FunctionalChainMenu" icon="platform:/plugin/org.polarsys.capella.core.data.res.edit/icons/full/obj16/FunctionalChain.gif">
+               <command
+                  commandId="org.polarsys.capella.core.sirius.ui.actions.CreateFunctionalChainAction"
+                  style="push"
+                  icon="platform:/plugin/org.polarsys.capella.core.data.res.edit/icons/full/obj16/FunctionalChain.gif">
+                  <visibleWhen
+                     checkEnabled="false">
+                     <reference
+                        definitionId="org.polarsys.capella.core.sirius.ui.menu.fc.isValidFCMenu">
+                     </reference>
+                  </visibleWhen>
+               </command>
+            </menu>
+            <menu
+                  id="org.polarsys.capella.core.sirius.diagram.editor.operationalprocesses"
+                  label="%OperationalProcessMenu" icon="platform:/plugin/org.polarsys.capella.core.data.res.edit/icons/full/obj16/OperationalProcess.gif">
+               <command
+                  commandId="org.polarsys.capella.core.sirius.ui.actions.CreateOperationalProcessAction"
+                  style="push"
+                  icon="platform:/plugin/org.polarsys.capella.core.data.res.edit/icons/full/obj16/OperationalProcess.gif">
+                  <visibleWhen
+                     checkEnabled="false">
+                     <reference
+                        definitionId="org.polarsys.capella.core.sirius.ui.menu.op.isValidOPMenu">
+                     </reference>
+                  </visibleWhen>
+               </command>
+            </menu>
+            <menu
+                  id="org.polarsys.capella.core.sirius.diagram.editor.physicalpaths"
+                  label="%PhysicalPathMenu" icon="platform:/plugin/org.polarsys.capella.core.data.res.edit/icons/full/obj16/PhysicalPath.gif">
+               <command
+                  commandId="org.polarsys.capella.core.sirius.ui.actions.CreatePhysicalPathAction"
+                  style="push"
+                  icon="platform:/plugin/org.polarsys.capella.core.data.res.edit/icons/full/obj16/PhysicalPath.gif">
+                  <visibleWhen
+                     checkEnabled="false">
+                     <reference
+                        definitionId="org.polarsys.capella.core.sirius.ui.menu.pp.isValidPPMenu">
+                     </reference>
+                  </visibleWhen>
+               </command>
             
             </menu>
          </menuContribution>
@@ -612,14 +719,6 @@
                >
       </command>
       <command
-         	   categoryId="org.polarsys.capella.core.wizards"
-               defaultHandler="org.polarsys.capella.core.platform.sirius.ui.actions.RequirementManagerWizardAction"
-               id="org.polarsys.capella.core.platform.sirius.ui.actions.wizard.RequirementManagerWizardAction"
-               name="%RequirementManager"
-               >
-      </command>
-      
-      <command
             defaultHandler="org.polarsys.capella.core.platform.sirius.ui.actions.CreateCategoriesWizardAction"
             id="org.polarsys.capella.core.platform.sirius.ui.actions.CreateCategoriesWizardAction"
             name="%CreateCategories"
@@ -631,6 +730,12 @@
             id="org.polarsys.capella.core.platform.sirius.ui.actions.UpdateCategoriesWizardAction"
             name="%UpdateCategories"
             >
+      </command>
+      <command
+            categoryId="org.polarsys.capella.core.semantic"
+            defaultHandler="org.polarsys.capella.core.platform.sirius.ui.handlers.CopyUniqueIdentifierHandler"
+            id="org.polarsys.capella.core.platform.sirius.ui.actions.CopyUniqueIdentifier"
+            name="%CopyID">
       </command>
       
    </extension>
@@ -667,11 +772,11 @@
             icon="platform:/plugin/org.polarsys.capella.core.ui.resources/icons/full/obj16/capella_manage.gif">
       </image>
       <image
-            commandId="org.polarsys.capella.core.platform.sirius.ui.actions.wizard.RequirementManagerWizardAction"
-               icon="platform:/plugin/org.polarsys.capella.core.ui.resources/icons/full/obj16/capella_edit.gif">
+            commandId="org.polarsys.capella.core.platform.sirius.ui.actions.CopyPath"
+               icon="platform:/plugin/org.polarsys.capella.core.ui.resources/icons/full/obj16/capella_copy_path.gif">
       </image>
       <image
-            commandId="org.polarsys.capella.core.platform.sirius.ui.actions.CopyPath"
+            commandId="org.polarsys.capella.core.platform.sirius.ui.actions.CopyUniqueIdentifier"
                icon="platform:/plugin/org.polarsys.capella.core.ui.resources/icons/full/obj16/capella_copy_path.gif">
       </image>
       <image
@@ -690,11 +795,6 @@
                enableByDefault="true"
                id="org.polarsys.capella.core.platform.sirius.ui.actions.wizard.AllocationManagementWizardAction"
                name="Allocation Management">
-         </item>
-         <item
-               enableByDefault="true"
-               id="org.polarsys.capella.core.platform.sirius.ui.actions.wizard.RequirementManagerWizardAction"
-               name="Requirement Manager">
          </item>
       </category>
       <category

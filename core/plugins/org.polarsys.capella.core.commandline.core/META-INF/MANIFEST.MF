@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.core.commandline.core;singleton:=true
-Bundle-Version: 6.0.0.qualifier
+Bundle-Version: 7.0.0.qualifier
 Bundle-Vendor: %providerName
 Require-Bundle: org.polarsys.capella.common.tools.report;visibility:=reexport,
  org.eclipse.core.runtime,
@@ -10,7 +10,7 @@ Require-Bundle: org.polarsys.capella.common.tools.report;visibility:=reexport,
  org.polarsys.capella.core.application,
  org.polarsys.capella.core.af.integration,
  org.polarsys.capella.commandline.doc
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Export-Package: org.polarsys.capella.core.commandline.core
 Bundle-Localization: plugin

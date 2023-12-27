@@ -2,18 +2,19 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.common.helpers;singleton:=true
-Bundle-Version: 6.0.0.qualifier
+Bundle-Version: 7.0.0.qualifier
 Bundle-Vendor: %providerName
 Require-Bundle: org.eclipse.core.resources,
  org.polarsys.capella.common.platform.sirius.ted;visibility:=reexport,
  org.polarsys.capella.common;visibility:=reexport
 Export-Package: org.polarsys.capella.common.helpers,
+ org.polarsys.capella.common.helpers.cache,
  org.polarsys.capella.common.helpers.operations,
  org.polarsys.capella.common.helpers.query,
  org.polarsys.capella.common.helpers.selection,
  org.polarsys.capella.common.helpers.validation,
  org.polarsys.capella.common.helpers.validation.xml
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.polarsys.capella.common.helpers.HelperPlugin
 Bundle-Localization: plugin

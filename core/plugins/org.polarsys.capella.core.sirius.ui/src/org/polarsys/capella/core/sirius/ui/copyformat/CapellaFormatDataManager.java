@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2020 THALES GLOBAL SERVICES.
+ * Copyright (c) 2006, 2023 THALES GLOBAL SERVICES.
  * 
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -32,7 +32,9 @@ import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DNodeList;
+import org.eclipse.sirius.diagram.DiagramPackage;
 import org.eclipse.sirius.diagram.EdgeTarget;
+import org.eclipse.sirius.diagram.description.ContainerMapping;
 import org.eclipse.sirius.diagram.formatdata.AbstractFormatData;
 import org.eclipse.sirius.diagram.formatdata.EdgeFormatData;
 import org.eclipse.sirius.diagram.formatdata.NodeFormatData;
@@ -42,7 +44,12 @@ import org.eclipse.sirius.diagram.ui.tools.api.format.FormatDataKey;
 import org.eclipse.sirius.diagram.ui.tools.api.format.SiriusFormatDataManager;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.description.RepresentationElementMapping;
+import org.polarsys.capella.core.data.cs.PhysicalPath;
+import org.polarsys.capella.core.data.cs.PhysicalPathInvolvement;
+import org.polarsys.capella.core.data.fa.FunctionalChain;
+import org.polarsys.capella.core.data.fa.FunctionalChainInvolvementFunction;
 import org.polarsys.capella.core.data.oa.Entity;
+import org.polarsys.capella.core.sirius.analysis.FunctionalChainServices;
 import org.polarsys.capella.core.sirius.ui.copyformat.keyproviders.IKeyProvider;
 
 public class CapellaFormatDataManager extends AbstractSiriusFormatDataManager implements SiriusFormatDataManager {
@@ -181,18 +188,18 @@ public class CapellaFormatDataManager extends AbstractSiriusFormatDataManager im
   @Override
   public void addFormatData(FormatDataKey key, RepresentationElementMapping mapping, AbstractFormatData formatData) {
     if ((key instanceof AbstractCapellaFormatDataKey) && validateKey((AbstractCapellaFormatDataKey) key)) {
-      if (key instanceof CapellaDecoratorFormatDataKey) {
+      if (key instanceof CapellaDecoratorFormatDataKey && addFormatOnSemantic((CapellaDecoratorFormatDataKey) key)) {
         updateFormatDataMap(((CapellaDecoratorFormatDataKey) key).getParent(), mapping, formatData);
       }
       updateFormatDataMap((AbstractCapellaFormatDataKey) key, mapping, formatData);
     }
   }
-  
+
   private void updateFormatDataMap(AbstractCapellaFormatDataKey key, RepresentationElementMapping mapping, AbstractFormatData formatData) {
     Map<String, AbstractFormatData> formatsMap = formatDataMap.computeIfAbsent(key, x -> new TreeMap<>());
     formatsMap.put(mapping.getName(), formatData);
   }
-  
+
   protected EObject getSemanticElement(DSemanticDecorator decorator) {
     if (decorator == null) {
       return null;
@@ -251,7 +258,24 @@ public class CapellaFormatDataManager extends AbstractSiriusFormatDataManager im
            && (key.getSemantic().eResource() != null);
   }
 
-  protected AbstractFormatData getLinkedFormatData(AbstractCapellaFormatDataKey key, RepresentationElementMapping mapping) {
+  protected boolean addFormatOnSemantic(CapellaDecoratorFormatDataKey key) {
+    if (((CapellaDecoratorFormatDataKey) key).getSemantic() instanceof FunctionalChain) {
+      // On FunctionalChains, we don't want to add the layout on the chain, only on graphical node.
+      // Indeed, otherwise a layout from an internal FC into an FCD will be matched to the DNode of FC in an
+      // xAB/xDFB.
+      return false;
+    }
+    if (((CapellaDecoratorFormatDataKey) key).getSemantic() instanceof PhysicalPath) {
+      // On PhysicalPaths, we don't want to add the layout on the path, only on graphical node.
+      // Indeed, otherwise a layout from an internal PP into an PPD will be matched to the DNode of PP in an
+      // xAB.
+      return false;
+    }
+    return true;
+  }
+  
+  protected AbstractFormatData getLinkedFormatData(AbstractCapellaFormatDataKey key,
+      RepresentationElementMapping mapping) {
     AbstractFormatData formatData = findLinkedFormatData(key, mapping);
 
     if (formatData == null) {
@@ -269,10 +293,10 @@ public class CapellaFormatDataManager extends AbstractSiriusFormatDataManager im
           break;
         }
       }
-      //TODO we should also check combination of all keyProviders..
+      // TODO we should also check combination of all keyProviders..
     }
 
-    if (key instanceof CapellaDecoratorFormatDataKey) {
+    if (formatData == null && key instanceof CapellaDecoratorFormatDataKey) {
       AbstractCapellaFormatDataKey parentKey = ((CapellaDecoratorFormatDataKey) key).getParent();
       if (parentKey != null) {
         formatData = getLinkedFormatData(parentKey, mapping);
@@ -285,6 +309,7 @@ public class CapellaFormatDataManager extends AbstractSiriusFormatDataManager im
   protected AbstractFormatData findLinkedFormatData(FormatDataKey key, RepresentationElementMapping mapping) {
     if (!formatDataMap.containsKey(key))
       return null;
+
     Map<String, AbstractFormatData> mappingFormatDataMap = formatDataMap.get(key);
     if (mappingFormatDataMap.containsKey(mapping.getName()))
       return decorateFormatData(key, mappingFormatDataMap.get(mapping.getName()));

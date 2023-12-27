@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Capella" uid="org.polarsys.capella.rcp.product" id="org.polarsys.capella.rcp.product" application="org.polarsys.capella.core.platform.sirius.ui.perspective.id" version="6.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Capella" uid="org.polarsys.capella.rcp.product" id="org.polarsys.capella.rcp.product" application="org.polarsys.capella.core.platform.sirius.ui.perspective.id" version="7.0.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -10,15 +10,20 @@
       <programArgsMac>-vm
 ../jre/Contents/Home/bin
       </programArgsMac>
-      <vmArgs>-Dosgi.requiredJavaVersion=11
+      <vmArgs>-Dosgi.requiredJavaVersion=17
 -Dosgi.dataAreaRequiresExplicitInit=true
 -Dpde.jreProfile=JavaSE-17
+-Dlogback.configurationFile=configuration/logback.xml
 -Xms1000m
 -Xmx3000m
 -Xss4m
+-XX:+UseG1GC
+-XX:+UseStringDeduplication
       </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
+      <vmArgsWin>-Dorg.eclipse.swt.browser.DefaultType=edge
+      </vmArgsWin>
    </launcherArgs>
 
    <windowImages i16="window_icons/Capella16x16.png" i32="window_icons/Capella32x32.png" i48="window_icons/Capella48x48.png" i64="window_icons/Capella64x64.png" i128="window_icons/Capella128x128.png" i256="window_icons/Capella256x256.png"/>
@@ -36,10 +41,10 @@
    <intro introId="org.eclipse.ui.intro.universal"/>
 
    <vm>
-      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</linux>
-      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</macos>
-      <solaris include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</solaris>
-      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</windows>
+      <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</linux>
+      <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</macos>
+      <solaris include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</solaris>
+      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</windows>
    </vm>
 
    <plugins>

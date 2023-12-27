@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.core.transition.system.topdown.ui;singleton:=true
-Bundle-Version: 6.0.0.qualifier
+Bundle-Version: 7.0.0.qualifier
 Bundle-Activator: org.polarsys.capella.core.transition.system.topdown.ui.Activator
 Bundle-Vendor: %providerName
 Require-Bundle: org.eclipse.ui,
@@ -20,4 +20,4 @@ Export-Package: org.polarsys.capella.core.transition.system.topdown.ui,
  org.polarsys.capella.core.transition.system.topdown.ui.handlers.tester,
  org.polarsys.capella.core.transition.system.topdown.ui.preferences
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17

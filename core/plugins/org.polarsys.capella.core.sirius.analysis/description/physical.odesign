@@ -1,118 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_3="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="Physical Descriptions" version="12.0.0.2017041100">
   <ownedViewpoints name="Physical Architecture" label="%pa" modelFileExtension="capella" icon="">
-    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Physical Functions - Requirements" domainClass="PhysicalArchitecture">
-      <ownedLineMappings name="Physical Functions 2" domainClass="AbstractFunction" semanticCandidatesExpression="aql:self.getTableRootAbstractFunctions()" headerLabelExpression="feature:name">
-        <ownedSubLines name="Sub Physical Functions 2" reusedSubLines="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Physical%20Functions%202']/@ownedSubLines[name='Sub%20Physical%20Functions%20Pkg'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Physical%20Functions%202']/@ownedSubLines[name='Sub%20Physical%20Functions%202']" reusedInMappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Physical%20Functions%202']/@ownedSubLines[name='Sub%20Physical%20Functions%202'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Requirements']/@ownedLineMappings[name='FunctionPkgs'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Physical%20Functions%202']/@ownedSubLines[name='Sub%20Physical%20Functions%20Pkg']" domainClass="PhysicalFunction" semanticCandidatesExpression="aql:self.getOwnedAbstractFunctions()" headerLabelExpression="feature:name">
-          <delete name="No delete" precondition="false">
-            <variables name="element" documentation="The currently edited element."/>
-            <variables name="root" documentation="The semantic element corresponding to the current table."/>
-          </delete>
-        </ownedSubLines>
-        <ownedSubLines name="Sub Physical Functions Pkg" reusedSubLines="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Physical%20Functions%202']/@ownedSubLines[name='Sub%20Physical%20Functions%202'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Physical%20Functions%202']/@ownedSubLines[name='Sub%20Physical%20Functions%20Pkg']" reusedInMappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Physical%20Functions%202']/@ownedSubLines[name='Sub%20Physical%20Functions%202'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Requirements']/@ownedLineMappings[name='FunctionPkgs'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Physical%20Functions%202']/@ownedSubLines[name='Sub%20Physical%20Functions%20Pkg']" domainClass="FunctionPkg" semanticCandidatesExpression="aql:self.getOwnedAbstractFunctionPkgs()" headerLabelExpression="feature:name">
-          <delete name="No delete" precondition="false">
-            <variables name="element" documentation="The currently edited element."/>
-            <variables name="root" documentation="The semantic element corresponding to the current table."/>
-          </delete>
-        </ownedSubLines>
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedLineMappings>
-      <ownedLineMappings name="FunctionPkgs" reusedSubLines="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Physical%20Functions%202']/@ownedSubLines[name='Sub%20Physical%20Functions%202'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Physical%20Functions%202']/@ownedSubLines[name='Sub%20Physical%20Functions%20Pkg']" domainClass="FunctionPkg" semanticCandidatesExpression="aql:self.getTableRootAbstractFunctionPkgs()">
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedLineMappings>
-      <ownedColumnMappings name="Requirements 6" headerLabelExpression="aql:self.getRequirementElementLabel()" domainClass="Requirement">
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedColumnMappings>
-      <intersection name="Trace 6" lineMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Physical%20Functions%202'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Physical%20Functions%202']/@ownedSubLines[name='Sub%20Physical%20Functions%202']" columnMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Requirements']/@ownedColumnMappings.0" labelExpression="X" useDomainClass="true" columnFinderExpression="feature:targetElement" lineFinderExpression="feature:sourceElement" domainClass="RequirementsTrace">
-        <directEdit>
-          <variables name="table" documentation="The current DTable."/>
-          <variables name="line" documentation="The DLine of the current DCell."/>
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic element of the table."/>
-          <firstModelOperation xsi:type="tool:If" conditionExpression="aql:arg0 = '' and root.eAllContents()->filter(requirement::RequirementsTrace)->select(x | x.targetElement = columnSemantic and x.sourceElement = lineSemantic)->size() > 0">
-            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:root.eAllContents()->filter(requirement::RequirementsTrace)->select(x | x.targetElement = columnSemantic and x.sourceElement = lineSemantic)->first()">
-              <subModelOperations xsi:type="tool:RemoveElement"/>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </directEdit>
-        <create name="DDDD" forceRefresh="true">
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic root element of the table."/>
-          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:lineSemantic">
-            <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0 = 'X'">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="RequirementsTrace" referenceName="ownedTraces">
-                <subModelOperations xsi:type="tool:SetValue" featureName="sourceElement" valueExpression="aql:lineSemantic"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="targetElement" valueExpression="aql:columnSemantic"/>
-              </subModelOperations>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </create>
-      </intersection>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Physical Components - Requirements" label="Physical Components/Actors - Requirements" domainClass="PhysicalArchitecture">
-      <ownedLineMappings name="Physical Component 2" domainClass="PhysicalComponent" semanticCandidatesExpression="aql:self.makeUnion(self.getSubComponents(), self.getSubActors())" headerLabelExpression="feature:name">
-        <ownedSubLines name="Sub Physical Component 2" reusedSubLines="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Components%20-%20Requirements']/@ownedLineMappings[name='Physical%20Component%202']/@ownedSubLines[name='Sub%20Physical%20Component%202']" reusedInMappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Components%20-%20Requirements']/@ownedLineMappings[name='Physical%20Component%202']/@ownedSubLines[name='Sub%20Physical%20Component%202']" domainClass="PhysicalComponent" semanticCandidatesExpression="aql:self.makeUnion(self.getSubComponents(), self.getSubActors())" headerLabelExpression="feature:name">
-          <delete name="No delete" precondition="false">
-            <variables name="element" documentation="The currently edited element."/>
-            <variables name="root" documentation="The semantic element corresponding to the current table."/>
-          </delete>
-        </ownedSubLines>
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedLineMappings>
-      <ownedColumnMappings name="Requirements 2" headerLabelExpression="aql:self.getRequirementElementLabel()" domainClass="Requirement">
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedColumnMappings>
-      <intersection name="Trace 2" lineMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Components%20-%20Requirements']/@ownedLineMappings[name='Physical%20Component%202'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Components%20-%20Requirements']/@ownedLineMappings[name='Physical%20Component%202']/@ownedSubLines[name='Sub%20Physical%20Component%202']" columnMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Components%20-%20Requirements']/@ownedColumnMappings.0" labelExpression="X" useDomainClass="true" columnFinderExpression="feature:targetElement" lineFinderExpression="feature:sourceElement" domainClass="RequirementsTrace">
-        <directEdit>
-          <variables name="table" documentation="The current DTable."/>
-          <variables name="line" documentation="The DLine of the current DCell."/>
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic element of the table."/>
-          <firstModelOperation xsi:type="tool:If" conditionExpression="aql:arg0 = '' and root.eAllContents()->filter(requirement::RequirementsTrace)->select(x | x.targetElement = columnSemantic and x.sourceElement = lineSemantic)->size() > 0">
-            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:root.eAllContents()->filter(requirement::RequirementsTrace)->select(x | x.targetElement = columnSemantic and x.sourceElement = lineSemantic)->first()">
-              <subModelOperations xsi:type="tool:RemoveElement"/>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </directEdit>
-        <create name="TR2" forceRefresh="true">
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic root element of the table."/>
-          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:lineSemantic">
-            <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0 = 'X'">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="RequirementsTrace" referenceName="ownedTraces">
-                <subModelOperations xsi:type="tool:SetValue" featureName="sourceElement" valueExpression="aql:lineSemantic"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="targetElement" valueExpression="aql:columnSemantic"/>
-              </subModelOperations>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </create>
-      </intersection>
-    </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Physical Functions - Logical Functions" domainClass="PhysicalArchitecture">
       <ownedLineMappings name="Physical Functions 1" domainClass="AbstractFunction" semanticCandidatesExpression="aql:self.getTableRootAbstractFunctions()" headerLabelExpression="feature:name">
         <ownedSubLines name="Sub Physical Functions 1" reusedSubLines="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Logical%20Functions']/@ownedLineMappings[name='Physical%20Functions%201']/@ownedSubLines[name='Sub%20Physical%20Functions%20Pkg%201'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Logical%20Functions']/@ownedLineMappings[name='Physical%20Functions%201']/@ownedSubLines[name='Sub%20Physical%20Functions%201']" reusedInMappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Logical%20Functions']/@ownedLineMappings[name='FunctionPkgs'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Logical%20Functions']/@ownedLineMappings[name='Physical%20Functions%201']/@ownedSubLines[name='Sub%20Physical%20Functions%20Pkg%201'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Functions%20-%20Logical%20Functions']/@ownedLineMappings[name='Physical%20Functions%201']/@ownedSubLines[name='Sub%20Physical%20Functions%201']" domainClass="PhysicalFunction" semanticCandidatesExpression="aql:self.getOwnedAbstractFunctions()" headerLabelExpression="feature:name">
@@ -332,7 +220,6 @@
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCommon.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#/"/>
-      <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Requirement.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/PhysicalArchitecture.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//communication"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//datatype"/>
@@ -629,7 +516,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -655,7 +541,6 @@
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCommon.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#/"/>
-      <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Requirement.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//communication"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//datatype"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//datavalue"/>
@@ -1273,7 +1158,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.void2Null(element)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Function From Project Explorer" precondition="aql:element.oclIsKindOf(fa::AbstractFunction) and element.canBeDropped(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Data%20Flow%20Blank']/@defaultLayer/@containerMappings[name='PDFB_Function']" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Function From Project Explorer" precondition="aql:element.oclIsKindOf(fa::AbstractFunction) and element.canBeDropped(newViewContainer) and not element.isLibraryElementOf(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Data%20Flow%20Blank']/@defaultLayer/@containerMappings[name='PDFB_Function']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -1289,18 +1174,6 @@
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:PopupMenu" name="functional.chain.menu" label="%pa.pdfb.functional.chain.menu">
-            <menuItemDescription xsi:type="tool:OperationAction" name="functional.chain" label="%pa.pdfb.functional.chain" precondition="aql:self.isValidFunctionalChainSelection(views)" forceRefresh="true">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.createFunctionalChain(views)">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(fa::FunctionalChain)">
-                    <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Data%20Flow%20Blank']/@defaultLayer/@nodeMappings[name='PDFB_FunctionalChainEnd']" containerViewExpression="aql:views->first().getDiagramContainer()"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
           </ownedTools>
         </toolSections>
         <toolSections name="Accelerators">
@@ -1447,7 +1320,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -1493,7 +1365,6 @@
       <metamodel href="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/OperationalAnalysis.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/PhysicalArchitecture.ecore#/"/>
-      <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Requirement.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/SharedModel.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//communication"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//datatype"/>
@@ -1921,7 +1792,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -1947,7 +1817,6 @@
       <metamodel href="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/OperationalAnalysis.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/PhysicalArchitecture.ecore#/"/>
-      <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Requirement.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/SharedModel.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//communication"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//datatype"/>
@@ -2023,6 +1892,26 @@
       </filters>
       <filters xsi:type="filter:CompositeFilterDescription" name="show.exchange.items.filter" label="%pa.pab.show.exchange.items.filter">
         <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE" mappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_Dummy']" semanticConditionExpression=""/>
+      </filters>
+      <filters xsi:type="filter:CompositeFilterDescription" name="show.exchange.items.parameters.filter" label="%pa.pab.show.exchange.items.parameters.filter">
+        <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE">
+          <mappings xsi:type="description_3:InstanceRoleMapping" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Component%20Exchanges%20Scenario']/@defaultLayer/@nodeMappings[name='hideSequenceLabelDF']"/>
+        </filters>
+      </filters>
+      <filters xsi:type="filter:CompositeFilterDescription" name="show.functional.exchanges.exchange.items.filter" label="%pa.pab.show.functional.exchanges.exchange.items.filter">
+        <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE">
+          <mappings xsi:type="description_3:InstanceRoleMapping" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Component%20Exchanges%20Scenario']/@defaultLayer/@nodeMappings[name='hideSequenceLabelDF']"/>
+        </filters>
+      </filters>
+      <filters xsi:type="filter:CompositeFilterDescription" name="show.functional.exchanges.parameters.filter" label="%pa.pab.show.functional.exchanges.parameters.filter">
+        <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE">
+          <mappings xsi:type="description_3:InstanceRoleMapping" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Component%20Exchanges%20Scenario']/@defaultLayer/@nodeMappings[name='hideSequenceLabelDF']"/>
+        </filters>
+      </filters>
+      <filters xsi:type="filter:CompositeFilterDescription" name="show.functional.exchanges.exchange.items.parameters.filter" label="%pa.pab.show.functional.exchanges.exchange.items.parameters.filter">
+        <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE">
+          <mappings xsi:type="description_3:InstanceRoleMapping" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Component%20Exchanges%20Scenario']/@defaultLayer/@nodeMappings[name='hideSequenceLabelDF']"/>
+        </filters>
       </filters>
       <filters xsi:type="filter:CompositeFilterDescription" name="show.exchange.items.on.component.exchanges.filter" label="%pa.pab.show.exchange.items.on.component.exchanges.filter">
         <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE" mappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_Dummy']" semanticConditionExpression=""/>
@@ -2109,13 +1998,13 @@
               </style>
             </conditionnalStyles>
           </borderedNodeMappings>
-          <borderedNodeMappings name="PAB InputPin by Categorie" deletionDescription="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20category']" labelDirectEdit="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='edit%20name']" semanticCandidatesExpression="" createElements="false" semanticElements="aql:self.makeUnion(self, self.exchanges->select(exchange | exchange.target.ancestors()->includes(view.eContainer().target)))" domainClass="ExchangeCategory">
+          <borderedNodeMappings name="PAB InputPin by Categorie" deletionDescription="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20category']" labelDirectEdit="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='edit%20name']" semanticCandidatesExpression="" createElements="false" semanticElements="service:getInputPinCategorySemanticElements(view)" domainClass="ExchangeCategory">
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="service:capellaLabelService(view, diagram)" hideLabelByDefault="true" sizeComputationExpression="1" workspacePath="/org.polarsys.capella.core.sirius.analysis/description/images/CategoryInput.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="PAB OutputPin by Categorie" deletionDescription="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20category']" labelDirectEdit="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='edit%20name']" semanticCandidatesExpression="" createElements="false" semanticElements="aql:self.makeUnion(self, self.exchanges->select(exchange | exchange.source.ancestors()->includes(view.eContainer().target)))" domainClass="ExchangeCategory">
+          <borderedNodeMappings name="PAB OutputPin by Categorie" deletionDescription="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20category']" labelDirectEdit="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='edit%20name']" semanticCandidatesExpression="" createElements="false" semanticElements="service:getOutputPinCategorySemanticElements(view)" domainClass="ExchangeCategory">
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="service:capellaLabelService(view, diagram)" hideLabelByDefault="true" sizeComputationExpression="1" workspacePath="/org.polarsys.capella.core.sirius.analysis/description/images/CategoryOutput.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -2311,7 +2200,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="PAB_FunctionExchange by Categorie" label="PAB_ExchangeCategory" preconditionExpression="service:isValidFunctionalExchangeCategoryEdge(sourceView, targetView)" deletionDescription="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20category']" labelDirectEdit="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='edit%20name']" semanticCandidatesExpression="" createElements="false" semanticElements="aql:self.makeUnion(self, self.exchanges->select(exchange | (exchange.target.ancestors()->includes(view.targetNode.eContainer().target)) and (exchange.source.ancestors()->includes(view.sourceNode.eContainer().target))))" sourceMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@borderedNodeMappings[name='PAB%20OutputPin%20by%20Categorie']" targetMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@borderedNodeMappings[name='PAB%20InputPin%20by%20Categorie']" targetFinderExpression="aql:self" sourceFinderExpression="aql:self" targetExpression="var:self" domainClass="ExchangeCategory" useDomainElement="true">
+        <edgeMappings name="PAB_FunctionExchange by Categorie" label="PAB_ExchangeCategory" preconditionExpression="service:isValidFunctionalExchangeCategoryEdge(sourceView, targetView)" deletionDescription="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20category']" labelDirectEdit="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='edit%20name']" semanticCandidatesExpression="" createElements="false" semanticElements="service:getEdgeExchangeCategorySemanticElements(view)" sourceMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@borderedNodeMappings[name='PAB%20OutputPin%20by%20Categorie']" targetMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@borderedNodeMappings[name='PAB%20InputPin%20by%20Categorie']" targetFinderExpression="aql:self" sourceFinderExpression="aql:self" targetExpression="var:self" domainClass="ExchangeCategory" useDomainElement="true">
           <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2" endsCentering="Both">
             <strokeColor xsi:type="description:UserFixedColor" href="common.odesign#//@userColorsPalettes[name='Migration%20Palette']/@entries[name='_CAP_xAB_Function_Border_Green']"/>
             <centerLabelStyleDescription labelExpression="service:capellaLabelService(view, diagram)">
@@ -2367,7 +2256,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="PAB_ComponentCategory" preconditionExpression="service:isValidABComponentCategoryEdge(sourceView, targetView)" deletionDescription="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20category']" labelDirectEdit="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='edit%20name']" createElements="false" sourceMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_Port'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_ComponentCategory_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_Deployment']" targetMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_Port'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_ComponentCategory_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_Deployment']" targetFinderExpression="service:getComponentCategoryTargets()" sourceFinderExpression="service:getComponentCategorySources()" domainClass="ComponentExchangeCategory" useDomainElement="true">
+        <edgeMappings name="PAB_ComponentCategory" preconditionExpression="service:isValidABComponentCategoryEdge(sourceView, targetView)" deletionDescription="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20category']" labelDirectEdit="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='edit%20name']" createElements="false" sourceMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_Port'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_ComponentCategory_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_Deployment']" targetMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_Port'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_ComponentCategory_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_Deployment']" targetFinderExpression="service:getComponentCategoryTargets()" sourceFinderExpression="service:getComponentCategorySources()" domainClass="ComponentExchangeCategory" useDomainElement="true" semanticElements="service:getEdgeExchangeCategorySemanticElements(view)">
           <style targetArrow="NoDecoration" sizeComputationExpression="2" centeredSourceMappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_ComponentCategory_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_Port']" centeredTargetMappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_ComponentCategory_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_Port']">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelExpression="aql:self.computeComponentCategoryLabel()">
@@ -2391,7 +2280,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="PAB_PhysicalCategory" preconditionExpression="service:isValidABPhysicalCategoryEdge(sourceView, targetView)" deletionDescription="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20category']" labelDirectEdit="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='edit%20name']" createElements="false" sourceMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_Port'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_PhysicalCategory_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_Deployment'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@borderedNodeMappings[name='PAB_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_ComponentCategory_Pin']" targetMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_Port'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_PhysicalCategory_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_Deployment'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@borderedNodeMappings[name='PAB_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_ComponentCategory_Pin']" targetFinderExpression="service:getPhysicalCategoryTargets()" sourceFinderExpression="service:getPhysicalCategorySources()" domainClass="PhysicalLinkCategory" useDomainElement="true">
+        <edgeMappings name="PAB_PhysicalCategory" preconditionExpression="service:isValidABPhysicalCategoryEdge(sourceView, targetView)" deletionDescription="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20category']" labelDirectEdit="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='edit%20name']" createElements="false" sourceMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_Port'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_PhysicalCategory_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_Deployment'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@borderedNodeMappings[name='PAB_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_ComponentCategory_Pin']" targetMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_Port'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_PhysicalCategory_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_Deployment'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@borderedNodeMappings[name='PAB_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_ComponentCategory_Pin']" targetFinderExpression="service:getPhysicalCategoryTargets()" sourceFinderExpression="service:getPhysicalCategorySources()" domainClass="PhysicalLinkCategory" useDomainElement="true" semanticElements="service:getEdgeExchangeCategorySemanticElements(view)">
           <style targetArrow="NoDecoration" sizeComputationExpression="2" centeredSourceMappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_ComponentCategory_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_PhysicalCategory_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@borderedNodeMappings[name='PAB_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_Port']" centeredTargetMappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_ComponentCategory_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_PhysicalCategory_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']/@borderedNodeMappings[name='PAB_Pin'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC']/@borderedNodeMappings[name='PAB_Port']">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             <centerLabelStyleDescription labelExpression="aql:self.computePhysicalCategoryLabel()">
@@ -2416,7 +2305,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="PAB_FC_SequenceLink" semanticCandidatesExpression="aql:diagram.getAvailableSequenceLinks()" synchronizationLock="true" targetFinderExpression="aql:self.getSequenceLinkTarget()" sourceFinderExpression="aql:self.getSequenceLinkSource()" domainClass="SequenceLink" useDomainElement="true">
-          <deletionDescription href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Capella%20Architecture']/@defaultLayer/@toolSections.0/@ownedTools[name='no%20delete']"/>
+          <deletionDescription href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Functional%20Chain%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20FE%20Involvement']"/>
           <sourceMapping xsi:type="description_2:NodeMapping" href="#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']"/>
           <sourceMapping xsi:type="description_2:NodeMapping" href="oa.odesign#//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@nodeMappings[name='FC_ControlNode']"/>
           <targetMapping xsi:type="description_2:NodeMapping" href="#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']"/>
@@ -2473,7 +2362,7 @@
               </style>
             </conditionnalStyles>
           </borderedNodeMappings>
-          <borderedNodeMappings name="PAB_ComponentCategory_Pin" preconditionExpression="service:isValidABComponentCategoryPort(containerView)" deletionDescription="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20category']" createElements="false" domainClass="ComponentExchangeCategory">
+          <borderedNodeMappings name="PAB_ComponentCategory_Pin" preconditionExpression="service:isValidABComponentCategoryPort(containerView)" deletionDescription="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20category']" createElements="false" domainClass="ComponentExchangeCategory" semanticElements="service:getPinCategorySemanticElements(view)">
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:self.computeComponentCategoryLabel()" hideLabelByDefault="true" sizeComputationExpression="1" workspacePath="/org.polarsys.capella.core.sirius.analysis/description/images/FlowPort.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -2503,7 +2392,7 @@
               </style>
             </conditionnalStyles>
           </borderedNodeMappings>
-          <borderedNodeMappings name="PAB_PhysicalCategory_Pin" preconditionExpression="service:isValidABPhysicalCategoryPort(containerView)" deletionDescription="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20category']" createElements="false" domainClass="PhysicalLinkCategory">
+          <borderedNodeMappings name="PAB_PhysicalCategory_Pin" preconditionExpression="service:isValidABPhysicalCategoryPort(containerView)" deletionDescription="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20category']" createElements="false" domainClass="PhysicalLinkCategory" semanticElements="service:getPinCategorySemanticElements(view)">
             <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="aql:self.computePhysicalCategoryLabel()" hideLabelByDefault="true" sizeComputationExpression="1">
               <borderColor xsi:type="description:UserFixedColor" href="common.odesign#//@userColorsPalettes[name='Migration%20Palette']/@entries[name='_CAP_Class_Border_Brown']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -2767,7 +2656,7 @@
               </initialOperation>
             </tools>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Creates a new Physical Link between the source and target Node Physical Components or Actors." name="physical.link" label="%pa.pab.physical.link" precondition="aql:self.isValidCreationABPhysicalLink(preSourceView,preTargetView)" elementsToSelect="var:result" edgeMappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@edgeMappings[name='PAB_PhysicalLink']" extraSourceMappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_Deployment']" extraTargetMappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_Deployment']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Creates a new Physical Link between the source and target Node Physical Components or Actors." name="physical.link" label="%pa.pab.physical.link" precondition="aql:self.isValidCreationABPhysicalLink(preSourceView,preTargetView)" elementsToSelect="var:result" edgeMappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@edgeMappings[name='PAB_PhysicalLink']" extraSourceMappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_Deployment']" extraTargetMappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_PC'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='PAB_Deployment']" connectionStartPrecondition="aql:self.isValidCreationPhysicalLink()">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -3276,21 +3165,6 @@
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:arg0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:PopupMenu" name="physical.path.menu" label="%pa.pab.physical.path.menu">
-            <menuItemDescription xsi:type="tool:OperationAction" name="physical.path" label="%pa.pab.physical.path" precondition="aql:self.isValidPhysicalPathSelection(views)" forceRefresh="true">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:views">
-                  <subModelOperations xsi:type="tool:Let" variableName="source" valueExpression="service:getPhysicalPathSource(views)"/>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.createPhysicalPath(views, source)">
-                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(cs::PhysicalPath)">
-                      <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalPathEnd']" containerViewExpression="aql:views->first().getDiagramContainer()"/>
-                    </subModelOperations>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:DiagramCreationDescription" name="Physical Architecture Blank" precondition="aql:self.isInLib() and self.getComponentType().oclIsKindOf(pa::PhysicalComponent)" titleExpression="aql:'[PAB] ' + self.name" browseExpression="" diagramDescription="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']">
             <initialOperation/>
             <containerViewVariable name="containerView"/>
@@ -3306,7 +3180,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.void2Null(element)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Components From Project Explorer" precondition="aql:element.getComponentType().oclIsKindOf(cs::Component) and element.partitionableElementCanBeDropped(newViewContainer)" forceRefresh="true" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Components From Project Explorer" precondition="aql:element.getComponentType().oclIsKindOf(cs::Component) and element.partitionableElementCanBeDropped(newViewContainer) and not element.isLibraryElementOf(newViewContainer)" forceRefresh="true" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -4461,7 +4335,7 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Function Allocation From Project Explorer" precondition="aql:(not newViewContainer.target.isNode() or newViewContainer.target.isActor()) and element.oclIsKindOf(fa::AbstractFunction) and (element.subFunctions->size() = 0)" forceRefresh="true" mappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Function Allocation From Project Explorer" precondition="aql:(not newViewContainer.target.isNode() or newViewContainer.target.isActor()) and element.oclIsKindOf(fa::AbstractFunction) and (element.subFunctions->size() = 0) and not element.isLibraryElementOf(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_PhysicalFunction']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element">
@@ -4483,18 +4357,6 @@
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:PopupMenu" name="functional.chain.menu" label="%pa.pab.functional.chain.menu">
-            <menuItemDescription xsi:type="tool:OperationAction" name="functional.chain" label="%pa.pab.functional.chain" precondition="aql:self.isValidFunctionalChainSelection(views)" forceRefresh="true">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.createFunctionalChain(views)">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(fa::FunctionalChain)">
-                    <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='PAB_FunctionalChainEnd']" containerViewExpression="aql:views->first().getDiagramContainer()"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
           </ownedTools>
           <ownedTools xsi:type="tool:ToolDescription" documentation="Insert/Remove Port Allocations" name="port.allocations" label="%pa.pab.port.allocations" precondition="aql:(not self.isNode() or self.isActor()) and container.getComponentType().oclIsKindOf(cs::Component)" inverseSelectionOrder="true" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
             <element name="element"/>
@@ -4639,7 +4501,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -4728,63 +4589,7 @@
           <mask mask="{0}"/>
         </create>
       </intersection>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Requirements - Physical Functions" preconditionExpression="aql:self.eContainerOrSelf(cs::BlockArchitecture).oclIsKindOf(pa::PhysicalArchitecture)" domainClass="RequirementsPkg">
-      <ownedLineMappings name="Requirements" domainClass="NamedElement" semanticCandidatesExpression="aql:self" headerLabelExpression="aql:self.getRequirementElementLabel()">
-        <ownedSubLines name="Sub Requirements" reusedSubLines="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Requirements%20-%20Physical%20Functions']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements']" reusedInMappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Requirements%20-%20Physical%20Functions']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements%20Pkg'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Requirements%20-%20Physical%20Functions']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements']" domainClass="NamedElement" semanticCandidatesExpression="aql:self.ownedRequirements" headerLabelExpression="aql:self.getRequirementElementLabel()">
-          <delete name="No delete" precondition="false">
-            <variables name="element" documentation="The currently edited element."/>
-            <variables name="root" documentation="The semantic element corresponding to the current table."/>
-          </delete>
-        </ownedSubLines>
-        <ownedSubLines name="Sub Requirements Pkg" reusedSubLines="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Requirements%20-%20Physical%20Functions']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements'] //@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Requirements%20-%20Physical%20Functions']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements%20Pkg']" reusedInMappings="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Requirements%20-%20Physical%20Functions']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements%20Pkg']" domainClass="NamedElement" semanticCandidatesExpression="feature:extended" headerLabelExpression="aql:self.getRequirementElementLabel()">
-          <delete name="No delete" precondition="false">
-            <variables name="element" documentation="The currently edited element."/>
-            <variables name="root" documentation="The semantic element corresponding to the current table."/>
-          </delete>
-        </ownedSubLines>
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedLineMappings>
-      <ownedColumnMappings name="Functions" headerLabelExpression="feature:name" domainClass="NamedElement" semanticCandidatesExpression="aql:self.getRFColumnCandidates()">
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedColumnMappings>
-      <intersection name="Trace Function" semanticElements="aql:self.makeUnion(self, self.eContainer())" lineMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Requirements%20-%20Physical%20Functions']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements']" columnMapping="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Requirements%20-%20Physical%20Functions']/@ownedColumnMappings.0" labelExpression="aql:self.getRFLabel(lineSemantic,columnSemantic)" useDomainClass="true" columnFinderExpression="feature:sourceElement" lineFinderExpression="feature:targetElement" semanticCandidatesExpression="aql:self.getRFColumnCandidates().outgoingTraces->select(outgoingTrace | outgoingTrace.oclIsKindOf(requirement::RequirementsTrace))" domainClass="RequirementsTrace">
-        <directEdit>
-          <variables name="table" documentation="The current DTable."/>
-          <variables name="line" documentation="The DLine of the current DCell."/>
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic element of the table."/>
-          <firstModelOperation xsi:type="tool:If" conditionExpression="aql:arg0 = ''">
-            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.void2Null(element)">
-              <subModelOperations xsi:type="tool:RemoveElement"/>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </directEdit>
-        <create name="TR6" forceRefresh="true">
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic root element of the table."/>
-          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:columnSemantic">
-            <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0 = 'X' and lineSemantic.incomingTraces->select(incomingTrace | incomingTrace.sourceElement = columnSemantic)->size() = 0">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="RequirementsTrace" referenceName="ownedTraces">
-                <subModelOperations xsi:type="tool:SetValue" featureName="sourceElement" valueExpression="aql:columnSemantic"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="targetElement" valueExpression="aql:lineSemantic"/>
-              </subModelOperations>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </create>
-      </intersection>
-    </ownedRepresentations>
+    </ownedRepresentations>    
     <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Physical Path Description" label="%pa.ppd" titleExpression="aql:'[PPD] ' + self.name" domainClass="PhysicalPath">
       <dropDescriptions href="#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Path%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Dnd%20Component']"/>
       <dropDescriptions href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
@@ -4821,6 +4626,7 @@
           </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="PPD_PhysicalPath" deletionDescription="//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Path%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20PhysicalPath%20Involvement']" semanticCandidatesExpression="aql:self.ownedPhysicalPathInvolvements->select(ownedPhysicalPathInvolvement | ownedPhysicalPathInvolvement.involvedElement->filter(cs::PhysicalPath)->size() > 0)" semanticElements="aql:self.makeUnion(self, self.involvedElement)" synchronizationLock="true" domainClass="PhysicalPathInvolvement">
+          <navigationDescriptions xsi:type="tool_1:DiagramNavigationDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Capella%20Architecture']/@defaultLayer/@toolSections.0/@ownedTools[name='Existing%20Physical%20Path%20Ref']"/>
           <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelExpression="aql:self.involvedElement.name" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="10" height="5">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -5129,7 +4935,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -5140,7 +4945,6 @@
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.FaServices"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.DragAndDropServices"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.CsServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.RequirementServices"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.DiagramServices"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.DFServices"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.ABServices"/>

@@ -1,68 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_3="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_2="http://www.eclipse.org/sirius/diagram/sequence/description/tool/2.0.0" version="12.0.0.2017041100">
-  <ownedViewpoints name="Operational Analysis" label="%oa" modelFileExtension="capella">
-    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Operational Activities - Requirements" domainClass="OperationalAnalysis">
-      <ownedLineMappings name="Operational Activity" domainClass="OperationalActivity" semanticCandidatesExpression="aql:self.getTableRootAbstractFunctions()" headerLabelExpression="feature:name">
-        <ownedSubLines name="Sub Operational Activity" reusedSubLines="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activities%20-%20Requirements']/@ownedLineMappings[name='Operational%20Activity']/@ownedSubLines[name='Sub%20Operational%20Activity%20Pkg'] //@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activities%20-%20Requirements']/@ownedLineMappings[name='Operational%20Activity']/@ownedSubLines[name='Sub%20Operational%20Activity']" reusedInMappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activities%20-%20Requirements']/@ownedLineMappings[name='Operational%20Activity']/@ownedSubLines[name='Sub%20Operational%20Activity'] //@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activities%20-%20Requirements']/@ownedLineMappings[name='FunctionPkgs'] //@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activities%20-%20Requirements']/@ownedLineMappings[name='Operational%20Activity']/@ownedSubLines[name='Sub%20Operational%20Activity%20Pkg']" domainClass="OperationalActivity" semanticCandidatesExpression="aql:self.getOwnedAbstractFunctions()" headerLabelExpression="feature:name">
-          <delete name="No delete" precondition="false">
-            <variables name="element" documentation="The currently edited element."/>
-            <variables name="root" documentation="The semantic element corresponding to the current table."/>
-          </delete>
-        </ownedSubLines>
-        <ownedSubLines name="Sub Operational Activity Pkg" reusedSubLines="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activities%20-%20Requirements']/@ownedLineMappings[name='Operational%20Activity']/@ownedSubLines[name='Sub%20Operational%20Activity'] //@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activities%20-%20Requirements']/@ownedLineMappings[name='Operational%20Activity']/@ownedSubLines[name='Sub%20Operational%20Activity%20Pkg']" reusedInMappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activities%20-%20Requirements']/@ownedLineMappings[name='Operational%20Activity']/@ownedSubLines[name='Sub%20Operational%20Activity'] //@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activities%20-%20Requirements']/@ownedLineMappings[name='Operational%20Activity']/@ownedSubLines[name='Sub%20Operational%20Activity%20Pkg'] //@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activities%20-%20Requirements']/@ownedLineMappings[name='FunctionPkgs']" domainClass="FunctionPkg" semanticCandidatesExpression="aql:self.getOwnedAbstractFunctionPkgs()" headerLabelExpression="feature:name">
-          <delete name="No delete" precondition="false">
-            <variables name="element" documentation="The currently edited element."/>
-            <variables name="root" documentation="The semantic element corresponding to the current table."/>
-          </delete>
-        </ownedSubLines>
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedLineMappings>
-      <ownedLineMappings name="FunctionPkgs" reusedSubLines="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activities%20-%20Requirements']/@ownedLineMappings[name='Operational%20Activity']/@ownedSubLines[name='Sub%20Operational%20Activity'] //@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activities%20-%20Requirements']/@ownedLineMappings[name='Operational%20Activity']/@ownedSubLines[name='Sub%20Operational%20Activity%20Pkg']" domainClass="FunctionPkg" semanticCandidatesExpression="aql:self.getTableRootAbstractFunctionPkgs()">
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedLineMappings>
-      <ownedColumnMappings name="Requirements 3" headerLabelExpression="aql:self.getRequirementElementLabel()" domainClass="Requirement">
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedColumnMappings>
-      <intersection name="Trace 3" canEdit="true" lineMapping="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activities%20-%20Requirements']/@ownedLineMappings[name='Operational%20Activity'] //@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activities%20-%20Requirements']/@ownedLineMappings[name='Operational%20Activity']/@ownedSubLines[name='Sub%20Operational%20Activity']" columnMapping="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activities%20-%20Requirements']/@ownedColumnMappings.0" labelExpression="X" useDomainClass="true" columnFinderExpression="feature:targetElement" lineFinderExpression="feature:sourceElement" domainClass="RequirementsTrace">
-        <directEdit>
-          <variables name="table" documentation="The current DTable."/>
-          <variables name="line" documentation="The DLine of the current DCell."/>
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic element of the table."/>
-          <firstModelOperation xsi:type="tool:If" conditionExpression="aql:arg0 = '' and lineSemantic.ownedTraces->filter(requirement::RequirementsTrace)->select(x | x.targetElement = columnSemantic and x.sourceElement = lineSemantic)->size() > 0">
-            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:lineSemantic.ownedTraces->filter(requirement::RequirementsTrace)->select(x | x.targetElement = columnSemantic and x.sourceElement = lineSemantic)->first()">
-              <subModelOperations xsi:type="tool:RemoveElement"/>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </directEdit>
-        <create name="TR3" forceRefresh="true">
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic root element of the table."/>
-          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:lineSemantic">
-            <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0 = 'X'">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="RequirementsTrace" referenceName="ownedTraces">
-                <subModelOperations xsi:type="tool:SetValue" featureName="sourceElement" valueExpression="aql:lineSemantic"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="targetElement" valueExpression="aql:columnSemantic"/>
-              </subModelOperations>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </create>
-      </intersection>
-    </ownedRepresentations>
+  <ownedViewpoints name="Operational Analysis" label="%oa" modelFileExtension="capella">    
     <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Operational Entity Breakdown" label="%oa.oebd" titleExpression="aql:'[OEBD] ' + self.name" domainClass="Namespace" preconditionExpression="aql:self.oclIsKindOf(oa::Entity) or self.oclIsKindOf(oa::EntityPkg)">
       <dropDescriptions href="#//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Breakdown']/@defaultLayer/@toolSections.0/@ownedTools[name='D%26D%20Constraints%20From%20Project%20Explorer']"/>
       <dropDescriptions href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
@@ -81,7 +19,6 @@
       <metamodel href="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/OperationalAnalysis.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/PhysicalArchitecture.ecore#/"/>
-      <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Requirement.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/SharedModel.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//communication"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//datatype"/>
@@ -298,7 +235,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -324,7 +260,6 @@
       <metamodel href="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/OperationalAnalysis.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/PhysicalArchitecture.ecore#/"/>
-      <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Requirement.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/SharedModel.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//communication"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//datatype"/>
@@ -559,7 +494,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.dndDFAbstractFunction(oldSemanticContainer,newSemanticContainer)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D OperationalActivity From Project Explorer" precondition="aql:element.oclIsKindOf(oa::OperationalActivity) and element.canBeDropped(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activity%20Interaction%20Blank']/@defaultLayer/@containerMappings[name='OAIB%20Operational%20Activity']" dragSource="PROJECT_EXPLORER" moveEdges="true">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D OperationalActivity From Project Explorer" precondition="aql:element.oclIsKindOf(oa::OperationalActivity) and element.canBeDropped(newViewContainer) and not element.isLibraryElementOf(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activity%20Interaction%20Blank']/@defaultLayer/@containerMappings[name='OAIB%20Operational%20Activity']" dragSource="PROJECT_EXPLORER" moveEdges="true">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -602,18 +537,6 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:arg0"/>
             </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:PopupMenu" name="operational.process.menu" label="%oa.oaib.operational.process.menu">
-            <menuItemDescription xsi:type="tool:OperationAction" name="operational.process" label="%oa.oaib.operational.process" precondition="aql:self.isValidFunctionalChainSelection(views)" forceRefresh="true">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.createFunctionalChain(views)">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(fa::FunctionalChain)">
-                    <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Activity%20Interaction%20Blank']/@defaultLayer/@nodeMappings[name='OAIB_OperationalProcessEnd']" containerViewExpression="aql:views->first().getDiagramContainer()"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
           </ownedTools>
         </toolSections>
         <toolSections name="Accelerators">
@@ -759,7 +682,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -799,7 +721,6 @@
       <metamodel href="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/OperationalAnalysis.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/PhysicalArchitecture.ecore#/"/>
-      <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Requirement.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/SharedModel.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//communication"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//datatype"/>
@@ -825,6 +746,26 @@
       </filters>
       <filters xsi:type="filter:CompositeFilterDescription" name="show.exchange.items.filter" label="%oa.oab.show.exchange.items.filter">
         <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@nodeMappings[name='OAB_Dummy']" semanticConditionExpression=""/>
+      </filters>
+      <filters xsi:type="filter:CompositeFilterDescription" name="show.exchange.items.parameters.filter" label="%oa.oab.show.exchange.items.parameters.filter">
+        <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE">
+          <mappings xsi:type="description_3:InstanceRoleMapping" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Component%20Exchanges%20Scenario']/@defaultLayer/@nodeMappings[name='hideSequenceLabelDF']"/>
+        </filters>
+      </filters>
+      <filters xsi:type="filter:CompositeFilterDescription" name="show.functional.exchanges.exchange.items.filter" label="%oa.oab.show.functional.exchanges.exchange.items.filter">
+        <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE">
+          <mappings xsi:type="description_3:InstanceRoleMapping" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Component%20Exchanges%20Scenario']/@defaultLayer/@nodeMappings[name='hideSequenceLabelDF']"/>
+        </filters>
+      </filters>
+      <filters xsi:type="filter:CompositeFilterDescription" name="show.functional.exchanges.parameters.filter" label="%oa.oab.show.functional.exchanges.parameters.filter">
+        <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE">
+          <mappings xsi:type="description_3:InstanceRoleMapping" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Component%20Exchanges%20Scenario']/@defaultLayer/@nodeMappings[name='hideSequenceLabelDF']"/>
+        </filters>
+      </filters>
+      <filters xsi:type="filter:CompositeFilterDescription" name="show.functional.exchanges.exchange.items.parameters.filter" label="%oa.oab.show.functional.exchanges.exchange.items.parameters.filter">
+        <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE">
+          <mappings xsi:type="description_3:InstanceRoleMapping" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Component%20Exchanges%20Scenario']/@defaultLayer/@nodeMappings[name='hideSequenceLabelDF']"/>
+        </filters>
       </filters>
       <filters xsi:type="filter:CompositeFilterDescription" name="show.exchange.items.on.component.exchanges.filter" label="%oa.oab.show.exchange.items.on.component.exchanges.filter">
         <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@nodeMappings[name='OAB_Dummy']" semanticConditionExpression=""/>
@@ -882,7 +823,7 @@
         </nodeMappings>
         <nodeMappings name="OAB_Dummy" semanticCandidatesExpression="ocl:Set {}" domainClass="EObject"/>
         <nodeMappings name="FC_ControlNode" semanticCandidatesExpression="aql:diagram.getAvailableControlNodes()" synchronizationLock="true" domainClass="ControlNode">
-          <deletionDescription href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Capella%20Architecture']/@defaultLayer/@toolSections.0/@ownedTools[name='no%20delete']"/>
+          <deletionDescription href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Functional%20Chain%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20FE%20Involvement']"/>
           <conditionnalStyles predicateExpression="aql:self.kind == fa::ControlNodeKind::AND">
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" resizeKind="NSEW" workspacePath="/org.polarsys.capella.core.sirius.analysis/description/images/ControlNode_And.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -925,7 +866,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="OAB_FC_SequenceLink" semanticCandidatesExpression="aql:diagram.getAvailableSequenceLinks()" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@containerMappings[name='OAB_Entity1']/@subNodeMappings[name='OAB_Activity'] //@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@nodeMappings[name='FC_ControlNode']" targetMapping="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@containerMappings[name='OAB_Entity1']/@subNodeMappings[name='OAB_Activity'] //@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@nodeMappings[name='FC_ControlNode']" targetFinderExpression="aql:self.getSequenceLinkTarget()" sourceFinderExpression="aql:self.getSequenceLinkSource()" domainClass="SequenceLink" useDomainElement="true">
-          <deletionDescription href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Capella%20Architecture']/@defaultLayer/@toolSections.0/@ownedTools[name='no%20delete']"/>
+          <deletionDescription href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Functional%20Chain%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20FE%20Involvement']"/>
           <style lineStyle="dash" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="service:getSequenceLinkLabel(diagram)">
@@ -1219,7 +1160,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.dndABComponent(newContainerView)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Entities From Project Explorer" precondition="aql:element.oclIsKindOf(oa::Entity) and element.partitionableElementCanBeDropped(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@containerMappings[name='OAB_Entity1']" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Entities From Project Explorer" precondition="aql:element.oclIsKindOf(oa::Entity) and element.partitionableElementCanBeDropped(newViewContainer) and not element.isLibraryElementOf(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@containerMappings[name='OAB_Entity1']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -1344,7 +1285,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Roles From Project Explorer" precondition="aql:element.oclIsKindOf(oa::Role)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@containerMappings[name='OAB_Entity1']/@subContainerMappings[name='OAB_subRoles']" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Roles From Project Explorer" precondition="aql:element.oclIsKindOf(oa::Role) and not element.isLibraryElementOf(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@containerMappings[name='OAB_Entity1']/@subContainerMappings[name='OAB_subRoles']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element">
@@ -1661,7 +1602,7 @@
               </initialOperation>
             </tools>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D OperationalActivities From Project Explorer" precondition="aql:element.oclIsKindOf(fa::AbstractFunction) and (element.subFunctions->size() = 0)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@containerMappings[name='OAB_Entity1']/@subNodeMappings[name='OAB_Activity']" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D OperationalActivities From Project Explorer" precondition="aql:element.oclIsKindOf(fa::AbstractFunction) and (element.subFunctions->size() = 0) and not element.isLibraryElementOf(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@containerMappings[name='OAB_Entity1']/@subNodeMappings[name='OAB_Activity']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element">
@@ -1684,7 +1625,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D OperationalActivities From Project Explorer To Role" precondition="aql:element.oclIsKindOf(fa::AbstractFunction) and (element.subFunctions->size() = 0)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@containerMappings[name='OAB_Entity1']/@subNodeMappings[name='OAB_Activity']" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D OperationalActivities From Project Explorer To Role" precondition="aql:element.oclIsKindOf(fa::AbstractFunction) and (element.subFunctions->size() = 0) and not element.isLibraryElementOf(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@containerMappings[name='OAB_Entity1']/@subNodeMappings[name='OAB_Activity']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element">
@@ -1703,18 +1644,6 @@
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:PopupMenu" name="operational.process.menu" label="%oa.oab.operational.process.menu">
-            <menuItemDescription xsi:type="tool:OperationAction" name="operational.process" label="%oa.oab.operational.process" precondition="aql:self.isValidFunctionalChainSelection(views)" forceRefresh="true">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.createFunctionalChain(views)">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(fa::FunctionalChain)">
-                    <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@nodeMappings[name='OAB_OperationalProcessEnd']" containerViewExpression="aql:views->first().getDiagramContainer()"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
           </ownedTools>
           <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="OAIB Reconnect Exchanges" precondition="aql:element.isFunctionalExchangeReconnectable(sourceView.getDiagramContainer(),source,target)" reconnectionKind="RECONNECT_BOTH">
             <source name="source"/>
@@ -1836,7 +1765,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -1872,7 +1800,6 @@
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCommon.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#/"/>
-      <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Requirement.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/OperationalAnalysis.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//communication"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//datatype"/>
@@ -2065,7 +1992,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -2234,7 +2160,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.void2Null(element)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Role From Project Explorer" precondition="aql:element.oclIsKindOf(oa::Role) and element.canBeDropped(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Role%20Blank']/@defaultLayer/@containerMappings[name='ORB_Role1']" dragSource="PROJECT_EXPLORER" moveEdges="true">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Role From Project Explorer" precondition="aql:element.oclIsKindOf(oa::Role) and element.canBeDropped(newViewContainer) and not element.isLibraryElementOf(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Role%20Blank']/@defaultLayer/@containerMappings[name='ORB_Role1']" dragSource="PROJECT_EXPLORER" moveEdges="true">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -2417,7 +2343,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D OperationalActivities From Project Explorer" precondition="aql:element.oclIsKindOf(fa::AbstractFunction) and (element.subFunctions->size() = 0)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Role%20Blank']/@defaultLayer/@containerMappings[name='ORB_Role1']/@subNodeMappings[name='ORB_OAAllocation']" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D OperationalActivities From Project Explorer" precondition="aql:element.oclIsKindOf(fa::AbstractFunction) and (element.subFunctions->size() = 0) and not element.isLibraryElementOf(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Role%20Blank']/@defaultLayer/@containerMappings[name='ORB_Role1']/@subNodeMappings[name='ORB_OAAllocation']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element">
@@ -2519,7 +2445,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -2769,6 +2694,7 @@
           </style>
         </edgeMappings>
         <containerMappings xsi:type="description_3:InteractionUseMapping" name="InteractionUse OA" semanticCandidatesExpression="aql:self.ownedTimeLapses->filter(interaction::InteractionUse)" semanticElements="aql:self.makeUnion(self, self.referencedScenario, self.referencedScenario.eContainerOrSelf(interaction::AbstractCapability))" domainClass="interaction.InteractionUse" startingEndFinderExpression="aql:self.start" finishingEndFinderExpression="aql:self.finish" coveredLifelinesExpression="aql:self.getCoveredFromAbstractFragment()" centerLabelExpression="aql:self.referencedScenario.name">
+          <navigationDescriptions xsi:type="tool_1:DiagramNavigationDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Capella%20Architecture']/@defaultLayer/@toolSections.0/@ownedTools[name='Existing%20Operational%20Entity%20Scenario%20Use']"/>
           <deletionDescription href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression=" ref" labelAlignment="LEFT">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -4195,7 +4121,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -4382,6 +4307,7 @@
           </style>
         </edgeMappings>
         <containerMappings xsi:type="description_3:InteractionUseMapping" name="InteractionUse AIS" semanticCandidatesExpression="aql:self.ownedTimeLapses->filter(interaction::InteractionUse)" semanticElements="aql:self.makeUnion(self, self.referencedScenario, self.referencedScenario.eContainerOrSelf(interaction::AbstractCapability))" domainClass="interaction.InteractionUse" startingEndFinderExpression="aql:self.start" finishingEndFinderExpression="aql:self.finish" coveredLifelinesExpression="aql:self.getCoveredFromAbstractFragment()" centerLabelExpression="aql:self.referencedScenario.name">
+          <navigationDescriptions xsi:type="tool_1:DiagramNavigationDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Capella%20Architecture']/@defaultLayer/@toolSections.0/@ownedTools[name='Existing%20Operational%20Activity%20Scenario%20Use']"/>
           <deletionDescription href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Contextual%20Component%20Detailed%20Interfaces']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20capella%20elements']"/>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression=" ref" labelAlignment="LEFT">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -5152,7 +5078,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -6045,7 +5970,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -6386,7 +6310,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Entities From Project Explorer" precondition="aql:element.oclIsKindOf(oa::Entity) and element.partitionableElementCanBeDropped(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Capabilities%20Blank']/@defaultLayer/@containerMappings[name='COC_OperationalEntities']" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Entities From Project Explorer" precondition="aql:element.oclIsKindOf(oa::Entity) and element.partitionableElementCanBeDropped(newViewContainer) and not element.isLibraryElementOf(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Capabilities%20Blank']/@defaultLayer/@containerMappings[name='COC_OperationalEntities']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -6395,7 +6319,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.void2Null(element)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Operational Capabilities From Project Explorer" precondition="aql:element.oclIsKindOf(oa::OperationalCapability) and element.canBeDropped(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Capabilities%20Blank']/@defaultLayer/@nodeMappings[name='COC_OperationalCapabilities']" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Operational Capabilities From Project Explorer" precondition="aql:element.oclIsKindOf(oa::OperationalCapability) and element.canBeDropped(newViewContainer) and not element.isLibraryElementOf(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Capabilities%20Blank']/@defaultLayer/@nodeMappings[name='COC_OperationalCapabilities']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -6485,67 +6409,10 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
       </defaultLayer>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Requirements - Operational Activities" preconditionExpression="aql:self.eContainerOrSelf(cs::BlockArchitecture).oclIsKindOf(oa::OperationalAnalysis)" domainClass="RequirementsPkg">
-      <ownedLineMappings name="Requirements" domainClass="NamedElement" semanticCandidatesExpression="aql:self" headerLabelExpression="aql:self.getRequirementElementLabel()">
-        <ownedSubLines name="Sub Requirements" reusedSubLines="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Requirements%20-%20Operational%20Activities']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements']" reusedInMappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Requirements%20-%20Operational%20Activities']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements%20Pkg'] //@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Requirements%20-%20Operational%20Activities']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements']" domainClass="NamedElement" semanticCandidatesExpression="aql:self.ownedRequirements" headerLabelExpression="aql:self.getRequirementElementLabel()">
-          <delete name="No delete" precondition="false">
-            <variables name="element" documentation="The currently edited element."/>
-            <variables name="root" documentation="The semantic element corresponding to the current table."/>
-          </delete>
-        </ownedSubLines>
-        <ownedSubLines name="Sub Requirements Pkg" reusedSubLines="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Requirements%20-%20Operational%20Activities']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements'] //@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Requirements%20-%20Operational%20Activities']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements%20Pkg']" reusedInMappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Requirements%20-%20Operational%20Activities']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements%20Pkg']" domainClass="NamedElement" semanticCandidatesExpression="feature:extended" headerLabelExpression="aql:self.getRequirementElementLabel()">
-          <delete name="No delete" precondition="false">
-            <variables name="element" documentation="The currently edited element."/>
-            <variables name="root" documentation="The semantic element corresponding to the current table."/>
-          </delete>
-        </ownedSubLines>
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedLineMappings>
-      <ownedColumnMappings name="Functions" headerLabelExpression="feature:name" domainClass="NamedElement" semanticCandidatesExpression="aql:self.getRFColumnCandidates()">
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedColumnMappings>
-      <intersection name="Trace Function" semanticElements="aql:self.makeUnion(self, self.eContainer())" lineMapping="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Requirements%20-%20Operational%20Activities']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements']" columnMapping="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Requirements%20-%20Operational%20Activities']/@ownedColumnMappings.0" labelExpression="aql:self.getRFLabel(lineSemantic,columnSemantic)" useDomainClass="true" columnFinderExpression="feature:sourceElement" lineFinderExpression="feature:targetElement" semanticCandidatesExpression="aql:self.getRFColumnCandidates().outgoingTraces->select(outgoingTrace | outgoingTrace.oclIsKindOf(requirement::RequirementsTrace))" domainClass="RequirementsTrace">
-        <directEdit>
-          <variables name="table" documentation="The current DTable."/>
-          <variables name="line" documentation="The DLine of the current DCell."/>
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic element of the table."/>
-          <firstModelOperation xsi:type="tool:If" conditionExpression="aql:arg0 = ''">
-            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.void2Null(element)">
-              <subModelOperations xsi:type="tool:RemoveElement"/>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </directEdit>
-        <create name="TR6" forceRefresh="true">
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic root element of the table."/>
-          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:columnSemantic">
-            <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0 = 'X' and lineSemantic.incomingTraces->select(incomingTrace | incomingTrace.sourceElement = columnSemantic)->size() = 0">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="RequirementsTrace" referenceName="ownedTraces">
-                <subModelOperations xsi:type="tool:SetValue" featureName="sourceElement" valueExpression="aql:columnSemantic"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="targetElement" valueExpression="aql:lineSemantic"/>
-              </subModelOperations>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </create>
-      </intersection>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:DiagramDescription" name="Contextual Operational Capability" label="%oa.coc" titleExpression="aql:'[COC] ' + self.name" domainClass="OperationalCapability">
       <dropDescriptions href="#//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Contextual%20Operational%20Capability']/@defaultLayer/@toolSections.0/@ownedTools[name='D%26D%20Entities%20From%20Project%20Explorer']"/>
@@ -6827,7 +6694,7 @@
             <containerVariable name="container"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Entities From Project Explorer" precondition="aql:element.oclIsKindOf(oa::Entity) and element.partitionableElementCanBeDropped(newViewContainer)" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Contextual%20Operational%20Capability']/@defaultLayer/@containerMappings[name='COC2_Entities']" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Entities From Project Explorer" precondition="aql:element.oclIsKindOf(oa::Entity) and element.partitionableElementCanBeDropped(newViewContainer) and not element.isLibraryElementOf(newViewContainer)" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Contextual%20Operational%20Capability']/@defaultLayer/@containerMappings[name='COC2_Entities']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -6836,7 +6703,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.void2Null(element)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Operational Capabilities From Project Explorer" precondition="aql:element.oclIsKindOf(oa::OperationalCapability) and element.canBeDropped(newViewContainer)" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Contextual%20Operational%20Capability']/@defaultLayer/@nodeMappings[name='COC2_OperationalCapabilities']" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Operational Capabilities From Project Explorer" precondition="aql:element.oclIsKindOf(oa::OperationalCapability) and element.canBeDropped(newViewContainer) and not element.isLibraryElementOf(newViewContainer)" mappings="//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Contextual%20Operational%20Capability']/@defaultLayer/@nodeMappings[name='COC2_OperationalCapabilities']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -6932,7 +6799,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -6946,7 +6812,6 @@
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sequencediag.ScenarioContraintsService"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.SequenceDiagramServices"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.FaServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.RequirementServices"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.CsServices"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.DiagramServices"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.DFServices"/>

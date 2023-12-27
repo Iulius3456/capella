@@ -2,23 +2,26 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.core.platform.eclipse.ui.trace;singleton:=true
-Bundle-Version: 6.0.0.qualifier
+Bundle-Version: 7.0.0.qualifier
 Bundle-Vendor: %providerName
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.polarsys.capella.common.ui.services,
  org.polarsys.capella.core.ui.toolkit,
  org.polarsys.capella.common.ui,
- org.polarsys.capella.core.ui.properties
+ org.polarsys.capella.core.ui.properties,
+ org.polarsys.capella.core.platform.eclipse.ui.trace,
+ org.polarsys.kitalpha.ad.services
 Bundle-ActivationPolicy: lazy
 Export-Package: org.polarsys.capella.core.platform.eclipse.capella.ui.trace,
  org.polarsys.capella.core.platform.eclipse.capella.ui.trace.commands,
+ org.polarsys.capella.core.platform.eclipse.capella.ui.trace.extension,
  org.polarsys.capella.core.platform.eclipse.capella.ui.trace.icons,
  org.polarsys.capella.core.platform.eclipse.capella.ui.trace.messages,
  org.polarsys.capella.core.platform.eclipse.capella.ui.trace.views,
  org.polarsys.capella.core.platform.eclipse.capella.ui.trace.views.components,
  org.polarsys.capella.core.platform.eclipse.capella.ui.trace.views.providers
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Activator: org.polarsys.capella.core.platform.eclipse.capella.ui.trace.MDTrace
 Bundle-Localization: plugin
 

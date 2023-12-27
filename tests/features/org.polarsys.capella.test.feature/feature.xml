@@ -14,7 +14,7 @@
 <feature
       id="org.polarsys.capella.test.feature"
       label="%featureName"
-      version="6.0.0.qualifier"
+      version="7.0.0.qualifier"
       provider-name="%providerName">
 
    <description>
@@ -119,6 +119,12 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+   <plugin
+         id="org.polarsys.capella.test.library.ui.ju"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
    <plugin
          id="org.polarsys.capella.test.explorer.activity.ju"
@@ -141,6 +147,12 @@
          version="0.0.0"
          unpack="false"/>
 
+   <plugin
+         id="org.polarsys.capella.test.semantic.ui.ju"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
    <plugin
          id="org.polarsys.capella.test.semantic.queries.ju"
          download-size="0"

@@ -17,7 +17,7 @@
 	  <parent>
 	    <groupId>org.polarsys</groupId>
 	    <artifactId>org.polarsys.capella</artifactId>
-	    <version>6.0.0-SNAPSHOT</version>
+	    <version>7.0.0-SNAPSHOT</version>
 	    <relativePath>../../../</relativePath>
 	  </parent>
 	  <properties>
@@ -26,7 +26,7 @@
 
   <groupId>org.polarsys</groupId>
   <artifactId>org.polarsys.capella.rcp.product</artifactId>
-  <version>6.0.0-SNAPSHOT</version>
+  <version>7.0.0-SNAPSHOT</version>
   <packaging>eclipse-repository</packaging>
 	<build>
 		<plugins>
@@ -69,7 +69,9 @@
 								<target>
 									<!-- Create the dropins folder -->
 									<mkdir dir="${project.build.directory}/products/org.polarsys.capella.rcp.product/linux/gtk/x86_64/dropins"/>
+									<mkdir dir="${project.build.directory}/products/org.polarsys.capella.rcp.product/linux/gtk/aarch64/dropins"/>
 									<mkdir dir="${project.build.directory}/products/org.polarsys.capella.rcp.product/macosx/cocoa/x86_64/Capella.app/Contents/Eclipse/dropins"/>
+									<mkdir dir="${project.build.directory}/products/org.polarsys.capella.rcp.product/macosx/cocoa/aarch64/Capella.app/Contents/Eclipse/dropins"/>
 									<mkdir dir="${project.build.directory}/products/org.polarsys.capella.rcp.product/win32/win32/x86_64/dropins"/>
 								</target>
 							</configuration>
@@ -84,8 +86,37 @@
 								<!-- Create the Capella .zip with 2 folders (capella + samples) -->
 								<target>								
 									
+									<!-- Modify config.ini -->
+									<replace dir="${project.build.directory}/products/org.polarsys.capella.rcp.product/linux/gtk/x86_64/configuration">
+										<include name="config.ini"/>
+										<replacefilter token="eclipse.application=org.polarsys.capella.core.platform.sirius.ui.perspective.id" value="eclipse.application=org.polarsys.capella.core.platform.sirius.ui.perspective.id${line.separator}org.eclipse.update.reconcile=false"/>
+									</replace>
+									<replace dir="${project.build.directory}/products/org.polarsys.capella.rcp.product/linux/gtk/aarch64/configuration">
+										<include name="config.ini"/>
+										<replacefilter token="eclipse.application=org.polarsys.capella.core.platform.sirius.ui.perspective.id" value="eclipse.application=org.polarsys.capella.core.platform.sirius.ui.perspective.id${line.separator}org.eclipse.update.reconcile=false"/>
+									</replace>
+									<replace dir="${project.build.directory}/products/org.polarsys.capella.rcp.product/macosx/cocoa/x86_64/Capella.app/Contents/Eclipse/configuration">
+										<include name="config.ini"/>
+										<replacefilter token="eclipse.application=org.polarsys.capella.core.platform.sirius.ui.perspective.id" value="eclipse.application=org.polarsys.capella.core.platform.sirius.ui.perspective.id${line.separator}org.eclipse.update.reconcile=false"/>
+									</replace>
+									<replace dir="${project.build.directory}/products/org.polarsys.capella.rcp.product/macosx/cocoa/aarch64/Capella.app/Contents/Eclipse/configuration">
+										<include name="config.ini"/>
+										<replacefilter token="eclipse.application=org.polarsys.capella.core.platform.sirius.ui.perspective.id" value="eclipse.application=org.polarsys.capella.core.platform.sirius.ui.perspective.id${line.separator}org.eclipse.update.reconcile=false"/>
+									</replace>
+									<replace dir="${project.build.directory}/products/org.polarsys.capella.rcp.product/win32/win32/x86_64/configuration">
+										<include name="config.ini"/>
+										<replacefilter token="eclipse.application=org.polarsys.capella.core.platform.sirius.ui.perspective.id" value="eclipse.application=org.polarsys.capella.core.platform.sirius.ui.perspective.id${line.separator}org.eclipse.update.reconcile=false"/>
+									</replace>
+									
+									<!-- Copy logback.xml into configuration folder -->
+									<copy file="logback.xml" tofile="${project.build.directory}/products/org.polarsys.capella.rcp.product/linux/gtk/x86_64/configuration/logback.xml" ></copy>
+									<copy file="logback.xml" tofile="${project.build.directory}/products/org.polarsys.capella.rcp.product/linux/gtk/aarch64/configuration/logback.xml" ></copy>
+									<copy file="logback.xml" tofile="${project.build.directory}/products/org.polarsys.capella.rcp.product/macosx/cocoa/x86_64/Capella.app/Contents/Eclipse/configuration/logback.xml" ></copy>
+									<copy file="logback.xml" tofile="${project.build.directory}/products/org.polarsys.capella.rcp.product/macosx/cocoa/aarch64/Capella.app/Contents/Eclipse/configuration/logback.xml" ></copy>
+									<copy file="logback.xml" tofile="${project.build.directory}/products/org.polarsys.capella.rcp.product/win32/win32/x86_64/configuration/logback.xml" ></copy>
+									
 									<!--  Move the Linux JRE into the product -->
-									<move todir="${project.build.directory}/products/org.polarsys.capella.rcp.product/linux/gtk/x86_64/jre" includeEmptyDirs="yes" verbose="true">
+									<move todir="${project.build.directory}/products/org.polarsys.capella.rcp.product/linux/gtk/x86_64/jre" includeEmptyDirs="yes">
 										<fileset dir="../../../linuxJRE/jre">
 											<include name="**/*" />
 										</fileset>
@@ -110,8 +141,34 @@
 										</tarfileset>
 									</tar>
 									
-									<!--  Move the Mac JRE into the product -->
-									<move todir="${project.build.directory}/products/org.polarsys.capella.rcp.product/macosx/cocoa/x86_64/Capella.app/Contents/jre" includeEmptyDirs="yes" verbose="true">
+									<!--  Move the Linux aarch64 JRE into the product -->
+									<move todir="${project.build.directory}/products/org.polarsys.capella.rcp.product/linux/gtk/aarch64/jre" includeEmptyDirs="yes">
+										<fileset dir="../../../linux-aarch64JRE/jre">
+											<include name="**/*" />
+										</fileset>
+									</move>
+									
+									<!-- Tar.gz the Linux product -->
+									<tar destfile="${project.build.directory}/products/capella-${unqualifiedVersion}.${buildQualifier}-linux-gtk-aarch64.tar.gz" compression="gzip" longfile="gnu">
+										<tarfileset dir="${project.build.directory}/products/org.polarsys.capella.rcp.product/linux/gtk/aarch64" prefix="capella">
+											<include name="**/*" />
+											<exclude name="capella"/>
+											<exclude name="jre/bin/*"/>
+											<exclude name="jre/lib/jspawnhelper"/>
+										</tarfileset>
+										<tarfileset dir="${project.build.directory}/products/org.polarsys.capella.rcp.product/linux/gtk/aarch64" prefix="capella" filemode="755">
+											<include name="capella"/>
+											<include name="jre/bin/*"/>
+											<include name="jre/lib/jspawnhelper"/>
+										</tarfileset>
+										<tarfileset dir="../../../samples" prefix="samples">
+											<exclude name="target/**"/>
+											<exclude name="pom.xml"/>
+										</tarfileset>
+									</tar>
+									
+									<!--  Move the Mac x86_64 JRE into the product -->
+									<move todir="${project.build.directory}/products/org.polarsys.capella.rcp.product/macosx/cocoa/x86_64/Capella.app/Contents/jre" includeEmptyDirs="yes">
 										<fileset dir="../../../macJRE/jre">
 											<include name="**/*" />
 										</fileset>
@@ -129,19 +186,41 @@
 											<include name="Capella.app/Contents/MacOS/capella"/>
 											<include name="Capella.app/Contents/jre/Contents/Home/bin/*"/>
 											<include name="Capella.app/Contents/jre/Contents/Home/lib/jspawnhelper"/>
-										</tarfileset><tarfileset dir="../../../samples" prefix="Capella.app/Contents/samples">
+										</tarfileset>
+										<tarfileset dir="../../../samples" prefix="Capella.app/Contents/samples">
 											<exclude name="target/**"/>
 											<exclude name="pom.xml"/>
 										</tarfileset>
 									</tar>
-																		
 									
-									<!--  Rename the product exe -->
-									<move file="${project.build.directory}/products/org.polarsys.capella.rcp.product/win32/win32/x86_64/eclipsec.exe" 
-										  tofile="${project.build.directory}/products/org.polarsys.capella.rcp.product/win32/win32/x86_64/capellac.exe"/>
-										  
+									<!--  Move the Mac arch64 JRE into the product -->
+									<move todir="${project.build.directory}/products/org.polarsys.capella.rcp.product/macosx/cocoa/aarch64/Capella.app/Contents/jre" includeEmptyDirs="yes">
+										<fileset dir="../../../mac-aarch64JRE/jre">
+											<include name="**/*" />
+										</fileset>
+									</move>
+									
+									<!-- Tar.gz the Mac product -->
+									<tar destfile="${project.build.directory}/products/capella-${unqualifiedVersion}.${buildQualifier}-macosx-cocoa-aarch64.tar.gz" compression="gzip" longfile="gnu">
+										<tarfileset dir="${project.build.directory}/products/org.polarsys.capella.rcp.product/macosx/cocoa/aarch64">
+											<include name="**/*" />
+											<exclude name="Capella.app/Contents/MacOS/capella"/>
+											<exclude name="Capella.app/Contents/jre/Contents/Home/bin/*"/>
+											<exclude name="Capella.app/Contents/jre/Contents/Home/lib/jspawnhelper"/>
+										</tarfileset>
+										<tarfileset dir="${project.build.directory}/products/org.polarsys.capella.rcp.product/macosx/cocoa/aarch64" filemode="755">
+											<include name="Capella.app/Contents/MacOS/capella"/>
+											<include name="Capella.app/Contents/jre/Contents/Home/bin/*"/>
+											<include name="Capella.app/Contents/jre/Contents/Home/lib/jspawnhelper"/>
+										</tarfileset>
+										<tarfileset dir="../../../samples" prefix="Capella.app/Contents/samples">
+											<exclude name="target/**"/>
+											<exclude name="pom.xml"/>
+										</tarfileset>
+									</tar>
+									
 									<!--  Move the Windows JRE into the product -->
-									<move todir="${project.build.directory}/products/org.polarsys.capella.rcp.product/win32/win32/x86_64/jre" includeEmptyDirs="yes" verbose="true">
+									<move todir="${project.build.directory}/products/org.polarsys.capella.rcp.product/win32/win32/x86_64/jre" includeEmptyDirs="yes">
 										<fileset dir="../../../winJRE/jre">
 											<include name="**/*" />
 										</fileset>

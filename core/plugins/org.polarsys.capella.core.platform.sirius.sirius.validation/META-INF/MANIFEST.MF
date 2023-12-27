@@ -2,15 +2,23 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.core.platform.sirius.sirius.validation;singleton:=true
-Bundle-Version: 6.0.0.qualifier
+Bundle-Version: 7.0.0.qualifier
 Bundle-Vendor: %providerName
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.polarsys.capella.core.validation,
  org.eclipse.sirius,
  org.polarsys.capella.core.validation.ui.ide,
  org.polarsys.capella.shared.id.handler,
  org.eclipse.sirius.diagram,
- org.eclipse.sirius.diagram.ui
-Export-Package: org.polarsys.capella.core.platform.sirius.sirius.validation.ddiagram
+ org.eclipse.sirius.diagram.ui,
+ org.polarsys.capella.common.re,
+ org.polarsys.capella.core.diagram.helpers;bundle-version="7.0.0",
+ org.polarsys.kitalpha.richtext.widget.ext,
+ org.polarsys.kitalpha.richtext.widget.tools,
+ org.apache.commons.lang,
+ org.eclipse.sirius.ext.base,
+ org.eclipse.emf.common
+Export-Package: org.polarsys.capella.core.platform.sirius.sirius.validation.ddiagram,
+ org.polarsys.capella.core.platform.sirius.sirius.validation.parser.helper
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin

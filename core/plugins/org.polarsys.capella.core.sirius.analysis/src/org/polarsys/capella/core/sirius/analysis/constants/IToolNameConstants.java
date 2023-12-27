@@ -94,12 +94,6 @@ public interface IToolNameConstants {
   //
   // Tools that are available to multiple types of diagrams
   //
-  String TOOL_COMMON_SELECT_SAME_TYPE = "select.elements.of.same.type";
-  String TOOL_COMMON_SELECT_SAME_MAPPING = "select.resembling.elements";
-  String TOOL_COMMON_SELECT_OWNED_PORTS = "select.owned.ports";
-  String TOOL_COMMON_SELECT_OWNED_ELEMENTS = "select.owned.elements";
-  String TOOL_COMMON_SELECT_RELATED_EDGES = "select.related.connections";
-
   String TOOL_COMMON_ELEMENTS_FROM_SCENARIO = "elements.from.scenario";
   String TOOL_COOMON_FUNCTIONS_FROM_MODE_STATE = "functions.from.mode.state";
 
@@ -1582,19 +1576,10 @@ public interface IToolNameConstants {
   // 1. Create a cell value with "X" and delete the cell value -- which is an
   // empty string ""
 
-  // FIXME -- IDiagramNameConstants.REQUIREMENTS_DIAGRAM_NAME required
-  String REQUIREMENTS_DIAGRAM_NAME = "Requirements";
   String INTERFACES_SCENARIOS_DIAGRAM_NAME = "Interfaces - Scenarios";
 
   String TABLE_TOOL_CREATE_CELL_VALUE = "X";
   String TABLE_TOOL_DELETE_CELL_VALUE = ICommonConstants.EMPTY_STRING;
-
-  String TABLE_TOOL_REQ_REQ_PKG = "Requirement Pkg";
-  String TABLE_TOOL_REQ_SUR = "System User Requirement";
-  String TABLE_TOOL_REQ_SFR = "System Functional Requirement";
-  String TABLE_TOOL_REQ_SFIR = "System Functional Interface Requirement";
-  String TABLE_TOOL_REQ_SNFR = "System Non Functional Requirement";
-  String TABLE_TOOL_REQ_SNFIR = "System Non Functional Interface Requirement";
 
   /**
    * Tool on IS, ES diagrams to create multiple instance roles for identical represented

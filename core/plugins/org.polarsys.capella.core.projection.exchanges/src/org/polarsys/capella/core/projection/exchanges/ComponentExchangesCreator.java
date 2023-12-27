@@ -12,6 +12,7 @@
  *******************************************************************************/
 package org.polarsys.capella.core.projection.exchanges;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
@@ -20,6 +21,7 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.polarsys.capella.common.data.modellingcore.InformationsExchanger;
 import org.polarsys.capella.common.data.modellingcore.TraceableElement;
 import org.polarsys.capella.common.platform.sirius.ted.SemanticEditingDomainFactory.SemanticEditingDomain;
+import org.polarsys.capella.common.tools.report.EmbeddedMessage;
 import org.polarsys.capella.core.data.cs.Component;
 import org.polarsys.capella.core.data.cs.CsFactory;
 import org.polarsys.capella.core.data.cs.Part;
@@ -43,6 +45,7 @@ public class ComponentExchangesCreator extends DefaultExchangesCreator {
 
   /**
    * Constructor
+   * 
    * @param component_p
    */
   public ComponentExchangesCreator(Component component_p, Part part_p) {
@@ -51,6 +54,7 @@ public class ComponentExchangesCreator extends DefaultExchangesCreator {
 
   /**
    * This implementation creates physical links.
+   * 
    * @see org.polarsys.capella.core.projection.commands.utils.DefaultExchangesCreator#createExchanges()
    */
   @Override
@@ -71,16 +75,21 @@ public class ComponentExchangesCreator extends DefaultExchangesCreator {
 
   /**
    * Create a physical link corresponding to the given component exchange, between the given components
-   * @param componentExchange_p the source component exchange
-   * @param exchangeOutput_p the output component
-   * @param exchangeInput_p the input component
+   * 
+   * @param componentExchange_p
+   *          the source component exchange
+   * @param exchangeOutput_p
+   *          the output component
+   * @param exchangeInput_p
+   *          the input component
    */
-  protected void doCreatePhysicalLink(ComponentExchange componentExchange_p, Component exchangeOutput_p, Component exchangeInput_p) {
+  protected PhysicalLink doCreatePhysicalLink(ComponentExchange componentExchange_p, Component exchangeOutput_p,
+      Component exchangeInput_p) {
     // Precondition:
     if (exchangeOutput_p == exchangeInput_p) {
       // Not necessary to create a physical link for exchanges inside the
       // same container.
-      return;
+      return null;
     }
     PhysicalLink physicalLink = CsFactory.eINSTANCE.createPhysicalLink(componentExchange_p.getLabel());
     PhysicalPort outP = CsFactory.eINSTANCE.createPhysicalPort(componentExchange_p.getSource().getLabel());
@@ -110,7 +119,12 @@ public class ComponentExchangesCreator extends DefaultExchangesCreator {
     // target side Delegation
     InformationsExchanger source = componentExchange_p.getSource();
     createComponentPortAllocation(source, outP);
-
+    String message = "The Physical link " + physicalLink.getName() + " has been succefully created between the source "
+        + exchangeOutput_p.getLabel() + " and the target " + exchangeInput_p.getLabel();
+    EmbeddedMessage eMessage = new EmbeddedMessage(message, logger.getName(),
+        Arrays.asList(physicalLink, exchangeOutput_p, exchangeInput_p));
+    logger.info(eMessage);
+    return physicalLink;
   }
 
   /**
@@ -118,7 +132,8 @@ public class ComponentExchangesCreator extends DefaultExchangesCreator {
    * @param physicalPort_p
    * @param connection_p
    */
-  private ComponentPortAllocation createComponentPortAllocation(InformationsExchanger informationExchange_p, PhysicalPort physicalPort_p) {
+  private ComponentPortAllocation createComponentPortAllocation(InformationsExchanger informationExchange_p,
+      PhysicalPort physicalPort_p) {
     ComponentPortAllocation allocation = FaFactory.eINSTANCE.createComponentPortAllocation();
     allocation.setSourceElement(physicalPort_p);
     allocation.setTargetElement((TraceableElement) informationExchange_p);
@@ -128,15 +143,21 @@ public class ComponentExchangesCreator extends DefaultExchangesCreator {
   }
 
   /**
-   * This method allows to know if the given component exchange has already been allocated to a physical link linked to the given physical component.
-   * @param physicalComponent_p the physical component
-   * @param componentExchange_p the component exchange
+   * This method allows to know if the given component exchange has already been allocated to a physical link linked to
+   * the given physical component.
+   * 
+   * @param physicalComponent_p
+   *          the physical component
+   * @param componentExchange_p
+   *          the component exchange
    * @return true if its has already been allocated, false otherwise
    */
-  protected boolean doesNodeAlreadyHaveAPhysicalLinkForComponentExchange(Component physicalComponent_p, ComponentExchange componentExchange_p) {
+  protected boolean doesNodeAlreadyHaveAPhysicalLinkForComponentExchange(Component physicalComponent_p,
+      ComponentExchange componentExchange_p) {
     boolean result = false;
     // Get the semantic editing domain to access the cross referencer.
-    SemanticEditingDomain editingDomain = (SemanticEditingDomain) AdapterFactoryEditingDomain.getEditingDomainFor(componentExchange_p);
+    SemanticEditingDomain editingDomain = (SemanticEditingDomain) AdapterFactoryEditingDomain
+        .getEditingDomainFor(componentExchange_p);
     // Get the cross referencer.
     ECrossReferenceAdapter crossReferencer = editingDomain.getCrossReferencer();
     // Search inverses relations on given component exchange.

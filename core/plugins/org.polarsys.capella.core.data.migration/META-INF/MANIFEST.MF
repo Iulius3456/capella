@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.core.data.migration;singleton:=true
-Bundle-Version: 6.0.0.qualifier
+Bundle-Version: 7.0.0.qualifier
 Bundle-Activator: org.polarsys.capella.core.data.migration.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -33,10 +33,11 @@ Require-Bundle: org.eclipse.ui,
  org.polarsys.capella.core.platform.sirius.clipboard,
  org.eclipse.emf.ecore,
  org.polarsys.capella.core.sirius.ui,
- org.eclipse.sirius.ext.emf.edit
+ org.eclipse.sirius.ext.emf.edit,
+ org.eclipse.sirius.ext.base
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.polarsys.capella.core.data.migration,
  org.polarsys.capella.core.data.migration.af,
  org.polarsys.capella.core.data.migration.aird,

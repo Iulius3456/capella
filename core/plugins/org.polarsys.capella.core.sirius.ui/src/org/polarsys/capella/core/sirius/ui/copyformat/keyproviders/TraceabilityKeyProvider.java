@@ -12,7 +12,7 @@
  *******************************************************************************/
 package org.polarsys.capella.core.sirius.ui.copyformat.keyproviders;
 
-import static org.polarsys.capella.core.data.helpers.cache.ModelCache.getCache;
+import static org.polarsys.capella.common.helpers.cache.ModelCache.getCache;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -60,18 +60,21 @@ public class TraceabilityKeyProvider implements IKeyProvider {
       if (semantic instanceof TraceableElement) {
         TraceableElement sourceOfTrace = (TraceableElement) semantic;
 
+        // Allows copy paste between an element and it's lower element (e.g. Copy System and paste to Logical layer)
         for (AbstractTrace trace : sourceOfTrace.getOutgoingTraces()) {
-          if (isValidTrace(trace)) {
+          if (isRealizationLink(trace)) {
             keys.add(new CapellaTraceabilityFormatDataKey(mKey, trace.getTargetElement()));
           }
         }
       }
-      
+
       if (semantic instanceof Part) {
+        // Allows copy paste between a Part and its component (e.g. xAB and xBD)
         keys.add(new CapellaTraceabilityFormatDataKey(mKey, ((Part) semantic).getAbstractType()));
 
+        // Allows copy paste between a Part and other Parts of the same component (multipart)
         for (AbstractTrace trace : ((TraceableElement) (((Part) semantic).getAbstractType())).getOutgoingTraces()) {
-          if (isValidTrace(trace)) {
+          if (isRealizationLink(trace)) {
             keys.add(new CapellaTraceabilityFormatDataKey(mKey, trace.getTargetElement()));
             for (Part part : getCache(ComponentExt::getRepresentingParts, (Component) trace.getTargetElement())) {
               keys.add(new CapellaTraceabilityFormatDataKey(mKey, part));
@@ -86,10 +89,9 @@ public class TraceabilityKeyProvider implements IKeyProvider {
   }
 
   /**
-   * @param trace
-   * @return
+   * Returns whether the trace is a realization link between two architectures level
    */
-  private boolean isValidTrace(AbstractTrace trace) {
+  private boolean isRealizationLink(AbstractTrace trace) {
     if ((trace.getSourceElement() == null) || (trace.getTargetElement() == null)) {
       return false;
     }

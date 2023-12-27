@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.polarsys.capella.test.framework.api.BasicTestArtefact;
 import org.polarsys.capella.test.framework.api.BasicTestSuite;
+import org.polarsys.capella.test.libraries.ui.ju.testsuites.main.LibrariesUITestSuite;
 import org.polarsys.capella.test.libraries.ju.testsuites.main.LibrariesTestSuite;
 import org.polarsys.capella.test.re.updateconnections.ju.UpdateConnectionsTestSuite;
 import org.polarsys.capella.test.recrpl.ju.testsuites.main.RecRplTestSuite;
@@ -39,6 +40,7 @@ public class RunInUIStep3TestSuite extends BasicTestSuite {
   protected List<BasicTestArtefact> getTests() {
     List<BasicTestArtefact> tests = new ArrayList<BasicTestArtefact>();
     tests.add(new LibrariesTestSuite());
+    tests.add(new LibrariesUITestSuite());
     tests.add(new RecRplTestSuite());
     tests.add(new UpdateConnectionsTestSuite());
     return tests;

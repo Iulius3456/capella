@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2020 THALES GLOBAL SERVICES.
+ * Copyright (c) 2006, 2023 THALES GLOBAL SERVICES.
  * 
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -100,6 +100,7 @@ public abstract class AbstractExportDialog extends AbstractViewerDialog {
     //
     FileDialog fd = new FileDialog(getParentShell(), SWT.SAVE);
     fd.setText(Messages.fileBrowserDialogTitle);
+    fd.setFileName(getDefaultFileName());
     fd.setFilterExtensions(dataExporter.getSupportedExtension());
     fd.setFilterNames(dataExporter.getSupportedDescription());
 
@@ -108,6 +109,18 @@ public abstract class AbstractExportDialog extends AbstractViewerDialog {
     //
     String fileName = fd.open();
 
+    
+    int filterIndex = fd.getFilterIndex();
+    if (filterIndex != -1 && (fileName != null)) {
+      // If a filter was selected and file section was not canceled
+      String selectedFilter = fd.getFilterExtensions()[filterIndex];
+      String fileExtension = selectedFilter.substring(1);
+      if (!fileName.endsWith(fileExtension)) {
+        // If the filename doesn't already have the extension, append it
+        fileName = fileName + fileExtension;
+      }
+    }
+    
     //
     // The export operation itself
     //
@@ -198,5 +211,9 @@ public abstract class AbstractExportDialog extends AbstractViewerDialog {
    */
   protected Viewer getViewer() {
     return _viewer;
+  }
+  
+  protected String getDefaultFileName() {
+    return "";//$NON-NLS-1$
   }
 }

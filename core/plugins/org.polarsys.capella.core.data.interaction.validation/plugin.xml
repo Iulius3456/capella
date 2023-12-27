@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <!--
-  Copyright (c) 2006, 2020 THALES GLOBAL SERVICES.
+  Copyright (c) 2006, 2022 THALES GLOBAL SERVICES.
   
   This program and the accompanying materials are made available under the
   terms of the Eclipse Public License 2.0 which is available at
@@ -15,7 +15,7 @@
 <plugin>
    <extension point="org.eclipse.emf.validation.constraintProviders">
       <constraintProvider>
-         <package namespaceUri="http://www.polarsys.org/capella/core/interaction/6.0.0">
+         <package namespaceUri="http://www.polarsys.org/capella/core/interaction/7.0.0">
          </package>
          <constraints categories="capella.category/design/well-formedness/scenarios">
             <constraint class="org.polarsys.capella.core.data.interaction.validation.interactionUse.MDCHK_InteractionUse_ReferencedScenario_1" id="DWF_DS_01" isEnabledByDefault="true" lang="Java" mode="Batch" name="DWF_DS_01 - InteractionUse referenced scenario check" severity="WARNING" statusCode="1">
@@ -274,6 +274,25 @@ Whatever the level, UNSET Scenarios raise an error.
                </target>
                <description>
                   This rule checks that the Instance Role has the same name as its Represented Instance.
+               </description>
+            </constraint>
+            <constraint
+                  class="org.polarsys.capella.core.data.interaction.validation.sequenceMessage.SequenceMessageInvokedOperationExchangeItems"
+                  id="DCOM_24"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="DCOM_24 - Sequence Message conveys no Exchange Item compared to its Invoked Operation"
+                  severity="WARNING"
+                  statusCode="1">
+               <message>
+                  {0} (SequenceMessage) conveys no Exchange Item compared to its Invoked {1} ({2})
+               </message>
+               <target
+                     class="SequenceMessage">
+               </target>
+               <description>
+                  This rule generates a warning if a Sequence Message has no Exchange Item while its Invoked Operation has some.
                </description>
             </constraint>
          </constraints>

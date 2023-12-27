@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016, 2020 THALES GLOBAL SERVICES.
+ * Copyright (c) 2016, 2023 THALES GLOBAL SERVICES.
  * 
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -12,17 +12,52 @@
  *******************************************************************************/
 package org.polarsys.capella.test.diagram.common.ju.context;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.expressions.EvaluationContext;
+import org.eclipse.core.expressions.IEvaluationContext;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DDiagramElementContainer;
 import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.DNodeListElement;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.description.DAnnotation;
+import org.eclipse.ui.ISources;
+import org.eclipse.ui.PlatformUI;
+import org.polarsys.capella.common.re.CatalogElement;
+import org.polarsys.capella.common.re.ui.menu.RecDynamicMenu;
+import org.polarsys.capella.common.re.ui.menu.RplDynamicMenu;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
+import org.polarsys.capella.core.platform.sirius.ui.navigator.actions.ShowInDiagramAction;
+import org.polarsys.capella.core.sirius.analysis.DiagramServices;
 import org.polarsys.capella.core.sirius.analysis.constants.IDNDToolNameConstants;
 import org.polarsys.capella.core.sirius.analysis.constants.IToolNameConstants;
+import org.polarsys.capella.core.sirius.ui.handlers.AbstractSelectInEditorCommandHandler;
+import org.polarsys.capella.core.sirius.ui.handlers.SelectElementsOfSameTypeCommandHandler;
+import org.polarsys.capella.core.sirius.ui.handlers.SelectOwnedElementsCommandHandler;
+import org.polarsys.capella.core.sirius.ui.handlers.SelectOwnedPortsCommandHandler;
+import org.polarsys.capella.core.sirius.ui.handlers.SelectRelatedConnectionsCommandHandler;
+import org.polarsys.capella.core.sirius.ui.handlers.SelectRelatedFCElementsCommandHandler;
+import org.polarsys.capella.core.sirius.ui.handlers.SelectRelatedPPElementsCommandHandler;
+import org.polarsys.capella.core.sirius.ui.handlers.SelectResemblingElementsCommandHandler;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.CreateAbstractDNodeTool;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.CreateContainerTool;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.CreateDEdgeTool;
@@ -30,7 +65,6 @@ import org.polarsys.capella.test.diagram.common.ju.step.tools.DeleteElementTool;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.DragAndDropFromProjectExplorerTool;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.DragAndDropTool;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.InsertRemoveTool;
-import org.polarsys.capella.test.diagram.common.ju.step.tools.SelectTool;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.titleblocks.CreateDiagramTitleBlockTool;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.titleblocks.CreateElementTitleBlockTool;
 import org.polarsys.capella.test.diagram.common.ju.step.tools.titleblocks.InsertColumnInTitleBlockTool;
@@ -135,7 +169,7 @@ public class CommonDiagram extends DiagramContext {
   public void deleteAllSemantic() {
     new DeleteElementTool(this).deleteAll();
   }
-  
+
   public void createConstrainedElement(String sourceId, String targetId) {
     // All diagrams shared the same tool
     String name = IToolNameConstants.TOOL_CC_CREATE_CONSTRAINTELEMENT;
@@ -166,24 +200,242 @@ public class CommonDiagram extends DiagramContext {
     new InsertRemoveTool(this, IToolNameConstants.TOOL_INSERT_REMOVE_PVG, containerId).remove(id);
   }
 
-  public void selectSameType(String id) {
-    new SelectTool(this, IToolNameConstants.TOOL_COMMON_SELECT_SAME_TYPE).ensurePrecondition(true).select(id);
+  public void selectSameType(String initialElement) {
+    DSemanticDecorator decorator = getView(initialElement);
+    EditPart correspondingEditPart = DiagramServices.getDiagramServices().getEditPart((DDiagramElement) decorator);
+    ExecutionEvent event = createExecutionEvent(correspondingEditPart);
+
+    SelectElementsOfSameTypeCommandHandler handler = new SelectElementsOfSameTypeCommandHandler() {
+      @Override
+      protected IStructuredSelection getSelection() {
+        StructuredSelection selection = new StructuredSelection(correspondingEditPart);
+        return selection;
+      }
+    };
+    assertSelectionWorked(event, handler);
   }
 
-  public void selectSameMapping(String id) {
-    new SelectTool(this, IToolNameConstants.TOOL_COMMON_SELECT_SAME_MAPPING).ensurePrecondition(true).select(id);
+  public void selectSameMapping(String initialElement) {
+    DSemanticDecorator decorator = getView(initialElement);
+    EditPart correspondingEditPart = DiagramServices.getDiagramServices().getEditPart((DDiagramElement) decorator);
+
+    ExecutionEvent event = createExecutionEvent(correspondingEditPart);
+
+    SelectResemblingElementsCommandHandler handler = new SelectResemblingElementsCommandHandler() {
+      @Override
+      protected IStructuredSelection getSelection() {
+        StructuredSelection selection = new StructuredSelection(correspondingEditPart);
+        return selection;
+      }
+    };
+    assertSelectionWorked(event, handler);
   }
 
-  public void selectOwnedPorts(String id) {
-    new SelectTool(this, IToolNameConstants.TOOL_COMMON_SELECT_OWNED_PORTS).ensurePrecondition(true).select(id);
+  public void selectRelatedRecs(String initialElement, String... expectedSelection) {
+
+    // Get edit part from initial selected Semantic element
+    DSemanticDecorator decorator = getView(initialElement);
+    EditPart editPart = DiagramServices.getDiagramServices().getEditPart((DDiagramElement) decorator);
+
+    // Collect available RECs if any, on that element
+    Collection<CatalogElement> commonRecs = RecDynamicMenu.getCommonRecs(new StructuredSelection(editPart));
+    assertNotNull(commonRecs);
+    if (expectedSelection != null && expectedSelection.length != 0) {
+      // Get the referenced elements of the first REC available
+      // In our test model there is only one
+      CatalogElement commonRec = commonRecs.iterator().next();
+      EList<EObject> refs = commonRec.getReferencedElements();
+
+      // Run the ShowInDiagramAction
+      ShowInDiagramAction action = new ShowInDiagramAction();
+      action.selectionChanged(new StructuredSelection(refs));
+      action.run();
+
+      // Get the selection set after the the action is ran, this ensure that we've filtered out all items that are not
+      // displayed
+      IStructuredSelection selec = (IStructuredSelection) PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+          .getActivePage().getSelection();
+
+      // Collect Semantic elements from selection
+      List<Object> selectedElements = ((List<Object>) selec.toList()).stream().map(EditPart.class::cast)
+          .map(elem -> elem.getModel()).map(View.class::cast).map(view -> view.getElement())
+          .map(DDiagramElement.class::cast).map(diagramElement -> diagramElement.getTarget())
+          .collect(Collectors.toList());
+
+      List<EObject> expectedElements = Arrays.stream(expectedSelection).map(sel -> getView(sel))
+          .map(view -> view.getTarget()).collect(Collectors.toList());
+      if (!(selectedElements.size() == expectedElements.size() && selectedElements.containsAll(expectedElements))) {
+        fail("Selection didn't correspond to expected selection");
+      }
+
+    }
   }
 
-  public void selectOwnedElements(String id) {
-    new SelectTool(this, IToolNameConstants.TOOL_COMMON_SELECT_OWNED_ELEMENTS).ensurePrecondition(true).select(id);
+  public void selectRelatedRpls(String initialElement, String... expectedSelection) {
+    // Get edit part from initial selected Semantic element
+    DSemanticDecorator decorator = getView(initialElement);
+    EditPart editPart = DiagramServices.getDiagramServices().getEditPart((DDiagramElement) decorator);
+
+    // Collect available RECs if any, on that element
+    Collection<CatalogElement> commonRpls = RplDynamicMenu.getCommonRpls(new StructuredSelection(editPart));
+    assertNotNull(commonRpls);
+    if (expectedSelection != null && expectedSelection.length != 0) {
+      // Get the referenced elements of the first REC available
+      // In our test model there is only one
+      CatalogElement commonRpl = commonRpls.iterator().next();
+      EList<EObject> refs = commonRpl.getReferencedElements();
+
+      // Run the ShowInDiagramAction
+      ShowInDiagramAction action = new ShowInDiagramAction();
+      action.selectionChanged(new StructuredSelection(refs));
+      action.run();
+
+      // Get the selection set after the the action is ran, this ensure that we've filtered out all items that are not
+      // displayed
+      IStructuredSelection selec = (IStructuredSelection) PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+          .getActivePage().getSelection();
+
+      // Collect Semantic elements from selection
+      List<Object> selectedElements = ((List<Object>) selec.toList()).stream().map(EditPart.class::cast)
+          .map(elem -> elem.getModel()).map(View.class::cast).map(view -> view.getElement())
+          .map(DDiagramElement.class::cast).map(diagramElement -> diagramElement.getTarget())
+          .collect(Collectors.toList());
+
+      List<EObject> expectedElements = Arrays.stream(expectedSelection).map(sel -> getView(sel))
+          .map(view -> view.getTarget()).collect(Collectors.toList());
+      if (!(selectedElements.size() == expectedElements.size() && selectedElements.containsAll(expectedElements))) {
+        fail("Selection didn't correspond to expected selection");
+      }
+
+    }
   }
 
-  public void selectRelatedEdges(String id) {
-    new SelectTool(this, IToolNameConstants.TOOL_COMMON_SELECT_RELATED_EDGES).ensurePrecondition(true).select(id);
+  public void selectRelatedFCElements(String initialElement, String... expectedSelection) {
+    DSemanticDecorator decorator = getView(initialElement);
+    EditPart correspondingEditPart = DiagramServices.getDiagramServices().getEditPart((DDiagramElement) decorator);
+
+    ExecutionEvent event = createExecutionEvent(correspondingEditPart);
+
+    SelectRelatedFCElementsCommandHandler handler = new SelectRelatedFCElementsCommandHandler() {
+      @Override
+      protected IStructuredSelection getSelection() {
+        StructuredSelection selection = new StructuredSelection(correspondingEditPart);
+        return selection;
+      }
+    };
+    assertSelectionWorked(event, handler);
+    // Get the selection set after the the action is ran, this ensure that we've filtered out all items that are not
+    // displayed
+    IStructuredSelection selec = (IStructuredSelection) PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+        .getActivePage().getSelection();
+
+    // Collect Semantic elements from selection
+    List<DDiagramElement> selectedElements = ((List<Object>) selec.toList()).stream().map(EditPart.class::cast)
+        .map(elem -> elem.getModel()).map(View.class::cast).map(view -> view.getElement())
+        .map(DDiagramElement.class::cast)
+        .collect(Collectors.toList());
+
+    List<EObject> expectedElements = Arrays.stream(expectedSelection)
+        .map(sel -> org.polarsys.capella.test.diagram.common.ju.wrapper.utils.DiagramHelper
+            .getOnDiagramByUID(getDiagram(), sel))
+        .collect(Collectors.toList());
+
+    if (!(selectedElements.size() == expectedElements.size() && selectedElements.containsAll(expectedElements))) {
+      fail("Selection didn't correspond to expected selection");
+    }
+  }
+
+  public void selectRelatedPPElements(String initialElement, String... expectedSelection) {
+    DSemanticDecorator decorator = getView(initialElement);
+    EditPart correspondingEditPart = DiagramServices.getDiagramServices().getEditPart((DDiagramElement) decorator);
+
+    ExecutionEvent event = createExecutionEvent(correspondingEditPart);
+
+    SelectRelatedPPElementsCommandHandler handler = new SelectRelatedPPElementsCommandHandler() {
+      @Override
+      protected IStructuredSelection getSelection() {
+        StructuredSelection selection = new StructuredSelection(correspondingEditPart);
+        return selection;
+      }
+    };
+    assertSelectionWorked(event, handler);
+    // Get the selection set after the the action is ran, this ensure that we've filtered out all items that are not
+    // displayed
+    IStructuredSelection selec = (IStructuredSelection) PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+        .getActivePage().getSelection();
+
+    // Collect Semantic elements from selection
+    List<DDiagramElement> selectedElements = ((List<Object>) selec.toList()).stream().map(EditPart.class::cast)
+        .map(elem -> elem.getModel()).map(View.class::cast).map(view -> view.getElement())
+        .map(DDiagramElement.class::cast).collect(Collectors.toList());
+
+    List<EObject> expectedElements = Arrays.stream(expectedSelection)
+        .map(sel -> org.polarsys.capella.test.diagram.common.ju.wrapper.utils.DiagramHelper
+            .getOnDiagramByUID(getDiagram(), sel))
+        .collect(Collectors.toList());
+    if (!(selectedElements.size() == expectedElements.size() && selectedElements.containsAll(expectedElements))) {
+      fail("Selection didn't correspond to expected selection");
+    }
+  }
+
+  public void selectOwnedPorts(String initialElement) {
+    DSemanticDecorator decorator = getView(initialElement);
+    EditPart correspondingEditPart = DiagramServices.getDiagramServices().getEditPart((DDiagramElement) decorator);
+
+    ExecutionEvent event = createExecutionEvent(correspondingEditPart);
+
+    SelectOwnedPortsCommandHandler handler = new SelectOwnedPortsCommandHandler() {
+      @Override
+      protected IStructuredSelection getSelection() {
+        StructuredSelection selection = new StructuredSelection(correspondingEditPart);
+        return selection;
+      }
+    };
+    assertSelectionWorked(event, handler);
+  }
+
+  public void selectOwnedElements(String initialElement) {
+    DSemanticDecorator decorator = getView(initialElement);
+    EditPart correspondingEditPart = DiagramServices.getDiagramServices().getEditPart((DDiagramElement) decorator);
+
+    ExecutionEvent event = createExecutionEvent(correspondingEditPart);
+
+    SelectOwnedElementsCommandHandler handler = new SelectOwnedElementsCommandHandler() {
+      @Override
+      protected IStructuredSelection getSelection() {
+        StructuredSelection selection = new StructuredSelection(correspondingEditPart);
+        return selection;
+      }
+    };
+    assertSelectionWorked(event, handler);
+  }
+
+  public void selectRelatedEdges(String initialElement) {
+    DSemanticDecorator decorator = getView(initialElement);
+    EditPart correspondingEditPart = DiagramServices.getDiagramServices().getEditPart((DDiagramElement) decorator);
+
+    ExecutionEvent event = createExecutionEvent(correspondingEditPart);
+
+    SelectRelatedConnectionsCommandHandler handler = new SelectRelatedConnectionsCommandHandler() {
+      @Override
+      protected IStructuredSelection getSelection() {
+        StructuredSelection selection = new StructuredSelection(correspondingEditPart);
+        return selection;
+      }
+    };
+    assertSelectionWorked(event, handler);
+  }
+
+  private void assertSelectionWorked(ExecutionEvent event, AbstractSelectInEditorCommandHandler handler) {
+    Object result = null;
+    try {
+      result = handler.execute(event);
+    } catch (ExecutionException e) {
+      fail("Could not execute handler " + handler.getClass().getSimpleName());
+    }
+    if (result == null) {
+      fail("Result shouldn't be null");
+    }
   }
 
   public void dragAndDropConstraintFromExplorer(String idDraggedElement, String containerId) {
@@ -294,4 +546,13 @@ public class CommonDiagram extends DiagramContext {
     return ((CapellaElement) semanticElement).getId();
   }
 
+  protected ExecutionEvent createExecutionEvent(Object... elements) {
+    IEvaluationContext context = new EvaluationContext(null, new Object());
+    Map<String, String> parameters = new HashMap<>();
+    ExecutionEvent event = new ExecutionEvent(null, parameters, null, context);
+
+    context.addVariable(ISources.ACTIVE_CURRENT_SELECTION_NAME, new StructuredSelection(Arrays.asList(elements)));
+
+    return event;
+  }
 }

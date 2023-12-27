@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <!--
-  Copyright (c) 2006, 2021 THALES GLOBAL SERVICES.
+  Copyright (c) 2006, 2023 THALES GLOBAL SERVICES.
   
   This program and the accompanying materials are made available under the
   terms of the Eclipse Public License 2.0 which is available at
@@ -73,6 +73,9 @@
          point="org.polarsys.capella.core.sirius.ui.copyformatProvider">
       <keysProvider
             class="org.polarsys.capella.core.sirius.ui.copyformat.keyproviders.TraceabilityKeyProvider">
+      </keysProvider>
+      <keysProvider
+            class="org.polarsys.capella.core.sirius.ui.copyformat.keyproviders.InvolvementKeyProvider">
       </keysProvider>
    </extension>
    
@@ -180,14 +183,33 @@
             id="org.polarsys.capella.core.sirius.ui.copyAsText"
             name="%command.copyAsText">
       </command>
+       <command
+            defaultHandler="org.polarsys.capella.core.sirius.ui.handlers.CreateFunctionalChainActionHandler"
+            description="Create Functional Chain"
+            id="org.polarsys.capella.core.sirius.ui.actions.CreateFunctionalChainAction"
+            name="Create a Functional Chain">
+      </command>
       
+      <command
+            defaultHandler="org.polarsys.capella.core.sirius.ui.handlers.CreateFunctionalChainActionHandler"
+            description="Create Operational Process"
+            id="org.polarsys.capella.core.sirius.ui.actions.CreateOperationalProcessAction"
+            name="Create an Operational Process">
+      </command>
+      
+      <command
+            defaultHandler="org.polarsys.capella.core.sirius.ui.handlers.CreatePhysicalPathActionHandler"
+            description="Create Physical Path"
+            id="org.polarsys.capella.core.sirius.ui.actions.CreatePhysicalPathAction"
+            name="Create a Physical Path">
+      </command>
    </extension>
    
    
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
-            locationURI="popup:org.polarsys.capella.core.copyAs?after=org.polarsys.capella.core.ui.properties.richtext.CopyAsDescriptionLink">
+            locationURI="popup:org.polarsys.capella.core.copyAs?after=group.copyAs">
          <command
                commandId="org.polarsys.capella.core.sirius.ui.copyAsText"
                icon="icons/copy.gif"
@@ -204,7 +226,6 @@
             </visibleWhen>
          </command>
       </menuContribution>
-         
       <menuContribution 
       		locationURI="popup:capella.project.explorer#PopupMenu?after=group.project">
          <command
@@ -285,5 +306,378 @@
             icon="icons/viewpoint.gif">
       </image>
    </extension>
+      <extension
+         point="org.eclipse.core.expressions.definitions">
+         <definition
+            id="org.polarsys.capella.core.sirius.ui.menu.fc.isValidFCMenu">
+            <with
+               variable="activeMenuSelection">
+                <test
+                            property="org.polarsys.capella.core.sirius.ui.menu.fc.isValidFCMenuTarget">
+                 </test>
+                 </with>
+      </definition>
+       <definition
+            id="org.polarsys.capella.core.sirius.ui.menu.op.isValidOPMenu">
+            <with
+               variable="activeMenuSelection">
+                <test
+                            property="org.polarsys.capella.core.sirius.ui.menu.op.isValidOPMenuTarget">
+                 </test>
+                 </with>
+      </definition>
+      <definition
+            id="org.polarsys.capella.core.sirius.ui.menu.pp.isValidPPMenu">
+            <with
+               variable="activeMenuSelection">
+                <test
+                            property="org.polarsys.capella.core.sirius.ui.menu.pp.isValidPPMenuTarget">
+                 </test>
+                 </with>
+      </definition>
+      <definition
+            id="org.polarsys.capella.core.sirius.ui.menu.categories.isValidCECategoryMenu">
+            <with
+               variable="activeMenuSelection">
+                <test
+                            property="org.polarsys.capella.core.sirius.ui.menu.categories.isValidCECategoryMenuTarget">
+                 </test>
+                 </with>
+      </definition>
+       <definition
+            id="org.polarsys.capella.core.sirius.ui.menu.categories.isValidFECategoryMenu">
+            <with
+               variable="activeMenuSelection">
+                <test
+                            property="org.polarsys.capella.core.sirius.ui.menu.categories.isValidFECategoryMenuTarget">
+                 </test>
+                 </with>
+      </definition>
+       <definition
+            id="org.polarsys.capella.core.sirius.ui.menu.categories.isValidPLCategoryMenu">
+            <with
+               variable="activeMenuSelection">
+                <test
+                            property="org.polarsys.capella.core.sirius.ui.menu.categories.isValidPLCategoryMenuTarget">
+                 </test>
+                 </with>
+      </definition>
+   </extension>
+      <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="org.polarsys.capella.core.sirius.ui.testers.ValidFCMenuTargetTester"
+            id="org.polarsys.capella.core.sirius.ui.menu.fc.isValidFCMenuTargetTester"
+            namespace="org.polarsys.capella.core.sirius.ui.menu.fc"
+            properties="isValidFCMenuTarget"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="org.polarsys.capella.core.sirius.ui.testers.ValidOPMenuTargetTester"
+            id="org.polarsys.capella.core.sirius.ui.menu.op.isValidOPMenuTargetTester"
+            namespace="org.polarsys.capella.core.sirius.ui.menu.op"
+            properties="isValidOPMenuTarget"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="org.polarsys.capella.core.sirius.ui.testers.ValidPPMenuTargetTester"
+            id="org.polarsys.capella.core.sirius.ui.menu.pp.isValidPPMenuTargetTester"
+            namespace="org.polarsys.capella.core.sirius.ui.menu.pp"
+            properties="isValidPPMenuTarget"
+            type="java.lang.Object">
+      </propertyTester>
+       <propertyTester
+            class="org.polarsys.capella.core.sirius.ui.testers.ValidCECategoryMenuTargetTester"
+            id="org.polarsys.capella.core.sirius.ui.menu.categories.isValidCECategoryMenuTargetTester"
+            namespace="org.polarsys.capella.core.sirius.ui.menu.categories"
+            properties="isValidCECategoryMenuTarget"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="org.polarsys.capella.core.sirius.ui.testers.ValidFECategoryMenuTargetTester"
+            id="org.polarsys.capella.core.sirius.ui.menu.categories.isValidFECategoryMenuTargetTester"
+            namespace="org.polarsys.capella.core.sirius.ui.menu.categories"
+            properties="isValidFECategoryMenuTarget"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="org.polarsys.capella.core.sirius.ui.testers.ValidPLCategoryMenuTargetTester"
+            id="org.polarsys.capella.core.sirius.ui.menu.categories.isValidPLCategoryMenuTargetTester"
+            namespace="org.polarsys.capella.core.sirius.ui.menu.categories"
+            properties="isValidPLCategoryMenuTarget"
+            type="java.lang.Object">
+      </propertyTester>
+      </extension>
    
+   <extension point="org.eclipse.ui.menus">
+	<menuContribution
+        locationURI="popup:BusinessSelectMenuSirius">
+       <command
+          commandId="org.polarsys.capella.core.sirius.ui.select.elements.of.same.type"
+          label="Elements of same type"
+          style="push">
+       <visibleWhen
+             checkEnabled="true">
+          <reference
+                definitionId="org.polarsys.capella.core.sirius.ui.isValidElementsOfSameTypeMenu">
+          </reference>
+       </visibleWhen>
+  	  </command>
+  	   <command
+          commandId="org.polarsys.capella.core.sirius.ui.select.op.related.elements"
+          label="Related Operational Process Elements"
+          style="push">
+       <visibleWhen
+             checkEnabled="true">
+          <reference
+                definitionId="org.polarsys.capella.core.sirius.ui.isValidOPSelectionMenu">
+          </reference>
+       </visibleWhen>
+  	  </command>   
+  	  <command
+          commandId="org.polarsys.capella.core.sirius.ui.select.fc.related.elements"
+          label="Related Functional Chain Elements"
+          style="push">
+       <visibleWhen
+             checkEnabled="true">
+          <reference
+                definitionId="org.polarsys.capella.core.sirius.ui.isValidFCSelectionMenu">
+          </reference>
+       </visibleWhen>
+  	  </command>   
+  	  <command
+          commandId="org.polarsys.capella.core.sirius.ui.select.pp.related.elements"
+          label="Related Physical Path Elements"
+          style="push">
+       <visibleWhen
+             checkEnabled="true">
+          <reference
+                definitionId="org.polarsys.capella.core.sirius.ui.isValidPPSelectionMenu">
+          </reference>
+       </visibleWhen>
+  	  </command>   
+  	  <command
+          commandId="org.polarsys.capella.core.sirius.ui.select.resembling.elements"
+          label="Resembling Elements"
+          style="push">
+       <visibleWhen
+             checkEnabled="true">
+          <reference
+                definitionId="org.polarsys.capella.core.sirius.ui.isValidResemblingElementsMenu">
+          </reference>
+       </visibleWhen>
+  	  </command> 
+  	   <command
+          commandId="org.polarsys.capella.core.sirius.ui.select.owned.ports"
+          label="Owned Ports"
+          style="push">
+       <visibleWhen
+             checkEnabled="true">
+          <reference
+                definitionId="org.polarsys.capella.core.sirius.ui.isValidOwnedPortsMenu">
+          </reference>
+       </visibleWhen>
+  	  </command>    
+  	  <command
+          commandId="org.polarsys.capella.core.sirius.ui.select.owned.elements"
+          label="Owned Elements"
+          style="push">
+       <visibleWhen
+             checkEnabled="true">
+          <reference
+                definitionId="org.polarsys.capella.core.sirius.ui.isValidOwnedElementsMenu">
+          </reference>
+       </visibleWhen>
+  	  </command>  
+  	  <command
+          commandId="org.polarsys.capella.core.sirius.ui.select.related.connections"
+          label="Related Connections"
+          style="push">
+       <visibleWhen
+             checkEnabled="true">
+          <reference
+                definitionId="org.polarsys.capella.core.sirius.ui.isValidRelatedConnectionsMenu">
+          </reference>
+       </visibleWhen>
+  	  </command>  
+	 </menuContribution>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="org.polarsys.capella.core.sirius.ui.handlers.SelectElementsOfSameTypeCommandHandler"
+            id="org.polarsys.capella.core.sirius.ui.select.elements.of.same.type"
+            name="Select Elements of same type">
+      </command>
+      <command
+            defaultHandler="org.polarsys.capella.core.sirius.ui.handlers.SelectRelatedFCElementsCommandHandler"
+            id="org.polarsys.capella.core.sirius.ui.select.op.related.elements"
+            name="Select Related Operational Process Elements">
+      </command>
+      <command
+            defaultHandler="org.polarsys.capella.core.sirius.ui.handlers.SelectRelatedFCElementsCommandHandler"
+            id="org.polarsys.capella.core.sirius.ui.select.fc.related.elements"
+            name="Select Related Functional Chain Elements">
+      </command>
+      <command
+            defaultHandler="org.polarsys.capella.core.sirius.ui.handlers.SelectRelatedPPElementsCommandHandler"
+            id="org.polarsys.capella.core.sirius.ui.select.pp.related.elements"
+            name="Select Related Physical Path Elements">
+      </command>
+      <command
+            defaultHandler="org.polarsys.capella.core.sirius.ui.handlers.SelectResemblingElementsCommandHandler"
+            id="org.polarsys.capella.core.sirius.ui.select.resembling.elements"
+            name="Select Resembling Elements">
+      </command>
+      <command
+            defaultHandler="org.polarsys.capella.core.sirius.ui.handlers.SelectOwnedPortsCommandHandler"
+            id="org.polarsys.capella.core.sirius.ui.select.owned.ports"
+            name="Select Owned Ports">
+      </command>
+       <command
+            defaultHandler="org.polarsys.capella.core.sirius.ui.handlers.SelectOwnedElementsCommandHandler"
+            id="org.polarsys.capella.core.sirius.ui.select.owned.elements"
+            name="Select Owned Elements">
+      </command>
+      <command
+            defaultHandler="org.polarsys.capella.core.sirius.ui.handlers.SelectRelatedConnectionsCommandHandler"
+            id="org.polarsys.capella.core.sirius.ui.select.related.connections"
+            name="Select Related Connections">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="org.polarsys.capella.core.sirius.ui.testers.ValidElementsOfSameTypeMenuTargetTester"
+            id="org.polarsys.capella.core.sirius.ui.ValidElementsOfSameTypeMenuTargetTester"
+            namespace="org.polarsys.capella.core.sirius.ui"
+            properties="isValidElementsOfSameTypeMenu"
+            type="java.lang.Object">
+      </propertyTester>   
+       <propertyTester
+            class="org.polarsys.capella.core.sirius.ui.testers.ValidOPSelectionMenuTargetTester"
+            id="org.polarsys.capella.core.sirius.ui.ValidOPSelectionMenuTargetTester"
+            namespace="org.polarsys.capella.core.sirius.ui"
+            properties="isValidOPSelectionMenu"
+            type="java.lang.Object">
+      </propertyTester>  
+      <propertyTester
+            class="org.polarsys.capella.core.sirius.ui.testers.ValidFCSelectionMenuTargetTester"
+            id="org.polarsys.capella.core.sirius.ui.ValidFCSelectionMenuTargetTester"
+            namespace="org.polarsys.capella.core.sirius.ui"
+            properties="isValidFCSelectionMenu"
+            type="java.lang.Object">
+      </propertyTester>   
+      <propertyTester
+            class="org.polarsys.capella.core.sirius.ui.testers.ValidPPSelectionMenuTargetTester"
+            id="org.polarsys.capella.core.sirius.ui.ValidPPSelectionMenuTargetTester"
+            namespace="org.polarsys.capella.core.sirius.ui"
+            properties="isValidPPSelectionMenu"
+            type="java.lang.Object">
+      </propertyTester>  
+      <propertyTester
+            class="org.polarsys.capella.core.sirius.ui.testers.ValidResemblingElementsMenuTargetTester"
+            id="org.polarsys.capella.core.sirius.ui.ValidResemblingElementsMenuTargetTester"
+            namespace="org.polarsys.capella.core.sirius.ui"
+            properties="isValidResemblingElementsMenu"
+            type="java.lang.Object">
+      </propertyTester>  
+      <propertyTester
+            class="org.polarsys.capella.core.sirius.ui.testers.ValidOwnedPortsMenuTargetTester"
+            id="org.polarsys.capella.core.sirius.ui.ValidOwnedPortsMenuTargetTester"
+            namespace="org.polarsys.capella.core.sirius.ui"
+            properties="isValidOwnedPortsMenu"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="org.polarsys.capella.core.sirius.ui.testers.ValidOwnedElementsMenuTargetTester"
+            id="org.polarsys.capella.core.sirius.ui.ValidOwnedElementsMenuTargetTester"
+            namespace="org.polarsys.capella.core.sirius.ui"
+            properties="isValidOwnedElementsMenu"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="org.polarsys.capella.core.sirius.ui.testers.ValidRelatedConnectionsMenuTargetTester"
+            id="org.polarsys.capella.core.sirius.ui.ValidRelatedConnectionsMenuTargetTester"
+            namespace="org.polarsys.capella.core.sirius.ui"
+            properties="isValidRelatedConnectionsMenu"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
+    <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="org.polarsys.capella.core.sirius.ui.isValidElementsOfSameTypeMenu">
+         <with
+               variable="activeMenuSelection">
+                  <test
+                        property="org.polarsys.capella.core.sirius.ui.isValidElementsOfSameTypeMenu">
+                  </test>
+         </with>
+      </definition>
+      <definition
+            id="org.polarsys.capella.core.sirius.ui.isValidFCSelectionMenu">
+         <with
+               variable="activeMenuSelection">
+                  <test
+                        property="org.polarsys.capella.core.sirius.ui.isValidFCSelectionMenu">
+                  </test>
+         </with>
+      </definition>
+       <definition
+            id="org.polarsys.capella.core.sirius.ui.isValidOPSelectionMenu">
+         <with
+               variable="activeMenuSelection">
+                  <test
+                        property="org.polarsys.capella.core.sirius.ui.isValidOPSelectionMenu">
+                  </test>
+         </with>
+      </definition>
+      <definition
+            id="org.polarsys.capella.core.sirius.ui.isValidPPSelectionMenu">
+         <with
+               variable="activeMenuSelection">
+                  <test
+                        property="org.polarsys.capella.core.sirius.ui.isValidPPSelectionMenu">
+                  </test>
+         </with>
+      </definition>
+      <definition
+            id="org.polarsys.capella.core.sirius.ui.isValidResemblingElementsMenu">
+         <with
+               variable="activeMenuSelection">
+                  <test
+                        property="org.polarsys.capella.core.sirius.ui.isValidResemblingElementsMenu">
+                  </test>
+         </with>
+      </definition>
+      <definition
+            id="org.polarsys.capella.core.sirius.ui.isValidOwnedPortsMenu">
+         <with
+               variable="activeMenuSelection">
+                  <test
+                        property="org.polarsys.capella.core.sirius.ui.isValidOwnedPortsMenu">
+                  </test>
+         </with>
+      </definition>
+      <definition
+            id="org.polarsys.capella.core.sirius.ui.isValidOwnedElementsMenu">
+         <with
+               variable="activeMenuSelection">
+                  <test
+                        property="org.polarsys.capella.core.sirius.ui.isValidOwnedElementsMenu">
+                  </test>
+         </with>
+      </definition>
+      <definition
+            id="org.polarsys.capella.core.sirius.ui.isValidRelatedConnectionsMenu">
+         <with
+               variable="activeMenuSelection">
+                  <test
+                        property="org.polarsys.capella.core.sirius.ui.isValidRelatedConnectionsMenu">
+                  </test>
+         </with>
+      </definition>
+     </extension>
 </plugin>

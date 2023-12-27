@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.core.data.gen.editor; singleton:=true
-Bundle-Version: 6.0.0.qualifier
+Bundle-Version: 7.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.polarsys.capella.core.data.capellamodeller.presentation.CapellaModellerEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.polarsys.capella.core.data.capellacommon.presentation,
  org.polarsys.capella.core.data.capellacore.presentation,
  org.polarsys.capella.core.data.capellamodeller.presentation,
@@ -24,7 +24,6 @@ Export-Package: org.polarsys.capella.core.data.capellacommon.presentation,
  org.polarsys.capella.core.data.oa.presentation,
  org.polarsys.capella.core.data.pa.deployment.presentation,
  org.polarsys.capella.core.data.pa.presentation,
- org.polarsys.capella.core.data.requirement.presentation,
  org.polarsys.capella.core.data.sharedmodel.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,

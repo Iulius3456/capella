@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2021 THALES GLOBAL SERVICES.
+ * Copyright (c) 2006, 2023 THALES GLOBAL SERVICES.
  * 
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -12,7 +12,7 @@
  *******************************************************************************/
 package org.polarsys.capella.core.sirius.analysis;
 
-import static org.polarsys.capella.core.data.helpers.cache.ModelCache.getCache;
+import static org.polarsys.capella.common.helpers.cache.ModelCache.getCache;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -105,8 +105,16 @@ import org.eclipse.ui.PlatformUI;
 import org.polarsys.capella.common.data.modellingcore.AbstractType;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.data.cs.Part;
+import org.polarsys.capella.core.data.cs.PhysicalLink;
+import org.polarsys.capella.core.data.cs.PhysicalLinkCategory;
+import org.polarsys.capella.core.data.cs.PhysicalPath;
+import org.polarsys.capella.core.data.fa.ExchangeCategory;
+import org.polarsys.capella.core.data.fa.FunctionalChain;
+import org.polarsys.capella.core.data.fa.FunctionalExchange;
 import org.polarsys.capella.core.diagram.helpers.DiagramHelper;
 import org.polarsys.capella.core.diagram.helpers.naming.DiagramNamingConstants;
+import org.polarsys.capella.core.model.helpers.FunctionalChainExt;
+import org.polarsys.capella.core.model.helpers.PhysicalPathExt;
 import org.polarsys.capella.core.model.utils.CapellaLayerCheckingExt;
 
 import com.google.common.collect.Lists;
@@ -461,6 +469,11 @@ public class DiagramServices {
 
   public AbstractDNode createDNodeListElement(AbstractNodeMapping mapping, EObject modelElement,
       DragAndDropTarget container, DDiagram diagram) {
+    return createDNodeListElement(mapping, modelElement, container, diagram, -1);
+  }
+
+  public AbstractDNode createDNodeListElement(AbstractNodeMapping mapping, EObject modelElement,
+      DragAndDropTarget container, DDiagram diagram, int index) {
     final DDiagram diag = diagram;
 
     ModelAccessor accessor = SiriusPlugin.getDefault().getModelAccessorRegistry().getModelAccessor(modelElement);
@@ -471,22 +484,28 @@ public class DiagramServices {
     RefreshIdsHolder rId = RefreshIdsHolder.getOrCreateHolder(diagram);
 
     DNodeCandidate nodeCandidate = new DNodeCandidate(mapping, modelElement, container, rId);
-    return elementSync.createNewNode(getMappingManager((DSemanticDiagram) diag), nodeCandidate, false, -1);
+    return elementSync.createNewNode(getMappingManager((DSemanticDiagram) diag), nodeCandidate, false, index);
+  }
+
+  public DNodeContainer createContainer(ContainerMapping mapping, EObject modelElement, DragAndDropTarget container,
+      DDiagram diagram, int index) {
+    final DDiagram diag = diagram;
+
+    ModelAccessor accessor = SiriusPlugin.getDefault().getModelAccessorRegistry().getModelAccessor(modelElement);
+    IInterpreter interpreter = SiriusPlugin.getDefault().getInterpreterRegistry().getInterpreter(modelElement);
+    final DDiagramSynchronizer diagramSync = new DDiagramSynchronizer(interpreter, diag.getDescription(), accessor);
+    diagramSync.setDiagram((DSemanticDiagram) diagram);
+    final DDiagramElementSynchronizer elementSync = diagramSync.getElementSynchronizer();
+    RefreshIdsHolder rId = RefreshIdsHolder.getOrCreateHolder(diagram);
+
+    DNodeCandidate nodeCandidate = new DNodeCandidate(mapping, modelElement, container, rId);
+    return (DNodeContainer) elementSync.createNewNode(getMappingManager((DSemanticDiagram) diag), nodeCandidate, false,
+        index);
   }
 
   public DNodeContainer createContainer(ContainerMapping mapping, EObject modelElement, DragAndDropTarget container,
       DDiagram diagram) {
-    final DDiagram diag = diagram;
-
-    ModelAccessor accessor = SiriusPlugin.getDefault().getModelAccessorRegistry().getModelAccessor(modelElement);
-    IInterpreter interpreter = SiriusPlugin.getDefault().getInterpreterRegistry().getInterpreter(modelElement);
-    final DDiagramSynchronizer diagramSync = new DDiagramSynchronizer(interpreter, diag.getDescription(), accessor);
-    diagramSync.setDiagram((DSemanticDiagram) diagram);
-    final DDiagramElementSynchronizer elementSync = diagramSync.getElementSynchronizer();
-    RefreshIdsHolder rId = RefreshIdsHolder.getOrCreateHolder(diagram);
-
-    DNodeCandidate nodeCandidate = new DNodeCandidate(mapping, modelElement, container, rId);
-    return (DNodeContainer) elementSync.createNewNode(getMappingManager((DSemanticDiagram) diag), nodeCandidate, false);
+    return createContainer(mapping, modelElement, container, diagram, -1);
   }
 
   @Deprecated
@@ -519,6 +538,17 @@ public class DiagramServices {
     IInterpreter interpreter = SiriusPlugin.getDefault().getInterpreterRegistry().getInterpreter(semantic);
     return new AbstractNodeMappingQuery(nodeMapping).evaluatePrecondition((DSemanticDiagram) diagram,
         (DragAndDropTarget) containerView, interpreter, semantic);
+  }
+
+  /**
+   * Evaluate candidate expression of the given node mapping.
+   */
+  public Collection<EObject> evaluateCandidateExpression(AbstractNodeMapping nodeMapping, DDiagram diagram,
+      DSemanticDecorator containerView, EObject semantic) {
+    IInterpreter interpreter = SiriusPlugin.getDefault().getInterpreterRegistry().getInterpreter(semantic);
+
+    return new AbstractNodeMappingQuery(nodeMapping).evaluateCandidateExpression((DSemanticDiagram) diagram,
+        interpreter, (DragAndDropTarget) containerView);
   }
 
   public AbstractDNode createAbstractDNode(AbstractNodeMapping mapping, EObject modelElement,
@@ -1724,6 +1754,142 @@ public class DiagramServices {
 
     return diagramElements.stream().filter(element -> eclassesToSelect.contains(element.getTarget().eClass()))
         .collect(Collectors.toList());
+  }
+
+  /**
+   * Returns a collection of all Functional Exchanges, Exchange Categories and Ports involved in the FunctionalChains as
+   * <code>selectedViews</code> in the <code>currentDiagram</code>.
+   * 
+   * @param currentDiagram
+   *          The current {@link DSemanticDiagram}
+   * @param selectedViews
+   *          The selected FunctionalChain decorators.
+   * @return a collection of all DDiagramElement involved in the FunctionalChain as the selectedViews.
+   */
+  public Collection<DDiagramElement> getRelatedFunctionalChainElements(DSemanticDiagram currentDiagram,
+      List<DSemanticDecorator> selectedViews) {
+
+    Collection<DDiagramElement> diagramElements = new DDiagramQuery(currentDiagram).getAllDiagramElements();
+    Collection<DDiagramElement> diagramElementsToBeSelected = new HashSet<DDiagramElement>();
+
+    Set<EObject> toBeSelected = new HashSet<EObject>();
+    Set<ExchangeCategory> exchangeCategories = new HashSet<ExchangeCategory>();
+    for (DSemanticDecorator selectedView : selectedViews) {
+      FunctionalChain selectedFC = (FunctionalChain) selectedView.getTarget();
+      toBeSelected.add(selectedFC);
+
+      Set<FunctionalExchange> involvedFEs = FunctionalChainExt.getFlatFunctionalExchanges(selectedFC);
+
+      toBeSelected.addAll(involvedFEs);
+      for (FunctionalExchange involvedFE : involvedFEs) {
+        toBeSelected.add(involvedFE.getSource());
+        toBeSelected.add(involvedFE.getTarget());
+        exchangeCategories.addAll(involvedFE.getCategories());
+      }
+    }
+
+    diagramElementsToBeSelected.addAll(diagramElements.stream()
+        .filter(element -> toBeSelected.contains(element.getTarget())).collect(Collectors.toList()));
+
+    for (DDiagramElement diagramElement : diagramElements) {
+      if (diagramElement instanceof DEdge) {
+        DEdge edge = (DEdge) diagramElement;
+        EObject edgeTarget = edge.getTarget();
+        if (exchangeCategories.contains(edgeTarget)) {
+          boolean shallBeSelected = false;
+          for (EObject semanticElement : edge.getSemanticElements()) {
+            if (toBeSelected.contains(semanticElement)) {
+              // Only add categories edge that represents a CE in "toBeSelected"
+              shallBeSelected = true;
+              break;
+            }
+          }
+          if (shallBeSelected) {
+            EdgeTarget target = edge.getTargetNode();
+            EdgeTarget source = edge.getSourceNode();
+
+            if (source instanceof DDiagramElement) {
+              diagramElementsToBeSelected.add((DDiagramElement) source);
+            }
+            if (target instanceof DDiagramElement) {
+              diagramElementsToBeSelected.add((DDiagramElement) target);
+            }
+
+            diagramElementsToBeSelected.add(edge);
+          }
+
+        }
+      }
+
+    }
+
+    return diagramElementsToBeSelected;
+  }
+
+  /**
+   * Returns a collection of all Physical Links, Physical Links Categories and Ports involved in a Physical Path as
+   * <code>selectedViews</code> in the <code>currentDiagram</code>.
+   * 
+   * @param currentDiagram
+   *          The current {@link DSemanticDiagram}
+   * @param selectedPPDecorator
+   *          The selected PhysicalPath decorator.
+   * @return a collection of all DDiagramElement involved in the PhysicalPath as the selectedViews.
+   */
+  public Collection<DDiagramElement> getRelatedPhysicalPathElements(DSemanticDiagram currentDiagram,
+      List<DSemanticDecorator> selectedViews) {
+
+    Collection<DDiagramElement> diagramElements = new DDiagramQuery(currentDiagram).getAllDiagramElements();
+    Collection<DDiagramElement> diagramElementsToBeSelected = new HashSet<DDiagramElement>();
+
+    Set<EObject> toBeSelected = new HashSet<EObject>();
+    Set<PhysicalLinkCategory> exchangeCategories = new HashSet<PhysicalLinkCategory>();
+    for (DSemanticDecorator selectedView : selectedViews) {
+      PhysicalPath selectedPP = (PhysicalPath) selectedView.getTarget();
+      Collection<PhysicalLink> involvedPLs = PhysicalPathExt.getFlatPhysicalLinks(selectedPP);
+
+      toBeSelected.add(selectedPP);
+      toBeSelected.addAll(involvedPLs);
+      for (PhysicalLink involvedPL : involvedPLs) {
+        toBeSelected.add(involvedPL.getSourcePhysicalPort());
+        toBeSelected.add(involvedPL.getTargetPhysicalPort());
+        exchangeCategories.addAll(involvedPL.getCategories());
+      }
+    }
+    diagramElementsToBeSelected.addAll(diagramElements.stream()
+        .filter(element -> toBeSelected.contains(element.getTarget())).collect(Collectors.toList()));
+
+    for (DDiagramElement diagramElement : diagramElements) {
+      if (diagramElement instanceof DEdge) {
+        DEdge edge = (DEdge) diagramElement;
+        EObject edgeTarget = edge.getTarget();
+        if (exchangeCategories.contains(edgeTarget)) {
+          boolean shallBeSelected = false;
+          for (EObject semanticElement : edge.getSemanticElements()) {
+            if (toBeSelected.contains(semanticElement)) {
+              // Only add Category edge that concerns a PL in "toBeSelected"
+              shallBeSelected = true;
+              break;
+            }
+          }
+          if (shallBeSelected) {
+            EdgeTarget target = edge.getTargetNode();
+            EdgeTarget source = edge.getSourceNode();
+
+            if (source instanceof DDiagramElement) {
+              diagramElementsToBeSelected.add((DDiagramElement) source);
+            }
+            if (target instanceof DDiagramElement) {
+              diagramElementsToBeSelected.add((DDiagramElement) target);
+            }
+
+            diagramElementsToBeSelected.add(edge);
+          }
+        }
+      }
+    }
+
+    return diagramElementsToBeSelected;
   }
 
   /**

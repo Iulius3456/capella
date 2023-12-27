@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.EList;
@@ -59,6 +60,8 @@ import org.eclipse.sirius.diagram.description.DiagramDescription;
 import org.eclipse.sirius.diagram.description.Layer;
 import org.eclipse.sirius.diagram.description.filter.FilterDescription;
 import org.eclipse.sirius.diagram.ui.business.api.helper.graphicalfilters.CompositeFilterApplicationBuilder;
+import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
+import org.eclipse.sirius.diagram.ui.tools.api.preferences.SiriusDiagramUiPreferencesKeys;
 import org.eclipse.sirius.diagram.ui.tools.internal.actions.layout.CopyFormatAction;
 import org.eclipse.sirius.diagram.ui.tools.internal.actions.layout.PasteFormatAction;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
@@ -143,6 +146,27 @@ public class DiagramHelper {
     preferenceStore.setValue(SiriusUIPreferencesKeys.PREF_REFRESH_ON_REPRESENTATION_OPENING.name(), value);
   }
 
+  /**
+   * Set the preference to display prompt dialog display
+   * 
+   * @apiNote that this method will affect the running instance (not specific to a given project)
+   */
+  public static void setPreferenceCopyLayoutPrompt(final boolean value) {
+    IPreferenceStore preferenceStore = DiagramUIPlugin.getPlugin().getPreferenceStore();
+    preferenceStore.setValue(SiriusDiagramUiPreferencesKeys.PREF_PROMPT_PASTE_MODE.name(), value);
+  }
+  
+  /**
+   * Set the preference for Copy Layout Mode
+   * 
+   * @param absolute: whether the copy paste is absolute or bounding box
+   * @apiNote that this method will affect the running instance (not specific to a given project)
+   */
+  public static void setPreferenceCopyLayoutMode(final boolean absolute) {
+    IPreferenceStore preferenceStore = DiagramUIPlugin.getPlugin().getPreferenceStore();
+    preferenceStore.setValue(SiriusDiagramUiPreferencesKeys.PREF_PASTE_MODE_ABSOLUTE.name(), absolute);
+  }
+  
   /**
    * Return the DRepresention with the given name, null otherwise
    * 
@@ -288,6 +312,25 @@ public class DiagramHelper {
     List<DDiagramElement> elements = new LinkedList<DDiagramElement>(diagram.getDiagramElements());
     for (DDiagramElement element : elements) {
       if (element.getTarget().eGet(ModellingcorePackage.Literals.MODEL_ELEMENT__ID).equals(anID)) {
+        return element;
+      }
+    }
+    return null;
+  }
+  
+  /**
+   * Return the first {@link DDiagramElement} corresponding to the first occurrence found for a given UID, null otherwise
+   * 
+   * @param diagram
+   *          the target diagram
+   * @param anUID
+   *          , the Uid of the object to reach
+   * @return null if not represented on the diagram
+   */
+  public static DDiagramElement getOnDiagramByUID(final DDiagram diagram, final String anUID) {
+    List<DDiagramElement> elements = new LinkedList<DDiagramElement>(diagram.getDiagramElements());
+    for (DDiagramElement element : elements) {
+      if (element.getUid().equals(anUID)) {
         return element;
       }
     }
@@ -601,13 +644,6 @@ public class DiagramHelper {
     action.init();
     action.run();
     GuiActions.flushASyncGuiThread();
-
-    // Bug sirius: Copy Paste Layout doesn't take border size into account
-    // It requires a second paste
-    action.init();
-    action.run();
-    GuiActions.flushASyncGuiThread();
-
   }
 
   /**
@@ -986,11 +1022,12 @@ public class DiagramHelper {
     return Collections.emptyList();
   }
 
-  public static List<DEdge> getEdges(DDiagram diagram, String elementId) {
+  public static List<DEdge> getEdges(DDiagram diagram, String... elementIds) {
     List<DEdge> edgeList = new ArrayList<DEdge>();
+    List<String> ids = Arrays.stream(elementIds).collect(Collectors.toList());
     for (DDiagramElement element : diagram.getDiagramElements()) {
       if ((element instanceof DEdge) && (element.getTarget() instanceof ModelElement)
-          && ((ModelElement) element.getTarget()).getId().equals(elementId)) {
+          && ids.contains(((ModelElement) element.getTarget()).getId())) {
         edgeList.add((DEdge) element);
       }
     }

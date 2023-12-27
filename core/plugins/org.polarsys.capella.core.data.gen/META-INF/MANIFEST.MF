@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.core.data.gen; singleton:=true
-Bundle-Version: 6.0.0.qualifier
+Bundle-Version: 7.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.polarsys.capella.core.data.capellacommon,
  org.polarsys.capella.core.data.capellacommon.impl,
  org.polarsys.capella.core.data.capellacommon.util,
@@ -55,9 +55,6 @@ Export-Package: org.polarsys.capella.core.data.capellacommon,
  org.polarsys.capella.core.data.pa.deployment.util,
  org.polarsys.capella.core.data.pa.impl,
  org.polarsys.capella.core.data.pa.util,
- org.polarsys.capella.core.data.requirement,
- org.polarsys.capella.core.data.requirement.impl,
- org.polarsys.capella.core.data.requirement.util,
  org.polarsys.capella.core.data.sharedmodel,
  org.polarsys.capella.core.data.sharedmodel.impl,
  org.polarsys.capella.core.data.sharedmodel.util

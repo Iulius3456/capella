@@ -13,7 +13,16 @@ The Properties View is the place where the characteristics of each Capella eleme
 
 <br>
 
-'''Capella Editors are also available as dialogs''', accessed with a double-click on any element. The content is exactly the same as in the Properties Views.
+'''Capella Editors are also available as dialogs''', accessed with a double-click on any element.
+
+These dialogs can also be opened from the contextual menu, accessed with a right-click on any element.
+
+[[Image:Images/4.06_Properties_View_Contextual_Menu.png|458x576px]]
+
+
+The content is exactly the same as in the Properties Views.
+
+If the "Navigate to related diagrams on double click" preference is enabled, double-clicking on a Scenario/Operational Process/Functional Chain/Physical Path will trigger a diagram navigation action instead.
 
 
 [[Image:Images/4.06_Properties_View2.png|600x400px]]
@@ -25,6 +34,8 @@ Capella editors contain 4 sections: semantic properties, description, extensions
 == Capella Section (Semantic Properties) ==
 
 This section displays the most important semantic information about the current element. It also allows defining relationships between elements.
+
+disabled by default, please refer to [[../help/topic/org.polarsys.capella.doc/html/Filtering%20of%20Capella%20Capabilities/Filtering%20of%20Capella%20Capabilities.html|Capella Capabilities]] <span class="github-link">[[../../../org.polarsys.capella.doc/Filtering of Capella Capabilities/Filtering of Capella Capabilities.mediawiki|(online documentation)]]</span>  
 
 
 [[Image:Images/4.06_Properties_View3.png|600x300px]]
@@ -59,11 +70,11 @@ If the text field looses the focus during the edition, especially when editing t
 
 Insertion of hyperlinks to other model elements and existing diagrams are possible using two mechanisms:
 
-The first mechanism is similar to a model element copy paste and is called '''Copy as Description Link'''.
+The first mechanism is similar to a model element copy paste and is called '''Copy as Hyperlink for Description'''.
 
-Once you have a selection of elements (from the Project Explorer, Semantic Browser, Diagram elements etc), you can use the contextual menu '''Copy as Description Link''' or use the associated keyboard shortcut '''Ctrl + Shift + C'''.
+Once you have a selection of elements (from the Project Explorer, Semantic Browser, Diagram elements etc), you can use the contextual menu '''Copy as Hyperlink for Description''' or use the associated keyboard shortcut '''Ctrl + Shift + C'''.
 
-[[Image:Images/DescriptionLink1.png|800px]]
+[[Image:Images/DescriptionLink1.png]]
 [[Image:Images/DescriptionLink2.png]]
 [[Image:Images/DescriptionLink3.png]]
 

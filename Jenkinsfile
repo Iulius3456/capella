@@ -5,7 +5,7 @@ pipeline {
   
 	tools {
 		maven 'apache-maven-latest'
-		jdk 'openjdk-jdk14-latest'
+		jdk 'openjdk-jdk17-latest'
 	}
   
 	environment {
@@ -47,7 +47,15 @@ pipeline {
 		            
 	        		os = 'mac'
 		            def jdkMacFolder = os + jre
-		            downloader.downloadTemurinJDK17(jdkMacFolder, os)		            
+		            downloader.downloadTemurinJDK17(jdkMacFolder, os)
+		            
+		            os = 'mac-aarch64'
+		            def jdkMacSiliconFolder = os + jre
+		            downloader.downloadTemurinJDK17(jdkMacSiliconFolder, os)
+		            
+		            os = 'linux-aarch64'
+		            def jdkLinuxSiliconFolder = os + jre
+		            downloader.downloadTemurinJDK17(jdkLinuxSiliconFolder, os)
 	       		}
 	     	}
 	    }
@@ -56,9 +64,9 @@ pipeline {
       		steps {
       			script {
 					withCredentials([string(credentialsId: 'sonar-token-capella', variable: 'SONARCLOUD_TOKEN')]) {
-						withEnv(['MAVEN_OPTS=-Xmx4g']) {
+						withEnv(['MAVEN_OPTS=-Xms3000m -Xmx3000m']) {
 							def sign = github.isPullRequest() ? '' : '-Psign'
-							sh "mvn clean verify -f pom.xml -DjavaDocPhase=none -Pfull ${sign}"
+							sh "mvn verify -Pfull ${sign}"
 						}
 					}
       			}
@@ -134,6 +142,7 @@ pipeline {
 		        			 
 		        		tester.runUITests("${CAPELLA_PRODUCT_PATH}", 'LibRecTransition', 'org.polarsys.capella.test.suites.ju', 
 		        			['org.polarsys.capella.test.libraries.ju.testsuites.main.LibrariesTestSuite',
+							  'org.polarsys.capella.test.libraries.ui.ju.testsuites.main.LibrariesUITestSuite',
 		        			  'org.polarsys.capella.test.recrpl.ju.testsuites.main.RecRplTestSuite',
 		        			  'org.polarsys.capella.test.transition.ju.testsuites.main.TransitionTestSuite',
 		        			  'org.polarsys.capella.test.re.updateconnections.ju.UpdateConnectionsTestSuite'])
@@ -163,7 +172,8 @@ pipeline {
 		        			 'org.polarsys.capella.test.fastlinker.ju.testsuites.FastLinkerTestsSuite',
 		        			 'org.polarsys.capella.test.explorer.activity.ju.testsuites.ActivityExplorerTestsSuite',
 		        			 'org.polarsys.capella.test.progressmonitoring.ju.testsuites.SetProgressTestSuite',
-		        			 'org.polarsys.capella.test.navigator.ju.testsuites.main.NavigatorUITestSuite'])
+		        			 'org.polarsys.capella.test.navigator.ju.testsuites.main.NavigatorUITestSuite',
+		        			 'org.polarsys.capella.test.semantic.ui.ju.testsuites.SemanticUITestSuite'])
 		        			 
 		        		tester.runUITests("${CAPELLA_PRODUCT_PATH}", 'MigrationCommandLine', 'org.polarsys.capella.test.suites.ju', 
 		        			['org.polarsys.capella.test.migration.ju.testsuites.main.MigrationTestSuite',

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.viatra.core.data.gen;singleton:=true
-Bundle-Version: 6.0.0.qualifier
+Bundle-Version: 7.0.0.qualifier
 Bundle-Vendor: %providerName
 Export-Package: org.polarsys.capella.viatra.core.data.capellacommon.surrogate,
  org.polarsys.capella.viatra.core.data.capellacore.surrogate,
@@ -21,13 +21,12 @@ Export-Package: org.polarsys.capella.viatra.core.data.capellacommon.surrogate,
  org.polarsys.capella.viatra.core.data.la.surrogate,
  org.polarsys.capella.viatra.core.data.oa.surrogate,
  org.polarsys.capella.viatra.core.data.pa.deployment.surrogate,
- org.polarsys.capella.viatra.core.data.pa.surrogate,
- org.polarsys.capella.viatra.core.data.requirement.surrogate
+ org.polarsys.capella.viatra.core.data.pa.surrogate
 Require-Bundle: org.polarsys.capella.common.data.core.gen,
  org.polarsys.capella.core.data.gen,
  org.eclipse.emf.ecore,
  org.eclipse.viatra.query.runtime,
  org.eclipse.xtext.xbase.lib
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: org.polarsys.capella.viatra.core.data.gen
 Import-Package: org.apache.log4j

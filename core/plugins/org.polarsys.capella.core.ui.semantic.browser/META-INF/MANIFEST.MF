@@ -2,21 +2,21 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.core.ui.semantic.browser;singleton:=true
-Bundle-Version: 6.0.0.qualifier
+Bundle-Version: 7.0.0.qualifier
 Bundle-Activator: org.polarsys.capella.core.ui.semantic.browser.CapellaBrowserActivator
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.polarsys.capella.common.ui.toolkit.browser;visibility:=reexport,
  org.eclipse.gmf.runtime.diagram.ui;visibility:=reexport,
- org.polarsys.capella.core.platform.sirius.ui.navigator,
  org.polarsys.capella.core.ui.properties,
  org.eclipse.ui.workbench
 Export-Package: org.polarsys.capella.core.ui.semantic.browser,
  org.polarsys.capella.core.ui.semantic.browser.actions,
  org.polarsys.capella.core.ui.semantic.browser.content.provider,
+ org.polarsys.capella.core.ui.semantic.browser.handler,
  org.polarsys.capella.core.ui.semantic.browser.internal,
  org.polarsys.capella.core.ui.semantic.browser.label.provider,
  org.polarsys.capella.core.ui.semantic.browser.model,
  org.polarsys.capella.core.ui.semantic.browser.view
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17

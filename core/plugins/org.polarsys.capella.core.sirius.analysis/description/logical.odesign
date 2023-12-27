@@ -1,118 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_3="http://www.eclipse.org/sirius/diagram/sequence/description/2.0.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="Logical Descriptions" version="12.0.0.2017041100">
   <ownedViewpoints name="Logical Architecture" label="%la" modelFileExtension="capella" icon="">
-    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Logical Functions - Requirements" domainClass="LogicalArchitecture">
-      <ownedLineMappings name="Logical Functions 2" domainClass="AbstractFunction" semanticCandidatesExpression="aql:self.getTableRootAbstractFunctions()" headerLabelExpression="feature:name">
-        <ownedSubLines name="Sub Logical Function 2" reusedSubLines="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Logical%20Functions%202']/@ownedSubLines[name='Sub%20Function%20Pkg'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Logical%20Functions%202']/@ownedSubLines[name='Sub%20Logical%20Function%202']" reusedInMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20Requirements']/@ownedLineMappings[name='FunctionPkgs'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Logical%20Functions%202']/@ownedSubLines[name='Sub%20Function%20Pkg'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Logical%20Functions%202']/@ownedSubLines[name='Sub%20Logical%20Function%202']" domainClass="LogicalFunction" semanticCandidatesExpression="aql:self.getOwnedAbstractFunctions()" headerLabelExpression="feature:name">
-          <delete name="No delete" precondition="false">
-            <variables name="element" documentation="The currently edited element."/>
-            <variables name="root" documentation="The semantic element corresponding to the current table."/>
-          </delete>
-        </ownedSubLines>
-        <ownedSubLines name="Sub Function Pkg" reusedSubLines="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Logical%20Functions%202']/@ownedSubLines[name='Sub%20Logical%20Function%202'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Logical%20Functions%202']/@ownedSubLines[name='Sub%20Function%20Pkg']" reusedInMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20Requirements']/@ownedLineMappings[name='FunctionPkgs'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Logical%20Functions%202']/@ownedSubLines[name='Sub%20Function%20Pkg'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Logical%20Functions%202']/@ownedSubLines[name='Sub%20Logical%20Function%202']" domainClass="FunctionPkg" semanticCandidatesExpression="aql:self.getOwnedAbstractFunctionPkgs()" headerLabelExpression="feature:name">
-          <delete name="No delete" precondition="false">
-            <variables name="element" documentation="The currently edited element."/>
-            <variables name="root" documentation="The semantic element corresponding to the current table."/>
-          </delete>
-        </ownedSubLines>
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedLineMappings>
-      <ownedLineMappings name="FunctionPkgs" reusedSubLines="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Logical%20Functions%202']/@ownedSubLines[name='Sub%20Logical%20Function%202'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Logical%20Functions%202']/@ownedSubLines[name='Sub%20Function%20Pkg']" domainClass="FunctionPkg" semanticCandidatesExpression="aql:self.getTableRootAbstractFunctionPkgs()">
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedLineMappings>
-      <ownedColumnMappings name="Requirements 5" headerLabelExpression="aql:self.getRequirementElementLabel()" domainClass="Requirement">
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedColumnMappings>
-      <intersection name="Trace 5" lineMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Logical%20Functions%202'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20Requirements']/@ownedLineMappings[name='Logical%20Functions%202']/@ownedSubLines[name='Sub%20Logical%20Function%202']" columnMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20Requirements']/@ownedColumnMappings.0" labelExpression="X" useDomainClass="true" columnFinderExpression="feature:targetElement" lineFinderExpression="feature:sourceElement" domainClass="RequirementsTrace">
-        <directEdit>
-          <variables name="table" documentation="The current DTable."/>
-          <variables name="line" documentation="The DLine of the current DCell."/>
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic element of the table."/>
-          <firstModelOperation xsi:type="tool:If" conditionExpression="aql:arg0 = '' and root.eAllContents()->filter(requirement::RequirementsTrace)->select(x | x.targetElement = columnSemantic and x.sourceElement = lineSemantic)->size() > 0">
-            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:root.eAllContents()->filter(requirement::RequirementsTrace)->select(x | x.targetElement = columnSemantic and x.sourceElement = lineSemantic)->first()">
-              <subModelOperations xsi:type="tool:RemoveElement"/>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </directEdit>
-        <create name="TR5" forceRefresh="true">
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic root element of the table."/>
-          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:lineSemantic">
-            <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0 = 'X'">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="RequirementsTrace" referenceName="ownedTraces">
-                <subModelOperations xsi:type="tool:SetValue" featureName="sourceElement" valueExpression="aql:lineSemantic"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="targetElement" valueExpression="aql:columnSemantic"/>
-              </subModelOperations>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </create>
-      </intersection>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Logical Components - Requirements" label="Logical Components/Actors - Requirements" domainClass="LogicalArchitecture">
-      <ownedLineMappings name="Logical Components 2" domainClass="LogicalComponent" semanticCandidatesExpression="aql:self.makeUnion(self.getSubComponents(), self.getSubActors())" headerLabelExpression="feature:name">
-        <ownedSubLines name="Sub Logical Components 2" reusedSubLines="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Components%20-%20Requirements']/@ownedLineMappings[name='Logical%20Components%202']/@ownedSubLines[name='Sub%20Logical%20Components%202']" reusedInMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Components%20-%20Requirements']/@ownedLineMappings[name='Logical%20Components%202']/@ownedSubLines[name='Sub%20Logical%20Components%202']" domainClass="LogicalComponent" semanticCandidatesExpression="aql:self.makeUnion(self.getSubComponents(), self.getSubActors())" headerLabelExpression="feature:name">
-          <delete name="No delete" precondition="false">
-            <variables name="element" documentation="The currently edited element."/>
-            <variables name="root" documentation="The semantic element corresponding to the current table."/>
-          </delete>
-        </ownedSubLines>
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedLineMappings>
-      <ownedColumnMappings name="Requirements 1" headerLabelExpression="aql:self.getRequirementElementLabel()" domainClass="Requirement">
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedColumnMappings>
-      <intersection name="Trace 1" lineMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Components%20-%20Requirements']/@ownedLineMappings[name='Logical%20Components%202'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Components%20-%20Requirements']/@ownedLineMappings[name='Logical%20Components%202']/@ownedSubLines[name='Sub%20Logical%20Components%202']" columnMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Components%20-%20Requirements']/@ownedColumnMappings.0" labelExpression="X" useDomainClass="true" columnFinderExpression="feature:targetElement" lineFinderExpression="feature:sourceElement" domainClass="RequirementsTrace">
-        <directEdit>
-          <variables name="table" documentation="The current DTable."/>
-          <variables name="line" documentation="The DLine of the current DCell."/>
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic element of the table."/>
-          <firstModelOperation xsi:type="tool:If" conditionExpression="aql:arg0 = '' and root.eAllContents()->filter(requirement::RequirementsTrace)->select(x | x.targetElement = columnSemantic and x.sourceElement = lineSemantic)->size() > 0">
-            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:root.eAllContents()->filter(requirement::RequirementsTrace)->select(x | x.targetElement = columnSemantic and x.sourceElement = lineSemantic)->first()">
-              <subModelOperations xsi:type="tool:RemoveElement"/>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </directEdit>
-        <create name="TR1" forceRefresh="true">
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic root element of the table."/>
-          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:lineSemantic">
-            <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0 = 'X'">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="RequirementsTrace" referenceName="ownedTraces">
-                <subModelOperations xsi:type="tool:SetValue" featureName="sourceElement" valueExpression="aql:lineSemantic"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="targetElement" valueExpression="aql:columnSemantic"/>
-              </subModelOperations>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </create>
-      </intersection>
-    </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Logical Functions - System Functions" domainClass="LogicalArchitecture">
       <ownedLineMappings name="Logical Functions 1" domainClass="AbstractFunction" semanticCandidatesExpression="aql:self.getTableRootAbstractFunctions()" headerLabelExpression="feature:name">
         <ownedSubLines name="Sub Logical Function 1" reusedSubLines="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20System%20Functions']/@ownedLineMappings[name='Logical%20Functions%201']/@ownedSubLines[name='Sub%20Function%20Pkg'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20System%20Functions']/@ownedLineMappings[name='Logical%20Functions%201']/@ownedSubLines[name='Sub%20Logical%20Function%201']" reusedInMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20System%20Functions']/@ownedLineMappings[name='Logical%20Functions%201']/@ownedSubLines[name='Sub%20Logical%20Function%201'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20System%20Functions']/@ownedLineMappings[name='Logical%20Functions%201']/@ownedSubLines[name='Sub%20Function%20Pkg'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Functions%20-%20System%20Functions']/@ownedLineMappings[name='FunctionPkgs']" domainClass="LogicalFunction" semanticCandidatesExpression="aql:self.getOwnedAbstractFunctions()" headerLabelExpression="feature:name">
@@ -224,57 +112,7 @@
           <mask mask="{0}"/>
         </create>
       </intersection>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Logical Architecture Requirement Refinements" domainClass="LogicalArchitecture">
-      <ownedLineMappings name="LARR Requirement Pkg" reusedSubLines="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Requirement%20Refinements']/@ownedLineMappings[name='LARR%20Requirement%20Pkg']" reusedInMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Requirement%20Refinements']/@ownedLineMappings[name='LARR%20Requirement%20Pkg']" domainClass="RequirementsPkg" semanticCandidatesExpression="aql:self.eContents()->filter(requirement::RequirementsPkg)" headerLabelExpression="feature:name">
-        <ownedSubLines name="Requirements 3" domainClass="Requirement" semanticCandidatesExpression="aql:self.ownedRequirements" headerLabelExpression="feature:name">
-          <delete name="No delete" precondition="false">
-            <variables name="element" documentation="The currently edited element."/>
-            <variables name="root" documentation="The semantic element corresponding to the current table."/>
-          </delete>
-        </ownedSubLines>
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedLineMappings>
-      <ownedColumnMappings name="Requirements 9" headerLabelExpression="aql:self.getRequirementElementLabel()" domainClass="Requirement" semanticCandidatesExpression="aql:self.getRootContainer().eAllContents()->filter(ctx::SystemAnalysis).eAllContents()->filter(requirement::Requirement)">
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedColumnMappings>
-      <intersection name="Trace 9" lineMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Requirement%20Refinements']/@ownedLineMappings[name='LARR%20Requirement%20Pkg']/@ownedSubLines[name='Requirements%203']" columnMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Requirement%20Refinements']/@ownedColumnMappings.0" labelExpression="X" useDomainClass="true" columnFinderExpression="feature:targetElement" lineFinderExpression="feature:sourceElement" domainClass="RequirementsTrace">
-        <directEdit>
-          <variables name="table" documentation="The current DTable."/>
-          <variables name="line" documentation="The DLine of the current DCell."/>
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic element of the table."/>
-          <firstModelOperation xsi:type="tool:If" conditionExpression="aql:arg0 = '' and root.eAllContents()->filter(requirement::RequirementsTrace)->select(x | x.targetElement = columnSemantic and x.sourceElement = lineSemantic)->size() > 0">
-            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:root.eAllContents()->filter(requirement::RequirementsTrace)->select(x | x.targetElement = columnSemantic and x.sourceElement = lineSemantic)->first()">
-              <subModelOperations xsi:type="tool:RemoveElement"/>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </directEdit>
-        <create name="TR 9" forceRefresh="true">
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic root element of the table."/>
-          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:lineSemantic.ancestors()->filter(requirement::RequirementsPkg)->first()">
-            <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0 = 'X'">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="RequirementsTrace" referenceName="ownedTraces">
-                <subModelOperations xsi:type="tool:SetValue" featureName="sourceElement" valueExpression="aql:lineSemantic"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="targetElement" valueExpression="aql:columnSemantic"/>
-              </subModelOperations>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </create>
-      </intersection>
-    </ownedRepresentations>
+    </ownedRepresentations>    
     <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Logical Interface - Context Interface" label="Logical Interfaces - System Interfaces" domainClass="LogicalArchitecture">
       <ownedLineMappings name="LICI Logical Interface Line" domainClass="Interface" semanticCandidatesExpression="aql:self.eAllContents()->filter(cs::Interface)">
         <delete name="No delete" precondition="false">
@@ -387,7 +225,6 @@
       <metamodel href="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/OperationalAnalysis.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/PhysicalArchitecture.ecore#/"/>
-      <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Requirement.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/SharedModel.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//communication"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//datatype"/>
@@ -728,7 +565,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -747,7 +583,6 @@
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCommon.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#/"/>
-      <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Requirement.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//communication"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//datatype"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//datavalue"/>
@@ -1043,7 +878,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -1069,7 +903,6 @@
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCommon.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/CapellaCore.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#/"/>
-      <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Requirement.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//communication"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//datatype"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//datavalue"/>
@@ -1677,7 +1510,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Function From Project Explorer" precondition="aql:element.oclIsKindOf(fa::AbstractFunction) and element.canBeDropped(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Data%20Flow%20Blank']/@defaultLayer/@containerMappings[name='LDFB_Function']" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Function From Project Explorer" precondition="aql:element.oclIsKindOf(fa::AbstractFunction) and element.canBeDropped(newViewContainer) and not element.isLibraryElementOf(newViewContainer)" forceRefresh="true" mappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Data%20Flow%20Blank']/@defaultLayer/@containerMappings[name='LDFB_Function']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -1703,18 +1536,6 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.void2Null(element)"/>
             </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:PopupMenu" name="functional.chain.menu" label="%la.ldfb.functional.chain.menu">
-            <menuItemDescription xsi:type="tool:OperationAction" name="functional.chain" label="%la.ldfb.functional.chain" precondition="aql:self.isValidFunctionalChainSelection(views)" forceRefresh="true">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.createFunctionalChain(views)">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(fa::FunctionalChain)">
-                    <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Data%20Flow%20Blank']/@defaultLayer/@nodeMappings[name='LDFB_FunctionalChainEnd']" containerViewExpression="aql:views->first().getDiagramContainer()"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
           </ownedTools>
         </toolSections>
         <toolSections name="Accelerators">
@@ -1860,7 +1681,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -1908,7 +1728,6 @@
       <metamodel href="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/OperationalAnalysis.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/PhysicalArchitecture.ecore#/"/>
-      <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Requirement.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/SharedModel.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//communication"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//datatype"/>
@@ -1957,6 +1776,26 @@
       </filters>
       <filters xsi:type="filter:CompositeFilterDescription" name="show.exchange.items.filter" label="%la.lab.show.exchange.items.filter">
         <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE" mappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='LAB_Dummy']" semanticConditionExpression=""/>
+      </filters>
+      <filters xsi:type="filter:CompositeFilterDescription" name="show.exchange.items.parameters.filter" label="%la.lab.show.exchange.items.parameters.filter">
+        <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE">
+          <mappings xsi:type="description_3:InstanceRoleMapping" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Component%20Exchanges%20Scenario']/@defaultLayer/@nodeMappings[name='hideSequenceLabelDF']"/>
+        </filters>
+      </filters>
+      <filters xsi:type="filter:CompositeFilterDescription" name="show.functional.exchanges.exchange.items.filter" label="%la.lab.show.functional.exchanges.exchange.items.filter">
+        <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE">
+          <mappings xsi:type="description_3:InstanceRoleMapping" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Component%20Exchanges%20Scenario']/@defaultLayer/@nodeMappings[name='hideSequenceLabelDF']"/>
+        </filters>
+      </filters>
+      <filters xsi:type="filter:CompositeFilterDescription" name="show.functional.exchanges.parameters.filter" label="%la.lab.show.functional.exchanges.parameters.filter">
+        <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE">
+          <mappings xsi:type="description_3:InstanceRoleMapping" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Component%20Exchanges%20Scenario']/@defaultLayer/@nodeMappings[name='hideSequenceLabelDF']"/>
+        </filters>
+      </filters>
+      <filters xsi:type="filter:CompositeFilterDescription" name="show.functional.exchanges.exchange.items.parameters.filter" label="%la.lab.show.functional.exchanges.exchange.items.parameters.filter">
+        <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE">
+          <mappings xsi:type="description_3:InstanceRoleMapping" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Component%20Exchanges%20Scenario']/@defaultLayer/@nodeMappings[name='hideSequenceLabelDF']"/>
+        </filters>
       </filters>
       <filters xsi:type="filter:CompositeFilterDescription" name="show.exchange.items.on.component.exchanges.filter" label="%la.lab.show.exchange.items.on.component.exchanges.filter">
         <filters xsi:type="filter:MappingFilter" filterKind="COLLAPSE" mappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='LAB_Dummy']" semanticConditionExpression=""/>
@@ -2076,7 +1915,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="LAB DataFlow by Categorie" label="LAB_ExchangeCategory" preconditionExpression="service:isValidFunctionalExchangeCategoryEdge(sourceView,targetView)" deletionDescription="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='no%20delete%20LAB']" labelDirectEdit="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='name']" semanticCandidatesExpression="" createElements="false" semanticElements="aql:self.makeUnion(self, self.exchanges->select(exchange | (exchange.target.ancestors()->includes(view.targetNode.eContainer().target)) and (exchange.source.ancestors()->includes(view.sourceNode.eContainer().target))))" sourceMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@subNodeMappings[name='LAB%20Logical%20Function']/@borderedNodeMappings[name='LAB%20OutputPin%20by%20Categorie']" targetMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@subNodeMappings[name='LAB%20Logical%20Function']/@borderedNodeMappings[name='LAB%20InputPin%20by%20Categorie']" targetFinderExpression="aql:self" sourceFinderExpression="aql:self" targetExpression="var:self" domainClass="ExchangeCategory" useDomainElement="true">
+        <edgeMappings name="LAB DataFlow by Categorie" label="LAB_ExchangeCategory" preconditionExpression="service:isValidFunctionalExchangeCategoryEdge(sourceView,targetView)" deletionDescription="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='no%20delete%20LAB']" labelDirectEdit="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='name']" semanticCandidatesExpression="" createElements="false" semanticElements="service:getEdgeExchangeCategorySemanticElements(view)" sourceMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@subNodeMappings[name='LAB%20Logical%20Function']/@borderedNodeMappings[name='LAB%20OutputPin%20by%20Categorie']" targetMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@subNodeMappings[name='LAB%20Logical%20Function']/@borderedNodeMappings[name='LAB%20InputPin%20by%20Categorie']" targetFinderExpression="aql:self" sourceFinderExpression="aql:self" targetExpression="var:self" domainClass="ExchangeCategory" useDomainElement="true">
           <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2" endsCentering="Both">
             <strokeColor xsi:type="description:UserFixedColor" href="common.odesign#//@userColorsPalettes[name='Migration%20Palette']/@entries[name='_CAP_xAB_Function_Border_Green']"/>
             <centerLabelStyleDescription labelExpression="service:capellaLabelService(view, diagram)">
@@ -2204,7 +2043,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="LAB_ComponentCategory" preconditionExpression="service:isValidABComponentCategoryEdge(sourceView, targetView)" deletionDescription="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='no%20delete%20LAB']" labelDirectEdit="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='name']" createElements="false" sourceMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_ComponentCategory_Pin'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB%20ComponentPort'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']" targetMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_ComponentCategory_Pin'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB%20ComponentPort'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']" targetFinderExpression="service:getComponentCategoryTargets()" sourceFinderExpression="service:getComponentCategorySources()" domainClass="ComponentExchangeCategory" useDomainElement="true">
+        <edgeMappings name="LAB_ComponentCategory" preconditionExpression="service:isValidABComponentCategoryEdge(sourceView, targetView)" deletionDescription="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='no%20delete%20LAB']" labelDirectEdit="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='name']" createElements="false" sourceMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_ComponentCategory_Pin'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB%20ComponentPort'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']" targetMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_ComponentCategory_Pin'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB%20ComponentPort'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']" targetFinderExpression="service:getComponentCategoryTargets()" sourceFinderExpression="service:getComponentCategorySources()" domainClass="ComponentExchangeCategory" useDomainElement="true" semanticElements="service:getEdgeExchangeCategorySemanticElements(view)">
           <style targetArrow="NoDecoration" sizeComputationExpression="2" centeredSourceMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_ComponentCategory_Pin'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB%20ComponentPort']" centeredTargetMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_ComponentCategory_Pin'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB%20ComponentPort']">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelExpression="aql:self.computeComponentCategoryLabel()">
@@ -2250,7 +2089,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="LAB_PhysicalCategory" preconditionExpression="service:isValidABPhysicalCategoryEdge(sourceView, targetView)" labelDirectEdit="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='name']" createElements="false" sourceMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_PhysicalPort'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_PhysicalCategory_Pin']" targetMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_PhysicalPort'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_PhysicalCategory_Pin']" targetFinderExpression="service:getPhysicalCategoryTargets()" sourceFinderExpression="service:getPhysicalCategorySources()" domainClass="PhysicalLinkCategory" useDomainElement="true">
+        <edgeMappings name="LAB_PhysicalCategory" preconditionExpression="service:isValidABPhysicalCategoryEdge(sourceView, targetView)" labelDirectEdit="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='name']" createElements="false" sourceMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_PhysicalPort'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_PhysicalCategory_Pin']" targetMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_PhysicalPort'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_PhysicalCategory_Pin']" targetFinderExpression="service:getPhysicalCategoryTargets()" sourceFinderExpression="service:getPhysicalCategorySources()" domainClass="PhysicalLinkCategory" useDomainElement="true" semanticElements="service:getEdgeExchangeCategorySemanticElements(view)">
           <deletionDescription href="physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20category']"/>
           <style targetArrow="NoDecoration" sizeComputationExpression="2" centeredSourceMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_PhysicalCategory_Pin'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_PhysicalPort']" centeredTargetMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_PhysicalCategory_Pin'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@borderedNodeMappings[name='LAB_PhysicalPort']">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
@@ -2276,7 +2115,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="LAB_FC_SequenceLink" semanticCandidatesExpression="aql:diagram.getAvailableSequenceLinks()" synchronizationLock="true" targetFinderExpression="aql:self.getSequenceLinkTarget()" sourceFinderExpression="aql:self.getSequenceLinkSource()" domainClass="SequenceLink" useDomainElement="true">
-          <deletionDescription href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Capella%20Architecture']/@defaultLayer/@toolSections.0/@ownedTools[name='no%20delete']"/>
+          <deletionDescription href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Functional%20Chain%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20FE%20Involvement']"/>
           <sourceMapping xsi:type="description_2:NodeMapping" href="#//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@subNodeMappings[name='LAB%20Logical%20Function']"/>
           <sourceMapping xsi:type="description_2:NodeMapping" href="oa.odesign#//@ownedViewpoints[name='Operational%20Analysis']/@ownedRepresentations[name='Operational%20Entity%20Blank']/@defaultLayer/@nodeMappings[name='FC_ControlNode']"/>
           <targetMapping xsi:type="description_2:NodeMapping" href="#//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@subNodeMappings[name='LAB%20Logical%20Function']"/>
@@ -2334,7 +2173,7 @@
               </style>
             </conditionnalStyles>
           </borderedNodeMappings>
-          <borderedNodeMappings name="LAB_ComponentCategory_Pin" preconditionExpression="service:isValidABComponentCategoryPort(containerView)" deletionDescription="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='no%20delete%20LAB']" createElements="false" domainClass="ComponentExchangeCategory">
+          <borderedNodeMappings name="LAB_ComponentCategory_Pin" preconditionExpression="service:isValidABComponentCategoryPort(containerView)" deletionDescription="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='no%20delete%20LAB']" createElements="false" domainClass="ComponentExchangeCategory" semanticElements="service:getPinCategorySemanticElements(view)">
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:self.computeComponentCategoryLabel()" hideLabelByDefault="true" sizeComputationExpression="1" workspacePath="/org.polarsys.capella.core.sirius.analysis/description/images/FlowPort.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -2371,7 +2210,7 @@
               <color xsi:type="description:UserFixedColor" href="common.odesign#//@userColorsPalettes[name='Migration%20Palette']/@entries[name='_CAP_PhysicalPort_Yellow']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="LAB_PhysicalCategory_Pin" preconditionExpression="service:isValidABPhysicalCategoryPort(containerView)" createElements="false" domainClass="PhysicalLinkCategory">
+          <borderedNodeMappings name="LAB_PhysicalCategory_Pin" preconditionExpression="service:isValidABPhysicalCategoryPort(containerView)" createElements="false" domainClass="PhysicalLinkCategory" semanticElements="service:getPinCategorySemanticElements(view)">
             <deletionDescription href="physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Architecture%20Blank']/@defaultLayer/@toolSections.0/@ownedTools[name='delete%20category']"/>
             <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="aql:self.computePhysicalCategoryLabel()" hideLabelByDefault="true" sizeComputationExpression="1">
               <borderColor xsi:type="description:UserFixedColor" href="common.odesign#//@userColorsPalettes[name='Migration%20Palette']/@entries[name='_CAP_Class_Border_Brown']"/>
@@ -2392,13 +2231,13 @@
                 </style>
               </conditionnalStyles>
             </borderedNodeMappings>
-            <borderedNodeMappings name="LAB InputPin by Categorie" deletionDescription="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='no%20delete%20LAB']" labelDirectEdit="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='name']" semanticCandidatesExpression="" createElements="false" semanticElements="aql:self.makeUnion(self, self.exchanges->select(exchange | exchange.target.ancestors()->includes(view.eContainer().target)))" domainClass="ExchangeCategory">
+            <borderedNodeMappings name="LAB InputPin by Categorie" deletionDescription="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='no%20delete%20LAB']" labelDirectEdit="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='name']" semanticCandidatesExpression="" createElements="false" semanticElements="service:getInputPinCategorySemanticElements(view)" domainClass="ExchangeCategory">
               <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="service:capellaLabelService(view, diagram)" hideLabelByDefault="true" sizeComputationExpression="1" workspacePath="/org.polarsys.capella.core.sirius.analysis/description/images/CategoryInput.svg">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </borderedNodeMappings>
-            <borderedNodeMappings name="LAB OutputPin by Categorie" deletionDescription="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='no%20delete%20LAB']" labelDirectEdit="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='name']" semanticCandidatesExpression="" createElements="false" semanticElements="aql:self.makeUnion(self, self.exchanges->select(exchange | exchange.source.ancestors()->includes(view.eContainer().target)))" domainClass="ExchangeCategory">
+            <borderedNodeMappings name="LAB OutputPin by Categorie" deletionDescription="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='no%20delete%20LAB']" labelDirectEdit="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='name']" semanticCandidatesExpression="" createElements="false" semanticElements="service:getOutputPinCategorySemanticElements(view)" domainClass="ExchangeCategory">
               <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="service:capellaLabelService(view, diagram)" hideLabelByDefault="true" sizeComputationExpression="1" workspacePath="/org.polarsys.capella.core.sirius.analysis/description/images/CategoryOutput.svg">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -2608,21 +2447,6 @@
               </initialOperation>
             </tools>
           </ownedTools>
-          <ownedTools xsi:type="tool:PopupMenu" name="physical.path.menu" label="%la.lab.physical.path.menu">
-            <menuItemDescription xsi:type="tool:OperationAction" name="physical.path" label="%la.lab.physical.path" precondition="aql:self.isValidPhysicalPathSelection(views)" forceRefresh="true">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:views">
-                  <subModelOperations xsi:type="tool:Let" variableName="source" valueExpression="service:getPhysicalPathSource(views)"/>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.createPhysicalPath(views,source)">
-                    <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(cs::PhysicalPath)">
-                      <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='LAB_PhysicalPathEnd']" containerViewExpression="aql:views->first().getDiagramContainer()"/>
-                    </subModelOperations>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:ToolGroup" name="Connections" label="Component Exchanges">
             <tools xsi:type="tool_1:EdgeCreationDescription" documentation="[Singleton Components] Creates a Component Exchange of kind FLOW between the Source and Target Components. &#xD;&#xA;This tool can be used directly from / to Component or from / to Component Ports." name="component.exchange" label="%la.lab.component.exchange" precondition="aql:self.isValidCreationABComponentExchange(preSourceView,preTargetView)" elementsToSelect="var:result" edgeMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@edgeMappings[name='LAB%20DataFlow%20between%20Logical%20Components']" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/Connection.gif" extraSourceMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']" extraTargetMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']">
               <filters precondition="aql:self.isPreferenceEnabled('multipart.allowed')" elementsToListen="aql:self.getPreferenceListener()">
@@ -2693,7 +2517,7 @@
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.createABDelegation(sourceView,targetView)"/>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:EdgeCreationDescription" documentation="Creates a new Physical Link between the source and target Logicall Components or Actors." name="physical.link" label="%la.lab.physical.link" precondition="aql:preTargetView.target.canBeInvolvedInPhysicalLink()" elementsToSelect="var:result" edgeMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@edgeMappings[name='LAB_PhysicalLink']" extraSourceMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']" extraTargetMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']" connectionStartPrecondition="aql:preSourceView.target.canBeInvolvedInPhysicalLink()">
+            <tools xsi:type="tool_1:EdgeCreationDescription" documentation="Creates a new Physical Link between the source and target Logicall Components or Actors." name="physical.link" label="%la.lab.physical.link" precondition="aql:preSourceView.target.isValidCreationPhysicalLink(preTargetView.target)" elementsToSelect="var:result" edgeMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@edgeMappings[name='LAB_PhysicalLink']" extraSourceMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']" extraTargetMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']" connectionStartPrecondition="aql:preSourceView.target.canBeInvolvedInPhysicalLink()">
               <sourceVariable name="source"/>
               <targetVariable name="target"/>
               <sourceViewVariable name="sourceView"/>
@@ -3249,7 +3073,7 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.void2Null(element)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Components From Project Explorer" precondition="aql:element.getComponentType().oclIsKindOf(cs::Component) and element.canBeDropped(newViewContainer)" forceRefresh="true" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Components From Project Explorer" precondition="aql:element.getComponentType().oclIsKindOf(cs::Component) and element.canBeDropped(newViewContainer) and not element.isLibraryElementOf(newViewContainer)" forceRefresh="true" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
@@ -3837,7 +3661,7 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Function Allocation From Project Explorer" precondition="aql:element.oclIsKindOf(fa::AbstractFunction) and (element.subFunctions->size() = 0)" forceRefresh="true" mappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@subNodeMappings[name='LAB%20Logical%20Function']" dragSource="PROJECT_EXPLORER">
+          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D Function Allocation From Project Explorer" precondition="aql:element.oclIsKindOf(fa::AbstractFunction) and (element.subFunctions->size() = 0) and not element.isLibraryElementOf(newContainerView)" forceRefresh="true" mappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@containerMappings[name='LAB%20Logical%20Component']/@subNodeMappings[name='LAB%20Logical%20Function']" dragSource="PROJECT_EXPLORER">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element">
@@ -3859,18 +3683,6 @@
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:PopupMenu" name="functional.chain.menu" label="%la.lab.functional.chain.menu">
-            <menuItemDescription xsi:type="tool:OperationAction" name="functional.chain" label="%la.lab.functional.chain" precondition="aql:self.isValidFunctionalChainSelection(views)" forceRefresh="true">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.createFunctionalChain(views)">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(fa::FunctionalChain)">
-                    <subModelOperations xsi:type="tool_1:CreateView" mapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Logical%20Architecture%20Blank']/@defaultLayer/@nodeMappings[name='LAB_FunctionalChainEnd']" containerViewExpression="aql:views->first().getDiagramContainer()"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </menuItemDescription>
           </ownedTools>
           <ownedTools xsi:type="tool:ToolDescription" documentation="Insert/Remove Port Allocations" name="port.allocations" label="%la.lab.port.allocations" precondition="aql:(not self.isNode() or self.isActor()) and container.getComponentType().oclIsKindOf(cs::Component)" inverseSelectionOrder="true" iconPath="/org.polarsys.capella.core.sirius.analysis/icons/full/obj16/ShowHide.gif">
             <element name="element"/>
@@ -4015,7 +3827,6 @@
           </ownedTools>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='PV']"/>
           <reusedTools xsi:type="tool_1:ContainerDropDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='D%26D%20PV%20From%20Project%20Explorer']"/>
-          <reusedTools xsi:type="tool:PopupMenu" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='select.menu']"/>
           <reusedTools xsi:type="tool_1:ToolGroup" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='TitleBlock']"/>
           <reusedTools xsi:type="tool:ToolDescription" href="common.odesign#//@ownedViewpoints[name='Common']/@ownedRepresentations[name='Class%20Diagram%20Blank']/@defaultLayer/@toolSections.1/@ownedTools[name='title.blocks']"/>
         </toolSections>
@@ -4079,7 +3890,6 @@
       <metamodel href="platform:/plugin/org.polarsys.capella.common.data.core.gen/model/ModellingCore.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/OperationalAnalysis.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/PhysicalArchitecture.ecore#/"/>
-      <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Requirement.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/SharedModel.ecore#/"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//communication"/>
       <metamodel href="platform:/plugin/org.polarsys.capella.core.data.gen/model/Information.ecore#//datatype"/>
@@ -4326,63 +4136,7 @@
           </ownedTools>
         </toolSections>
       </defaultLayer>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Requirements - Logical Functions" preconditionExpression="aql:self.eContainerOrSelf(cs::BlockArchitecture).oclIsKindOf(la::LogicalArchitecture)" domainClass="RequirementsPkg">
-      <ownedLineMappings name="Requirements" domainClass="NamedElement" semanticCandidatesExpression="aql:self" headerLabelExpression="aql:self.getRequirementElementLabel()">
-        <ownedSubLines name="Sub Requirements" reusedSubLines="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Requirements%20-%20Logical%20Functions']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements']" reusedInMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Requirements%20-%20Logical%20Functions']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Requirements%20-%20Logical%20Functions']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements%20Pkg']" domainClass="NamedElement" semanticCandidatesExpression="aql:self.ownedRequirements" headerLabelExpression="aql:self.getRequirementElementLabel()">
-          <delete name="No delete" precondition="false">
-            <variables name="element" documentation="The currently edited element."/>
-            <variables name="root" documentation="The semantic element corresponding to the current table."/>
-          </delete>
-        </ownedSubLines>
-        <ownedSubLines name="Sub Requirements Pkg" reusedSubLines="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Requirements%20-%20Logical%20Functions']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements'] //@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Requirements%20-%20Logical%20Functions']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements%20Pkg']" reusedInMappings="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Requirements%20-%20Logical%20Functions']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements%20Pkg']" domainClass="NamedElement" semanticCandidatesExpression="feature:extended" headerLabelExpression="aql:self.getRequirementElementLabel()">
-          <delete name="No delete" precondition="false">
-            <variables name="element" documentation="The currently edited element."/>
-            <variables name="root" documentation="The semantic element corresponding to the current table."/>
-          </delete>
-        </ownedSubLines>
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedLineMappings>
-      <ownedColumnMappings name="Functions" headerLabelExpression="feature:name" domainClass="NamedElement" semanticCandidatesExpression="aql:self.getRFColumnCandidates()">
-        <delete name="No delete" precondition="false">
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="root" documentation="The semantic element corresponding to the current table."/>
-        </delete>
-      </ownedColumnMappings>
-      <intersection name="Trace Function" semanticElements="aql:self.makeUnion(self, self.eContainer())" lineMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Requirements%20-%20Logical%20Functions']/@ownedLineMappings[name='Requirements']/@ownedSubLines[name='Sub%20Requirements']" columnMapping="//@ownedViewpoints[name='Logical%20Architecture']/@ownedRepresentations[name='Requirements%20-%20Logical%20Functions']/@ownedColumnMappings.0" labelExpression="aql:self.getRFLabel(lineSemantic,columnSemantic)" useDomainClass="true" columnFinderExpression="feature:sourceElement" lineFinderExpression="feature:targetElement" semanticCandidatesExpression="aql:self.getRFColumnCandidates().outgoingTraces->select(outgoingTrace | outgoingTrace.oclIsKindOf(requirement::RequirementsTrace))" domainClass="RequirementsTrace">
-        <directEdit>
-          <variables name="table" documentation="The current DTable."/>
-          <variables name="line" documentation="The DLine of the current DCell."/>
-          <variables name="element" documentation="The currently edited element."/>
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic element of the table."/>
-          <firstModelOperation xsi:type="tool:If" conditionExpression="aql:arg0 = ''">
-            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.void2Null(element)">
-              <subModelOperations xsi:type="tool:RemoveElement"/>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </directEdit>
-        <create name="TR6" forceRefresh="true">
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic root element of the table."/>
-          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:columnSemantic">
-            <subModelOperations xsi:type="tool:If" conditionExpression="aql:arg0 = 'X' and lineSemantic.incomingTraces->select(incomingTrace | incomingTrace.sourceElement = columnSemantic)->size() = 0">
-              <subModelOperations xsi:type="tool:CreateInstance" typeName="RequirementsTrace" referenceName="ownedTraces">
-                <subModelOperations xsi:type="tool:SetValue" featureName="sourceElement" valueExpression="aql:columnSemantic"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="targetElement" valueExpression="aql:lineSemantic"/>
-              </subModelOperations>
-            </subModelOperations>
-          </firstModelOperation>
-          <mask mask="{0}"/>
-        </create>
-      </intersection>
-    </ownedRepresentations>
+    </ownedRepresentations>    
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.CapellaServices"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.PhysicalServices"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sequencediag.InteractionAspectService"/>
@@ -4390,7 +4144,6 @@
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.FunctionalChainServices"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.DragAndDropServices"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.CsServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.RequirementServices"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.DiagramServices"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.DFServices"/>
     <ownedJavaExtensions qualifiedClassName="org.polarsys.capella.core.sirius.analysis.ABServices"/>

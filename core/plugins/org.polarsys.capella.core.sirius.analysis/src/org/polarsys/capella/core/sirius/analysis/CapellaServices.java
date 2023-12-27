@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2021 THALES GLOBAL SERVICES.
+ * Copyright (c) 2006, 2022 THALES GLOBAL SERVICES.
  * 
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -12,19 +12,23 @@
  *******************************************************************************/
 package org.polarsys.capella.core.sirius.analysis;
 
-import static org.polarsys.capella.core.data.helpers.cache.ModelCache.getCache;
+import static org.polarsys.capella.common.helpers.cache.ModelCache.getCache;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.TimeZone;
 import java.util.stream.Collectors;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -91,10 +95,13 @@ import org.polarsys.capella.common.helpers.EcoreUtil2;
 import org.polarsys.capella.common.helpers.TransactionHelper;
 import org.polarsys.capella.common.libraries.ILibraryManager;
 import org.polarsys.capella.common.libraries.IModel;
+import org.polarsys.capella.common.libraries.manager.LibraryManager;
 import org.polarsys.capella.common.platform.sirius.ted.SemanticEditingDomainFactory.SemanticEditingDomain;
 import org.polarsys.capella.common.queries.interpretor.QueryInterpretor;
 import org.polarsys.capella.core.business.queries.IBusinessQuery;
 import org.polarsys.capella.core.business.queries.capellacore.BusinessQueriesProvider;
+import org.polarsys.capella.core.commands.preferences.initializers.CapellaDiagramPreferencesInitializer;
+import org.polarsys.capella.core.commands.preferences.preferences.CapellaDiagramPreferences;
 import org.polarsys.capella.core.data.capellacommon.CapabilityRealizationInvolvedElement;
 import org.polarsys.capella.core.data.capellacore.CapellaElement;
 import org.polarsys.capella.core.data.capellacore.CapellacorePackage;
@@ -115,6 +122,8 @@ import org.polarsys.capella.core.data.cs.ComponentPkg;
 import org.polarsys.capella.core.data.cs.CsPackage;
 import org.polarsys.capella.core.data.cs.DeployableElement;
 import org.polarsys.capella.core.data.cs.Part;
+import org.polarsys.capella.core.data.cs.PhysicalLink;
+import org.polarsys.capella.core.data.cs.PhysicalLinkCategory;
 import org.polarsys.capella.core.data.ctx.Capability;
 import org.polarsys.capella.core.data.ctx.CapabilityExploitation;
 import org.polarsys.capella.core.data.ctx.CapabilityInvolvement;
@@ -127,6 +136,8 @@ import org.polarsys.capella.core.data.ctx.SystemComponent;
 import org.polarsys.capella.core.data.epbs.EPBSArchitecture;
 import org.polarsys.capella.core.data.fa.AbstractFunction;
 import org.polarsys.capella.core.data.fa.AbstractFunctionalBlock;
+import org.polarsys.capella.core.data.fa.ComponentExchange;
+import org.polarsys.capella.core.data.fa.ComponentExchangeCategory;
 import org.polarsys.capella.core.data.fa.ComponentFunctionalAllocation;
 import org.polarsys.capella.core.data.fa.ExchangeCategory;
 import org.polarsys.capella.core.data.fa.FaPackage;
@@ -135,8 +146,10 @@ import org.polarsys.capella.core.data.fa.FunctionOutputPort;
 import org.polarsys.capella.core.data.fa.FunctionPkg;
 import org.polarsys.capella.core.data.fa.FunctionalChain;
 import org.polarsys.capella.core.data.fa.FunctionalExchange;
+import org.polarsys.capella.core.data.helpers.cs.services.PhysicalLinkExt;
 import org.polarsys.capella.core.data.helpers.fa.services.FunctionExt;
 import org.polarsys.capella.core.data.helpers.fa.services.FunctionPkgExt;
+import org.polarsys.capella.core.data.helpers.fa.services.FunctionalExt;
 import org.polarsys.capella.core.data.information.AbstractInstance;
 import org.polarsys.capella.core.data.information.AggregationKind;
 import org.polarsys.capella.core.data.information.Association;
@@ -179,8 +192,10 @@ import org.polarsys.capella.core.linkedtext.ui.CapellaEmbeddedLinkedTextEditorIn
 import org.polarsys.capella.core.model.helpers.AbstractFunctionExt;
 import org.polarsys.capella.core.model.helpers.BlockArchitectureExt;
 import org.polarsys.capella.core.model.helpers.CapellaElementExt;
+import org.polarsys.capella.core.model.helpers.ComponentExchangeExt;
 import org.polarsys.capella.core.model.helpers.ComponentExt;
 import org.polarsys.capella.core.model.helpers.FunctionalChainExt;
+import org.polarsys.capella.core.model.helpers.FunctionalExchangeExt;
 import org.polarsys.capella.core.model.helpers.PartExt;
 import org.polarsys.capella.core.model.helpers.ScenarioExt;
 import org.polarsys.capella.core.model.preferences.CapellaModelPreferencesPlugin;
@@ -231,8 +246,9 @@ public class CapellaServices {
 
   /** used by aql queries */
   public Object void2Null(EObject eObject, Object object) {
-    if (object instanceof Collection && ((Collection<?>) object).isEmpty())
+    if (object instanceof Collection && ((Collection<?>) object).isEmpty()) {
       return null;
+    }
     return object;
   }
 
@@ -241,14 +257,16 @@ public class CapellaServices {
   public Object makeIntersection(EObject eObject, Object obj1, Object obj2) {
     try {
       List<Object> result = new ArrayList<>();
-      if (obj1 instanceof Collection)
+      if (obj1 instanceof Collection) {
         result.addAll((Collection) obj1);
-      else if (obj1 != null)
+      } else if (obj1 != null) {
         result.add(obj1);
-      if (obj2 instanceof Collection)
+      }
+      if (obj2 instanceof Collection) {
         result.retainAll((Collection) obj2);
-      else if (obj2 != null && !result.contains(obj2))
+      } else if (obj2 != null && !result.contains(obj2)) {
         result.remove(obj2);
+      }
       return result;
     } catch (Exception e) {
       throw new UnsupportedOperationException();
@@ -260,19 +278,21 @@ public class CapellaServices {
   public Object makeDiff(EObject eObject, Object obj1, Object obj2) {
     try {
       List<Object> result = new ArrayList<Object>();
-      if (obj1 instanceof Collection)
+      if (obj1 instanceof Collection) {
         result.addAll((Collection) obj1);
-      else if (obj1 != null)
+      } else if (obj1 != null) {
         result.add(obj1);
+      }
 
-      if (obj2 instanceof Collection)
+      if (obj2 instanceof Collection) {
         result.removeAll((Collection) obj2);
-      else if (obj2 instanceof Object[]) {
+      } else if (obj2 instanceof Object[]) {
         for (Object o : (Object[]) obj2) {
           result.remove(o);
         }
-      } else if (obj2 != null)
+      } else if (obj2 != null) {
         result.remove(obj2);
+      }
       // if (result.size() == 1)
       // return result.get(0);
       return result;
@@ -286,14 +306,16 @@ public class CapellaServices {
   public Object makeUnion(EObject eObject, Object obj1, Object obj2) {
     try {
       List<Object> result = new ArrayList<>();
-      if (obj1 instanceof Collection)
+      if (obj1 instanceof Collection) {
         result.addAll((Collection) obj1);
-      else if (obj1 != null)
+      } else if (obj1 != null) {
         result.add(obj1);
-      if (obj2 instanceof Collection)
+      }
+      if (obj2 instanceof Collection) {
         result.addAll((Collection) obj2);
-      else if (obj2 != null)
+      } else if (obj2 != null) {
         result.add(obj2);
+      }
       return result;
     } catch (Exception e) {
       throw new UnsupportedOperationException();
@@ -305,18 +327,21 @@ public class CapellaServices {
   public Object makeUnion(EObject eObject, Object obj1, Object obj2, Object obj3) {
     try {
       List<Object> result = new ArrayList<>();
-      if (obj1 instanceof Collection)
+      if (obj1 instanceof Collection) {
         result.addAll((Collection) obj1);
-      else if (obj1 != null)
+      } else if (obj1 != null) {
         result.add(obj1);
-      if (obj2 instanceof Collection)
+      }
+      if (obj2 instanceof Collection) {
         result.addAll((Collection) obj2);
-      else if (obj2 != null)
+      } else if (obj2 != null) {
         result.add(obj2);
-      if (obj3 instanceof Collection)
+      }
+      if (obj3 instanceof Collection) {
         result.addAll((Collection) obj3);
-      else if (obj3 != null)
+      } else if (obj3 != null) {
         result.add(obj3);
+      }
       return result;
     } catch (Exception e) {
       throw new UnsupportedOperationException();
@@ -328,22 +353,26 @@ public class CapellaServices {
   public Object makeUnion(EObject eObject, Object obj1, Object obj2, Object obj3, Object obj4) {
     try {
       List<Object> result = new ArrayList<>();
-      if (obj1 instanceof Collection)
+      if (obj1 instanceof Collection) {
         result.addAll((Collection) obj1);
-      else if (obj1 != null)
+      } else if (obj1 != null) {
         result.add(obj1);
-      if (obj2 instanceof Collection)
+      }
+      if (obj2 instanceof Collection) {
         result.addAll((Collection) obj2);
-      else if (obj2 != null)
+      } else if (obj2 != null) {
         result.add(obj2);
-      if (obj3 instanceof Collection)
+      }
+      if (obj3 instanceof Collection) {
         result.addAll((Collection) obj3);
-      else if (obj3 != null)
+      } else if (obj3 != null) {
         result.add(obj3);
-      if (obj4 instanceof Collection)
+      }
+      if (obj4 instanceof Collection) {
         result.addAll((Collection) obj4);
-      else if (obj4 != null)
+      } else if (obj4 != null) {
         result.add(obj4);
+      }
       return result;
     } catch (Exception e) {
       throw new UnsupportedOperationException();
@@ -1425,7 +1454,8 @@ public class CapellaServices {
   /**
    * used everywhere
    * 
-   * @param current a diagram element
+   * @param current
+   *          a diagram element
    * @return current if it is a diagram or the diagram that contains current if it is a DDiagramElement.
    * 
    *         May return null: If used in a style computation or a decoration, the expression will be called twice, the
@@ -1448,46 +1478,73 @@ public class CapellaServices {
 
     return parent;
   }
+  
+  public boolean isOrIsChildFunction(AbstractFunction child, EObject parent) {
+    EObject childContainer = child;
+    while (childContainer instanceof AbstractFunction) {
+      if (childContainer.equals(parent)) {
+        return true;
+      }
+      childContainer = childContainer.eContainer();
+    }
+    return false;
+  }
+  
+  public Set<EObject> getEdgeExchangeCategorySemanticElements(ExchangeCategory context, DEdge view) {
+    Set<EObject> returnedList = new LinkedHashSet<>();
+    returnedList.add(context);
+    EObject targetViewFunction = ((DSemanticDecorator) view.getTargetNode().eContainer()).getTarget();
+    EObject sourceViewFunction = ((DSemanticDecorator) view.getSourceNode().eContainer()).getTarget();
+    
+    for (FunctionalExchange anExchange : context.getExchanges()) {
+      AbstractFunction sourceContainer = FunctionalExchangeExt.getSourceFunction(anExchange);
+      AbstractFunction targetContainer = FunctionalExchangeExt.getTargetFunction(anExchange);
+      
+      if (isOrIsChildFunction(sourceContainer, sourceViewFunction) && 
+          isOrIsChildFunction(targetContainer, targetViewFunction)) {
+        returnedList.add(anExchange);
+      }
+    }
+    return returnedList;
+  }
 
-  /**
-   * used in context, logical, physical
-   * 
-   * @param context
-   * @param view
-   * @return
-   */
-  public List<EObject> getEdgeExchangeCategorySemanticElements(EObject context, DEdge view) {
-    List<EObject> returnedList = new ArrayList<>();
-    if (context instanceof ExchangeCategory) {
-      returnedList.add(context);
-      ExchangeCategory currentCategory = (ExchangeCategory) context;
-      EObject targetNodeContainer = ((DSemanticDecorator) view.getTargetNode().eContainer()).getTarget();
-      EObject sourceNodeContainer = ((DSemanticDecorator) view.getSourceNode().eContainer()).getTarget();
-      for (FunctionalExchange anExchange : currentCategory.getExchanges()) {
-        boolean toAdd = false;
-        EObject sourceContainer = anExchange.getSource().eContainer();
-        while (sourceContainer instanceof AbstractFunction) {
-          if (sourceContainer.equals(sourceNodeContainer)) {
-            toAdd = true;
-            break;
-          }
-          sourceContainer = sourceContainer.eContainer();
-        }
-        if (!toAdd) {
-          continue;
-        }
-        toAdd = false;
-        EObject targetContainer = anExchange.getTarget().eContainer();
-        while (targetContainer instanceof AbstractFunction) {
-          if (targetContainer.equals(targetNodeContainer)) {
-            toAdd = true;
-            break;
-          }
-          targetContainer = targetContainer.eContainer();
-        }
-        if (toAdd && !returnedList.contains(anExchange)) {
-          returnedList.add(anExchange);
-        }
+  public Set<EObject> getEdgeExchangeCategorySemanticElements(ComponentExchangeCategory context, DEdge view) {
+    Set<EObject> returnedList = new LinkedHashSet<>();
+    returnedList.add(context);
+    EObject sourceViewComponent = CsServices.getService().getComponentType((DSemanticDecorator) view.getSourceNode().eContainer());
+    EObject targetViewComponent = CsServices.getService().getComponentType((DSemanticDecorator) view.getTargetNode().eContainer());
+    
+    for (ComponentExchange exchange : context.getExchanges()) {
+      EObject sourceComponent = ComponentExchangeExt.getSourceComponent(exchange);
+      EObject targetComponent = ComponentExchangeExt.getTargetComponent(exchange);
+      
+      if (sourceComponent.equals(sourceViewComponent) && targetComponent.equals(targetViewComponent)) {
+        returnedList.add(exchange);
+        
+      } else if (targetComponent.equals(sourceViewComponent) && sourceComponent.equals(targetViewComponent)) {
+        // A Component Category is merging both ways of links
+        returnedList.add(exchange);
+      }
+    }
+    return returnedList;
+  }
+
+  public Set<EObject> getEdgeExchangeCategorySemanticElements(PhysicalLinkCategory context, DEdge view) {
+    Set<EObject> returnedList = new LinkedHashSet<>();
+    returnedList.add(context);
+    EObject sourceViewComponent = CsServices.getService().getComponentType((DSemanticDecorator) view.getSourceNode().eContainer());
+    EObject targetViewComponent = CsServices.getService().getComponentType((DSemanticDecorator) view.getTargetNode().eContainer());
+    
+    for (PhysicalLink link : context.getLinks()) {
+      EObject sourceComponent = PhysicalLinkExt.getSourceComponent(link);
+      EObject targetComponent = PhysicalLinkExt.getTargetComponent(link);
+      
+      if (sourceComponent.equals(sourceViewComponent) && targetComponent.equals(targetViewComponent)) {
+        returnedList.add(link);
+        
+      } else if (targetComponent.equals(sourceViewComponent) && sourceComponent.equals(targetViewComponent)) {
+        // A Physical Category is merging both ways of links
+        returnedList.add(link);
       }
     }
     return returnedList;
@@ -1711,16 +1768,7 @@ public class CapellaServices {
       ExchangeCategory currentCategory = (ExchangeCategory) context;
       EObject container = ((DSemanticDecorator) view.eContainer()).getTarget();
       for (FunctionalExchange anExchange : currentCategory.getExchanges()) {
-        boolean toAdd = false;
-        EObject targetContainer = anExchange.getTarget().eContainer();
-        while (targetContainer instanceof AbstractFunction) {
-          if (targetContainer.equals(container)) {
-            toAdd = true;
-            break;
-          }
-          targetContainer = targetContainer.eContainer();
-        }
-        if (toAdd && !returnedList.contains(anExchange)) {
+        if (isOrIsChildFunction(FunctionalExchangeExt.getTargetFunction(anExchange), container) && !returnedList.contains(anExchange)) {
           returnedList.add(anExchange);
         }
       }
@@ -1818,16 +1866,7 @@ public class CapellaServices {
       ExchangeCategory currentCategory = (ExchangeCategory) context;
       EObject container = ((DSemanticDecorator) view.eContainer()).getTarget();
       for (FunctionalExchange anExchange : currentCategory.getExchanges()) {
-        boolean toAdd = false;
-        EObject sourceContainer = anExchange.getSource().eContainer();
-        while (sourceContainer instanceof AbstractFunction) {
-          if (sourceContainer.equals(container)) {
-            toAdd = true;
-            break;
-          }
-          sourceContainer = sourceContainer.eContainer();
-        }
-        if (toAdd && !returnedList.contains(anExchange)) {
+        if (isOrIsChildFunction(FunctionalExchangeExt.getSourceFunction(anExchange), container) && !returnedList.contains(anExchange)) {
           returnedList.add(anExchange);
         }
       }
@@ -1853,6 +1892,34 @@ public class CapellaServices {
 
   public Set<DDiagramElement> getSetOfDiagramElements(DDiagram diagram) {
     return DiagramServices.getDiagramServices().getSetOfDiagramElements(diagram);
+  }
+
+  public Set<EObject> getPinCategorySemanticElements(ComponentExchangeCategory context, DSemanticDecorator view) {
+    Set<EObject> returnedList = new HashSet<>();
+    returnedList.add(context);
+    EObject viewComponent = CsServices.getService().getComponentType((DSemanticDecorator) view.eContainer());
+    for (ComponentExchange exchange : context.getExchanges()) {
+      EObject sourceComponent = ComponentExchangeExt.getSourceComponent(exchange);
+      EObject targetComponent = ComponentExchangeExt.getTargetComponent(exchange);
+      if (sourceComponent.equals(viewComponent) || targetComponent.equals(viewComponent)) {
+        returnedList.add(exchange);
+      }
+    }
+    return returnedList;
+  }
+
+  public Set<EObject> getPinCategorySemanticElements(PhysicalLinkCategory context, DSemanticDecorator view) {
+    Set<EObject> returnedList = new HashSet<>();
+    returnedList.add(context);
+    EObject viewComponent = CsServices.getService().getComponentType((DSemanticDecorator) view.eContainer());
+    for (PhysicalLink link : context.getLinks()) {
+      EObject sourceComponent = PhysicalLinkExt.getSourceComponent(link);
+      EObject targetComponent = PhysicalLinkExt.getTargetComponent(link);
+      if (sourceComponent.equals(viewComponent) || targetComponent.equals(viewComponent)) {
+        returnedList.add(link);
+      }
+    }
+    return returnedList;
   }
 
   /**
@@ -2561,7 +2628,7 @@ public class CapellaServices {
     return (scenario.eContainer() instanceof AbstractCapability)
         && BlockArchitectureExt.getRootBlockArchitecture(scenario) instanceof OperationalAnalysis;
   }
-  
+
   public boolean isOperationalContext(AbstractCapability capability) {
     return BlockArchitectureExt.getRootBlockArchitecture(capability) instanceof OperationalAnalysis;
   }
@@ -2975,4 +3042,38 @@ public class CapellaServices {
     return semanticElements;
   }
 
+  /**
+   * Return the formatted date of the last representation change.
+   */
+  public String getLastModificationDate(EObject representationDescriptor) {
+    Long timeStamp = System.currentTimeMillis();
+    if (representationDescriptor instanceof DRepresentationDescriptor) {
+      String changeId = ((DRepresentationDescriptor) representationDescriptor).getChangeId();
+      try {
+        timeStamp = Long.parseLong(changeId);
+      } catch (NumberFormatException e) {
+      }
+    }
+
+    Date date = new Date(timeStamp);
+    SimpleDateFormat sdf = new SimpleDateFormat(CapellaDiagramPreferencesInitializer.getFormatDate());
+    String timeZoneForDateFormatting = CapellaDiagramPreferencesInitializer.getTimeZoneForDateFormatting();
+    if (CapellaDiagramPreferences.PREF_DATE_TIMEZONE_SYSTEM.equals(timeZoneForDateFormatting)) {
+      timeZoneForDateFormatting = TimeZone.getDefault().getID();
+    }
+    sdf.setTimeZone(TimeZone.getTimeZone(timeZoneForDateFormatting));
+    return sdf.format(date);
+  }
+
+  public boolean isLibraryElementOf(EObject source, EObject target) {
+    if (source == null || target == null) {
+      return false;
+    }
+    IModel srcModel = LibraryManager.INSTANCE.getModel(source);
+    IModel targetModel = LibraryManager.INSTANCE.getModel(target);
+    if (srcModel == null || targetModel == null) {
+      return false;
+    }
+    return !targetModel.equals(srcModel);
+  }
 }

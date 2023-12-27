@@ -39,6 +39,7 @@ import org.eclipse.ui.PlatformUI;
 import org.polarsys.capella.common.ef.ExecutionManager;
 import org.polarsys.capella.common.ef.command.AbstractReadOnlyCommand;
 import org.polarsys.capella.common.helpers.TransactionHelper;
+import org.polarsys.capella.common.helpers.cache.ModelCache;
 import org.polarsys.capella.common.mdsofa.common.constant.ICommonConstants;
 import org.polarsys.capella.common.tools.report.appenders.reportlogview.LightMarkerRegistry;
 import org.polarsys.capella.common.tools.report.appenders.reportlogview.MarkerView;
@@ -177,6 +178,7 @@ public class CapellaValidateAction extends ValidateAction {
       @Override
       public void run(final IProgressMonitor progressMonitor) throws InvocationTargetException, InterruptedException {
         try {
+          ModelCache.enable();
           final Diagnostic diagnostic = validate(progressMonitor);
           shell.getDisplay().asyncExec(new Runnable() {
             public void run() {
@@ -188,6 +190,7 @@ public class CapellaValidateAction extends ValidateAction {
             }
           });
         } finally {
+          ModelCache.disable();
           progressMonitor.done();
         }
       }

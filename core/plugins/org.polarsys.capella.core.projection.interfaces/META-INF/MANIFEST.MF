@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.core.projection.interfaces;singleton:=true
-Bundle-Version: 6.0.0.qualifier
+Bundle-Version: 7.0.0.qualifier
 Bundle-Vendor: %providerName
 Export-Package: org.polarsys.capella.core.projection.interfaces,
  org.polarsys.capella.core.projection.interfaces.generateInterfaces,
@@ -10,7 +10,7 @@ Export-Package: org.polarsys.capella.core.projection.interfaces,
 Require-Bundle: org.polarsys.capella.core.projection.common,
  org.polarsys.capella.core.platform.sirius.ui.actions,
  org.polarsys.capella.core.transition.system.topdown
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.polarsys.capella.core.projection.interfaces.InterfaceGenerationActivator
 Bundle-Localization: plugin

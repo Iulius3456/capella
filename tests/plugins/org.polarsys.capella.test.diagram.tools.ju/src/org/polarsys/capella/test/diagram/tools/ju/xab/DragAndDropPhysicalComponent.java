@@ -123,6 +123,7 @@ public class DragAndDropPhysicalComponent extends XABDiagramsProject {
     // Not deployed Behavior into Node (deployed or not)
     expectedNotPossible.add(new Pair<>(NOT_DEPLOYED_BEHAVIOR_DRAGGED, NOT_DEPLOYED_NODE_CONTAINER));
     expectedNotPossible.add(new Pair<>(NOT_DEPLOYED_BEHAVIOR_DRAGGED, DEPLOYED_NODE_CONTAINER));
+    expectedNotPossible.add(new Pair<>(NOT_DEPLOYED_BEHAVIOR_DRAGGED, ACTOR_CONTAINER));
 
     // Now testing all combinations of dragged elements and containers
     for (String draggedElement : draggedElements) {
@@ -145,6 +146,7 @@ public class DragAndDropPhysicalComponent extends XABDiagramsProject {
 
   /**
    * Return true if the Drag&Drop of draggedElement into containerElement in PAB diagramName is valid
+   * 
    * @param session
    * @param context
    * @param diagramName
@@ -242,10 +244,5 @@ public class DragAndDropPhysicalComponent extends XABDiagramsProject {
       }
     }
     throw new Exception("DragAndDropPhysicalComponent: semanticElement's abstractType is not a PhysicalComponent");
-  }
-
-  @Override
-  protected String getRequiredTestModel() {
-    return "XABDiagrams";
   }
 }

@@ -12,7 +12,7 @@
  *******************************************************************************/
 package org.polarsys.capella.core.sirius.analysis;
 
-import static org.polarsys.capella.core.data.helpers.cache.ModelCache.getCache;
+import static org.polarsys.capella.common.helpers.cache.ModelCache.getCache;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -598,6 +598,13 @@ public class PhysicalServices {
 
     }
     return context instanceof PhysicalPort;
+  }
+  
+  public boolean isValidCreationPhysicalLink(EObject source, EObject target) {
+    if (source instanceof PhysicalPort && source.equals(target)) {
+      return false;
+    }
+    return canBeInvolvedInPhysicalLink(source) && canBeInvolvedInPhysicalLink(target);
   }
 
   public boolean isValidPhysicalPathSelection(EObject context, List<EObject> views) {

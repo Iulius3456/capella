@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2020 THALES GLOBAL SERVICES.
+ * Copyright (c) 2006, 2022 THALES GLOBAL SERVICES.
  * 
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License 2.0 which is available at
@@ -31,11 +31,12 @@ public class Messages extends NLS {
   public static String InformationServices_PackageDependency_Message;
   public static String CapellaServices_NavigateOpen;
   public static String CapellaServices_NavigateUnnamed;
-  public static String Requirement_Label;
   public static String SequenceDiagramServices_0;
   public static String SequenceDiagramServices_1;
   public static String SequenceDiagramServices_2;
   public static String SequenceDiagramServices_3;
+  public static String OpenRelatedDiagram_Message;
+  public static String CreateRepresentationLabel;
 
   static {
     // initialize resource bundle

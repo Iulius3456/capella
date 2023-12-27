@@ -2,13 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.polarsys.capella.test.suites.ju
-Bundle-Version: 6.0.0.qualifier
+Bundle-Version: 7.0.0.qualifier
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Require-Bundle: org.apache.xerces,
- org.polarsys.capella.test.business.queries.ju;visibility:=reexport,
+Require-Bundle: org.polarsys.capella.test.business.queries.ju;visibility:=reexport,
  org.polarsys.capella.test.diagram.filters.ju;visibility:=reexport,
  org.polarsys.capella.test.diagram.tools.ju;visibility:=reexport,
  org.polarsys.capella.test.diagram.layout.ju;visibility:=reexport,
@@ -18,6 +17,7 @@ Require-Bundle: org.apache.xerces,
  org.polarsys.capella.test.recrpl.ju;visibility:=reexport,
  org.polarsys.capella.test.transition.ju;visibility:=reexport,
  org.polarsys.capella.test.semantic.queries.ju;visibility:=reexport,
+ org.polarsys.capella.test.semantic.ui.ju;visibility:=reexport,
  org.polarsys.capella.test.validation.rules.ju;visibility:=reexport,
  org.polarsys.capella.test.explorer.activity.ju;visibility:=reexport,
  org.polarsys.capella.test.navigator.ju;visibility:=reexport,
@@ -32,4 +32,5 @@ Require-Bundle: org.apache.xerces,
  org.polarsys.capella.test.benchmarks.ju;visibility:=reexport,
  org.polarsys.capella.test.fragmentation;visibility:=reexport,
  org.polarsys.capella.test.odesign;visibility:=reexport,
- org.polarsys.capella.test.table;visibility:=reexport
+ org.polarsys.capella.test.table;visibility:=reexport,
+ org.polarsys.capella.test.semantic.ui.ju;visibility:=reexport
